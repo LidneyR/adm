@@ -1,7 +1,9 @@
 // arquivo principal.js
 // import { data} from './api'
 var app=document.getElementById('app')
-  
+arrOrder=[] //array de vendas na mesa
+containerMesaDetails="";
+
 function getProds(){
 
     var allProds=[] 
@@ -17,6 +19,33 @@ function getProds(){
     
     return allProds
 }
+
+function innnerOrder(mesa){
+  
+
+    arrOrder.map((allTableOrders)=>{ 
+
+        if(mesa==allTableOrders.name){
+  
+            allTableOrders.orders.map((itensOrdeMap)=>{
+                 console.log(itensOrdeMap.idPedido)   
+                 containerMesaDetails.innerHTML+=`<div> ` +itensOrdeMap.idPedido+ ` </div>  `; 
+            })
+
+            allTableOrders.orders.map((mapOrderI)=>{ 
+           
+                mapOrderI.itens.map((mapOItens)=>{
+                             containerMesaDetails.innerHTML+=mapOItens.name
+
+                })
+
+            })
+        }
+    })
+    
+
+} innnerOrder()
+
 function login(){
     app.innerHTML+=` 
 
@@ -51,7 +80,6 @@ function login(){
 
 function  fluxo(){
     
-    var arrOrder=[] //array de vendas na mesa
  
     prodSelected=[] //Array de Produtos selecionados 
     mesaNumber=0
@@ -184,55 +212,53 @@ function  fluxo(){
     tabledetails=(event)=>{ 
 
         var mesaKey=event.target.getAttribute('key')
-        var containerMesaDetails=document.getElementById('openTable')
+        containerMesaDetails=document.getElementById('openTable')
 
 
 
         renderItensOrder=(idOrder)=>{
-            idOrderThis=idOrder
-            containerOrder=document.getElementById(idOrderThis)
-            console.log("UltimoPedido"+mesaValue.orders[mesaValue.orders.length-1].idPedido)
-            console.log("idI"+idOrder)
-            arrOrder.map((ordersMapPrint)=>{
+
+            // idOrderThis=idOrder
+            //  containerOrder=document.getElementById(idOrder);
+            // console.log("UltimoPedido"+mesaValue.orders[mesaValue.orders.length-1].idPedido)
+            // console.log("id"+idOrder)
 
 
-                if(ordersMapPrint.name===mesaKey){
-                   console.log(idOrder)
-                   console.log(ordersMapPrint.name)
-                   console.log(mesaKey)
-
-
-
-
-                    ordersMapPrint.orders.map((itensMapPrint)=>{
+            // arrOrder.map((ordersMapPrint)=>{
+ 
+            //         ordersMapPrint.orders.map((itensMapPrint)=>{
 
                       
-                        itensMapPrint.itens.map((itensMapPrintlist)=>{
+            //             itensMapPrint.itens.map((itensMapPrintlist)=>{
 
-                            containerOrder.innerHTML+=`
+            //                 document.getElementById(idOrder).innerHTML+=`
 
-                            <div class="prodgroup">
-                                <div class=" ">`+itensMapPrintlist.id+` </div>  
-                                <div class="nameprodPrint">
-                                `+itensMapPrintlist.name+`
-                                </div>
-                                <div class=" ">
-                                `+itensMapPrintlist.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`
-                                </div>  
-                            </div>  
-                            `;  
+            //                 <div class="prodgroup">
+            //                     <div class=" ">`+itensMapPrintlist.id+` </div>  
+            //                     <div class="nameprodPrint">
+            //                     `+itensMapPrintlist.name+`
+            //                     </div>
+            //                     <div class=" ">
+            //                     `+itensMapPrintlist.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`
+            //                     </div>  
+            //                 </div>  
+            //                 `;  
 
-                        })
-                    })
-                }
-            })
+            //             })
+            //         })
+         
+            // })
 
+            console.log(document.getElementById(idOrder))
+            console.log(idOrder)
+
+            // document.getElementById(idOrder).innerHTML+=`  `;  
             
         }
         
         if(mesaKey){
              containerMesaDetails.setAttribute('class','openTable show') 
-
+                
 
              arrOrder.map((ordersMap)=>{
 
@@ -247,30 +273,7 @@ function  fluxo(){
  
 
                     `; 
-                    ordersMap.orders.map((allOrdersMap)=>{
-                        
-                        
-                        containerMesaDetails.innerHTML+=`  
-                            <div class="card" id="`+allOrdersMap.idPedido+`">
-                                <span class="orderId">#`+allOrdersMap.idPedido+`</span>
-                                
-                            </div> 
-                        `;  
-                     
-
-                        var ordersLoo=mesaValue.orders
-
-                        var array = [1, 2, 3, 4, 5];
-                        var ultimo = array[array.length - 1];
-                        // console.log(arrOrder)
-                        // console.log(ultimo)
-                        // console.log(mesaKey) 
-                        // console.log(">"+ordersMap.name)
-                      
- 
-                        renderItensOrder(allOrdersMap.idPedido) 
- 
-                    })
+                    innnerOrder(mesaKey);
                 } 
 
                 
@@ -310,9 +313,10 @@ function  fluxo(){
         inputMesa.value=""
         searchInput.value=""
         searchResult.innerHTML=""
-        alert('Mesa Adicionada')
         
         if(repeat===false){    
+            alert('Mesa Adicionada')
+      
         
             mesaValue={
                 name:mesaNumber,
@@ -339,22 +343,20 @@ function  fluxo(){
     
              } 
           
-             alert('Mesa Adicionada')
-
+           console.log(arrOrder)
             
         }else{
             console.log('adicionar dados')
-
+            
             var newOrder={
                 idPedido:parseInt(Math.random() * 1000),
                 itens:prodSelected
             }
             mesaValue.orders.push(newOrder)
 
-            // console.log(mesaValue.orders.length)
-            // console.log(mesaValue.orders[mesaValue.orders.length-1].idPedido.toString)
-            var lastOrder=mesaValue.orders[mesaValue.orders.length-1].idPedido.toString
-            renderItensOrder(lastOrder)
+            console.log(arrOrder)
+        
+           
             
         } 
          
@@ -422,3 +424,7 @@ function  fluxo(){
 }
 fluxo()
  
+
+
+console.log("Mesas Abertas"+arrOrder)
+console.log("Valor total de Vendas"+arrOrder)

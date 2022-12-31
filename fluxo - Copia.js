@@ -1,7 +1,9 @@
 // arquivo principal.js
 // import { data} from './api'
 var app=document.getElementById('app')
-  
+ 
+
+
 function getProds(){
 
     var allProds=[] 
@@ -52,7 +54,6 @@ function login(){
 function  fluxo(){
     
     var arrOrder=[] //array de vendas na mesa
- 
     prodSelected=[] //Array de Produtos selecionados 
     mesaNumber=0
  
@@ -76,9 +77,9 @@ function  fluxo(){
 
             if(arrOrder.length>0){
                 arrOrder.map((allTabs)=>{
-                    if(mesaNumber==allTabs.name){ 
+                    if(mesaNumber==allTabs.name){
+                        // document.getElementById('includOrderbtn').disabled = true  
                         repeat=true
-                        console.log("repeat true")
                         
                     }else{ 
                         document.getElementById('includOrderbtn').disabled = false
@@ -91,6 +92,13 @@ function  fluxo(){
 
              if(newOrder.length>0){ 
                 const newOrder = {idPedido:"101010",itens:prodSelected}
+                // newOrder.push(x)
+                // console.log(newOrder)
+                // console.log(mesaValue.orders)
+                // console.log(mesaValue)
+                // console.log(newOrder.idPedido!=mesaValue.orders)
+                // console.log(mesaValue.orders)
+                // repeatTable()
             }
 
 
@@ -100,7 +108,6 @@ function  fluxo(){
       
         inputMesa.addEventListener('keyup', _.debounce(submitTable, 500)) 
 
-      
     }
 
     searched=(event, searchInput)=>{
@@ -129,10 +136,15 @@ function  fluxo(){
             var keyProd=prodThis.getAttribute("key") 
             var allProd=getProds()
 
-            allProd.map((prods)=>{ 
+            allProd.map((prods)=>{
+
+                // console.log(allProd)
+                // console.log(keyProd)
             
-                if(keyProd.toString()===prods.id){ 
-                    prodSelected.push(prods) 
+                if(keyProd.toString()===prods.id){
+
+                    prodSelected.push(prods)
+                    console.log(prodSelected)
                 }
                 
 
@@ -189,21 +201,15 @@ function  fluxo(){
 
 
         renderItensOrder=(idOrder)=>{
+
             idOrderThis=idOrder
             containerOrder=document.getElementById(idOrderThis)
-            console.log("UltimoPedido"+mesaValue.orders[mesaValue.orders.length-1].idPedido)
-            console.log("idI"+idOrder)
+            
+
             arrOrder.map((ordersMapPrint)=>{
 
 
                 if(ordersMapPrint.name===mesaKey){
-                   console.log(idOrder)
-                   console.log(ordersMapPrint.name)
-                   console.log(mesaKey)
-
-
-
-
                     ordersMapPrint.orders.map((itensMapPrint)=>{
 
                       
@@ -236,7 +242,7 @@ function  fluxo(){
 
              arrOrder.map((ordersMap)=>{
 
-                if(mesaKey===ordersMap.name){
+                if(ordersMap.name===mesaKey){
                     containerMesaDetails.innerHTML=`  
 
                             <div class="controls">
@@ -248,26 +254,13 @@ function  fluxo(){
 
                     `; 
                     ordersMap.orders.map((allOrdersMap)=>{
-                        
-                        
+                    
                         containerMesaDetails.innerHTML+=`  
                             <div class="card" id="`+allOrdersMap.idPedido+`">
-                                <span class="orderId">#`+allOrdersMap.idPedido+`</span>
+                                <span class="orderId">`+allOrdersMap.idPedido+`</span>
                                 
                             </div> 
                         `;  
-                     
-
-                        var ordersLoo=mesaValue.orders
-
-                        var array = [1, 2, 3, 4, 5];
-                        var ultimo = array[array.length - 1];
-                        // console.log(arrOrder)
-                        // console.log(ultimo)
-                        // console.log(mesaKey) 
-                        // console.log(">"+ordersMap.name)
-                      
- 
                         renderItensOrder(allOrdersMap.idPedido) 
  
                     })
@@ -312,52 +305,71 @@ function  fluxo(){
         searchResult.innerHTML=""
         alert('Mesa Adicionada')
         
-        if(repeat===false){    
+        mesaValue={
+            name:mesaNumber,
+            orders:[{
+                idPedido:"201030",
+                itens:prodSelected,
+            }]
+        }
+
+        // prodSelected=[]
         
-            mesaValue={
-                name:mesaNumber,
-                orders:[{
-                    idPedido:parseInt(Math.random() * 1000),
-                    itens:prodSelected,
-                }]
-            }
+        openTable=(key)=>{ 
+              
+            openTable=document.getElementById('openTable') 
+            arrOrder.map((mesaMap)=>{
+                if(mesaMap.name===key.toString()){
 
-            arrOrder.push(mesaValue) 
-            prodSelected=[]
-    
-            containerMesas.innerHTML=` `; 
-    
-            if(arrOrder.length>0){
-                arrOrder.map((mesaMap)=>{ 
-                    
-                    containerMesas.innerHTML+=`   
-                        <button key='`+mesaMap.name+`' onclick="tabledetails(event)" class="mesabutton">`+mesaMap.name+`</button>
-                    `; 
-                })
-    
-                tableOptions()
-    
-             } 
-          
-             alert('Mesa Adicionada')
+                    mesaMap.orders.map((mesaOrderMap)=>{   
 
+                        openTable.classList.toggle('show') 
+                        openTable.innerHTML+=` 
+                            <div class="idPedido">
+                                `+mesaOrderMap.idPedido+`
+                            </div> 
+                        `; 
+
+                        mesaOrderMap.itens.map((orderItens)=>{ 
+                            document.getElementById('openTable').innerHTML+=` 
+                            <div class="produtoMesa">
+                            `+orderItens.id+`
+                             `+orderItens.name+`
+                            `+orderItens.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</div>
+                            `; 
+                        })
+
+                    }) 
+                } 
             
-        }else{
-            console.log('adicionar dados')
+            })
 
-            var newOrder={
-                idPedido:parseInt(Math.random() * 1000),
-                itens:prodSelected
-            }
-            mesaValue.orders.push(newOrder)
+    
+        
+        }
 
-            // console.log(mesaValue.orders.length)
-            // console.log(mesaValue.orders[mesaValue.orders.length-1].idPedido.toString)
-            var lastOrder=mesaValue.orders[mesaValue.orders.length-1].idPedido.toString
-            renderItensOrder(lastOrder)
-            
-        } 
+        arrOrder.push(mesaValue) 
+        containerMesas.innerHTML=` `; 
+
+        if(arrOrder.length>0){
+            arrOrder.map((mesaMap)=>{ 
+                
+                containerMesas.innerHTML+=`   
+                    <button key='`+mesaMap.name+`' onclick="tabledetails(event)" class="mesabutton">`+mesaMap.name+`</button>
+                `; 
+            })
+
+            tableOptions()
+
+         }
+        console.log(repeat)
          
+        if(repeat==true){
+         x={idProduto:'8888',itens:prodSelected}
+         mesaValue.orders.push(x)
+         console.log(mesaValue.orders)
+         console.log(prodSelected)
+        }
     }
 
     getModal=(id)=>{          
