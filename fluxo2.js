@@ -1,9 +1,69 @@
 // arquivo principal.js
 // import { data} from './api'
 var app=document.getElementById('app')
-arrOrder=[] //array de vendas na mesa
-containerMesaDetails="";
 
+function innnerOrderItens(){
+
+    ordersContainer=document.querySelectorAll('.card')
+    lastOrder=Array.from(ordersContainer)[Array.from(ordersContainer).length-1]
+   
+    mesaValue.orders.map((orderPrint)=>{
+
+  
+        Array.from(ordersContainer).map((getOrdersMap)=>{
+
+            
+            console.log(arrOrder)
+            console.log(orderPrint)
+            console.log(orderPrint.idPedido)
+            console.log(getOrdersMap.getAttribute('id'))
+       
+
+            if(orderPrint.idPedido==getOrdersMap.getAttribute('id')){  
+
+
+
+
+                orderPrint.itens.map((prodOrder)=>{
+
+
+                    document.getElementById(getOrdersMap.getAttribute('id')).innerHTML+=`
+                        <div class="card-body">
+                            <div>`+prodOrder.name+`</div>
+                            <span>`+prodOrder.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</span    >
+                        </div>
+                    
+                    `; 
+
+
+                })
+
+
+
+
+            }else{
+                 
+
+            }
+
+        })
+    
+
+        // if(orderPrint.idPedido==idLastOrder){
+        //     orderPrint.itens.map((prodOrder)=>{
+        //         document.getElementById(idLastOrder).innerHTML+=prodOrder.name 
+        //     })
+        // }
+
+        // if(orderPrint.idPedido==idLastOrder){
+        //     orderPrint.itens.map((prodOrder)=>{
+        //         document.getElementById(idLastOrder).innerHTML+=prodOrder.name 
+        //     })
+        // }
+
+    }) 
+   
+}
 function getProds(){
 
     var allProds=[] 
@@ -19,33 +79,6 @@ function getProds(){
     
     return allProds
 }
-
-function innnerOrder(mesa){
-  
-
-    arrOrder.map((allTableOrders)=>{ 
-
-        if(mesa==allTableOrders.name){
-  
-            allTableOrders.orders.map((itensOrdeMap)=>{
-                 console.log(itensOrdeMap.idPedido)   
-                 containerMesaDetails.innerHTML+=`<div> ` +itensOrdeMap.idPedido+ ` </div>  `; 
-            })
-
-            allTableOrders.orders.map((mapOrderI)=>{ 
-           
-                mapOrderI.itens.map((mapOItens)=>{
-                             containerMesaDetails.innerHTML+=mapOItens.name
-
-                })
-
-            })
-        }
-    })
-    
-
-} innnerOrder()
-
 function login(){
     app.innerHTML+=` 
 
@@ -80,6 +113,7 @@ function login(){
 
 function  fluxo(){
     
+    arrOrder=[] //array de vendas na mesa
  
     prodSelected=[] //Array de Produtos selecionados 
     mesaNumber=0
@@ -106,7 +140,7 @@ function  fluxo(){
                 arrOrder.map((allTabs)=>{
                     if(mesaNumber==allTabs.name){ 
                         repeat=true
-                        console.log("repeat true")
+                   
                         
                     }else{ 
                         document.getElementById('includOrderbtn').disabled = false
@@ -116,10 +150,7 @@ function  fluxo(){
             }else{ 
                 document.getElementById('includOrderbtn').disabled = false
              }
-
-             if(newOrder.length>0){ 
-                const newOrder = {idPedido:"101010",itens:prodSelected}
-            }
+ 
 
 
              
@@ -155,18 +186,25 @@ function  fluxo(){
 
         includProdInTable=(prodThis)=>{
             var keyProd=prodThis.getAttribute("key") 
-            var allProd=getProds()
-
+            var allProd=getProds() 
+            
             allProd.map((prods)=>{ 
             
                 if(keyProd.toString()===prods.id){ 
+              
                     prodSelected.push(prods) 
+                    orderFortable()
+
                 }
-                
 
+
+ 
         })
-    
+     
 
+        // prodSelected=[]
+    
+        alert('Produto adicionado com sucesso')
 
     }
         
@@ -212,53 +250,47 @@ function  fluxo(){
     tabledetails=(event)=>{ 
 
         var mesaKey=event.target.getAttribute('key')
-        containerMesaDetails=document.getElementById('openTable')
+        var containerMesaDetails=document.getElementById('openTable')
 
-
+        console.log(mesaKey)
 
         renderItensOrder=(idOrder)=>{
-
-            // idOrderThis=idOrder
-            //  containerOrder=document.getElementById(idOrder);
-            // console.log("UltimoPedido"+mesaValue.orders[mesaValue.orders.length-1].idPedido)
-            // console.log("id"+idOrder)
+            idOrderThis=idOrder
+            containerOrder=document.getElementById(idOrderThis) 
+            arrOrder.map((ordersMapPrint)=>{
 
 
-            // arrOrder.map((ordersMapPrint)=>{
- 
-            //         ordersMapPrint.orders.map((itensMapPrint)=>{
+                if(ordersMapPrint.name===mesaKey){ 
+
+                    ordersMapPrint.orders.map((itensMapPrint)=>{
 
                       
-            //             itensMapPrint.itens.map((itensMapPrintlist)=>{
+                        itensMapPrint.itens.map((itensMapPrintlist)=>{
 
-            //                 document.getElementById(idOrder).innerHTML+=`
+                            containerOrder.innerHTML+=`
 
-            //                 <div class="prodgroup">
-            //                     <div class=" ">`+itensMapPrintlist.id+` </div>  
-            //                     <div class="nameprodPrint">
-            //                     `+itensMapPrintlist.name+`
-            //                     </div>
-            //                     <div class=" ">
-            //                     `+itensMapPrintlist.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`
-            //                     </div>  
-            //                 </div>  
-            //                 `;  
+                            <div class="prodgroup">
+                                <div class=" ">`+itensMapPrintlist.id+` </div>  
+                                <div class="nameprodPrint">
+                                `+itensMapPrintlist.name+`
+                                </div>
+                                <div class=" ">
+                                `+itensMapPrintlist.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`
+                                </div>  
+                            </div>  
+                            `;  
 
-            //             })
-            //         })
-         
-            // })
+                        })
+                    })
+                }
+            })
 
-            console.log(document.getElementById(idOrder))
-            console.log(idOrder)
-
-            // document.getElementById(idOrder).innerHTML+=`  `;  
             
         }
         
         if(mesaKey){
              containerMesaDetails.setAttribute('class','openTable show') 
-                
+
 
              arrOrder.map((ordersMap)=>{
 
@@ -273,17 +305,27 @@ function  fluxo(){
  
 
                     `; 
-                    innnerOrder(mesaKey);
+                    ordersMap.orders.map((allOrdersMap)=>{
+                        
+                        
+                        containerMesaDetails.innerHTML+=`  
+                            <div class="card" id="`+allOrdersMap.idPedido+`">
+                                <span class="orderId">#`+allOrdersMap.idPedido+`</span>
+                                
+                            </div> 
+                        `;  
+                      
+ 
+                        // renderItensOrder(allOrdersMap.idPedido) 
+ 
+                    })
+
+                    innnerOrderItens( )
                 } 
+ 
 
-                
-              
-
-             })
-
-
-
-            //  if(mesaKey==)
+             }) 
+          
         }else{
             containerMesaDetails.setAttribute('class','openTable') 
             containerMesaDetails.innerHTML=""; 
@@ -310,14 +352,15 @@ function  fluxo(){
      
         var containerMesas=document.getElementById("mesas");
 
+        // LIMPA CAMPOS POS CADASTRO
         inputMesa.value=""
         searchInput.value=""
         searchResult.innerHTML=""
-        
-        if(repeat===false){    
-            alert('Mesa Adicionada')
       
         
+        // MESA NOVA
+        if(repeat===false){    
+          alert('Mesa Adicionada')
             mesaValue={
                 name:mesaNumber,
                 orders:[{
@@ -342,50 +385,39 @@ function  fluxo(){
                 tableOptions()
     
              } 
-          
-           console.log(arrOrder)
+            
             
         }else{
-            console.log('adicionar dados')
-            
+
+           // MESA EXISTENTE
+            console.log('Pedido Adicionado com sucesso')
+            alert('Pedido Adicionado com sucesso')
+
             var newOrder={
                 idPedido:parseInt(Math.random() * 1000),
                 itens:prodSelected
             }
-            mesaValue.orders.push(newOrder)
+            mesaValue.orders.push(newOrder)            
+            var lastOrder=mesaValue.orders[mesaValue.orders.length-1].idPedido.toString
 
-            console.log(arrOrder)
-        
-           
+            console.log(mesaValue)
+            console.log(newOrder)
+            // renderItensOrder(lastOrder)
             
         } 
+        relatorio()
          
     }
 
+
+    // ABRE MODAL INPUTS
     getModal=(id)=>{          
         id.classList.toggle("show");
+        prodSelected=[]
+
     }
 
-    var testOrder=[{
-        name:'10',
-        orders:[{
-            idPedido:'',
-            itensPedido:[{
-                name:'Pastel'
-            },]
-
-        }]
-    },{
-        name:'20',
-        orders:[{
-            idPedido:'',
-            itensPedido:[{
-                name:'Pizza'
-            },]
-
-        }]
-    }]
-
+    // HOME FRONT PAGE
     app.innerHTML+=` 
             <h5>Adicione Pedidos</h5> 
             <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>
@@ -424,7 +456,3 @@ function  fluxo(){
 }
 fluxo()
  
-
-
-console.log("Mesas Abertas"+arrOrder)
-console.log("Valor total de Vendas"+arrOrder)

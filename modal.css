@@ -111,14 +111,17 @@ div#mesas button {
 
 .btn-circle-bottom{
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    right: 30px;
+    bottom: 30px;
     border-radius: 50px;
     background: #ff5201;
     width: 70px;
     height: 70px;
     color: white;
     z-index: -1;
+    box-shadow: 2px 2px #f4f3f3;
+    font-size: 20px;
+    
 
 }
 
@@ -175,9 +178,13 @@ div#mesas {
     font-size: 25px;
     font-weight: 100;
     font-family: monospace;
-    padding: 10px 15px;
+    padding: 0px 15px;
 }
 
+.card-body {
+    display: flex;
+    justify-content: space-between;
+}
   
 .idPedido {
     font-size: 60px;
