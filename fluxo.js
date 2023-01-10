@@ -2,6 +2,8 @@
 // import { data} from './api'
 var app=document.getElementById('app')
 
+
+
 function innnerOrderItens(mesaKey){
 
     ordersContainer=document.querySelectorAll('.card')
@@ -17,7 +19,11 @@ function innnerOrderItens(mesaKey){
                 myOrdersMap.itens.map((myItens)=>{
                     
                     if(containerOnlyOrder.getAttribute("id")==myOrdersMap.idPedido){
-                                 document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+=myItens.name
+                                 document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+=` 
+                                 
+                                 ` +myItens.name+ `
+                                `; 
+
 
 
                     }                                    
@@ -163,8 +169,8 @@ function  fluxo(){
                 if(keyProd.toString()===prods.id){ 
               
                     prodSelected.push(prods) 
-                    orderFortable()
-
+                    // orderFortable()
+                    saved()
                 }
 
 
@@ -218,11 +224,15 @@ function  fluxo(){
     }
     
     tabledetails=(event)=>{ 
+        console.log('monta botao')
 
-        var mesaKey=event.target.getAttribute('key')
         var containerMesaDetails=document.getElementById('openTable')
 
-        console.log(mesaKey)
+
+        if(event){
+            var mesaKey=event.target.getAttribute('key')
+        }
+   
 
         renderItensOrder=(idOrder)=>{
             idOrderThis=idOrder
@@ -279,6 +289,7 @@ function  fluxo(){
                         
                         
                         containerMesaDetails.innerHTML+=`  
+                        <button onclick="window.print()">Imprimir Pedido</button>
                             <div class="card" id="`+allOrdersMap.idPedido+`">
                                 <span class="orderId">#`+allOrdersMap.idPedido+`</span>
                                 
@@ -319,8 +330,7 @@ function  fluxo(){
  
     includOrder=(event, id)=>{ 
         event.preventDefault() 
-     
-        var containerMesas=document.getElementById("mesas");
+        containerMesas=document.getElementById("mesas");
 
         // LIMPA CAMPOS POS CADASTRO
         inputMesa.value=""
@@ -376,6 +386,7 @@ function  fluxo(){
             
         } 
         relatorio()
+        saved()
          
     }
 
