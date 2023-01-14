@@ -966,25 +966,7 @@ data = [{
 ]
 
 
-function loadDoc() {
-    const xhttp = new XMLHttpRequest();
-
-    xhttp.onload = function() {
-    //   document.getElementById("demo").innerHTML =
-    //   this.responseText;
-
-      console.log(this.responseText)
-    }
-    xhttp.open
-    ("GET", 
-    "http://localhost:777/pedidos");
-    xhttp.send();
-}
-loadDoc()     
-
-
-
-
+  
 var apiContainer=document.getElementById('api') 
 var categoriesContainer=document.getElementById('categories') 
 ii=0

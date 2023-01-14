@@ -58,20 +58,20 @@ function statusApp(){
   prodSaved=JSON.parse(localStorage.getItem("oders"))
   containerMesas=document.getElementById("mesas");
 
-  if(prodSaved.length>0){ 
+//   if(prodSaved.length>0){ 
 
-    arrOrder=prodSaved    
+//     arrOrder=prodSaved    
     
-        arrOrder.map((mesaMap)=>{ 
+//         arrOrder.map((mesaMap)=>{ 
             
-            containerMesas.innerHTML+=`   
-                <button key='`+mesaMap.name+`' onclick="tabledetails(event)" class="mesabutton">`+mesaMap.name+`</button>
-            `; 
-        })
+//             containerMesas.innerHTML+=`   
+//                 <button key='`+mesaMap.name+`' onclick="tabledetails(event)" class="mesabutton">`+mesaMap.name+`</button>
+//             `; 
+//         })
 
-        tableOptions()
+//         tableOptions()
  
-  }
+//   }
 }
 
 statusApp()

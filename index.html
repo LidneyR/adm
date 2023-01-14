@@ -18,6 +18,34 @@
 <script src="api.js"></script>
 <script src="fluxo.js"></script>
 <script src="relatorio.js"></script>
- 
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getDatabase, ref, get, set, child, update, remove  } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getFirestore, collection, getDocs,  addDoc  } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyAyxC6S9lIs2q6MXPJzB4rpjod3HbRXJgU",
+      authDomain: "harmonyfoodapp.firebaseapp.com",
+      databaseURL: "https://harmonyfoodapp-default-rtdb.firebaseio.com",
+      projectId: "harmonyfoodapp",
+      storageBucket: "harmonyfoodapp.appspot.com",
+      messagingSenderId: "910886750410",
+      appId: "1:910886750410:web:810fa41051ae6d12684c33",
+      measurementId: "G-9HD4J8Z2XP"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);  
+
+    const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+    });
+
+  </script>
+
 
 </html>
