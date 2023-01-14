@@ -66,8 +66,8 @@ function login(){
 
     app.innerHTML+=` 
 
-    <div id="login" > 
-        <div class="form">
+    <div id="login" style="display:none"> 
+        <div class="form"   >
             <form>
                 <input type='text' id='nameuser' placeholder='Digite suas credênciais'>
                 <input type="password" id="pass" placeholder='Senha' name="password"

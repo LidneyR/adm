@@ -12,7 +12,7 @@ function date(){
     var yyyy = today.getFullYear();
 
     today = mm + '/' + dd + '/' + yyyy;
-    document.write(today);
+    // document.write(today);   
 } date()
 
  
@@ -21,16 +21,16 @@ function saved(){
     // Storexx  
     allM=JSON.stringify(arrOrder)
 
-    console.log("entrou")
+   
  
-    localStorage.setItem("oders",allM);
+    // localStorage.setItem("oders",allM);
   
-    if(arrOrder){
+    // if(arrOrder){
     
-        prodsSaved=JSON.parse(localStorage.getItem("oders"))
+    //     prodsSaved=JSON.parse(localStorage.getItem("oders"))
         
        
-    }   
+    // }   
 }
  
 
@@ -61,7 +61,7 @@ function statusApp(){
   if(prodSaved.length>0){ 
 
     arrOrder=prodSaved    
-   console.log(arrOrder)
+    
         arrOrder.map((mesaMap)=>{ 
             
             containerMesas.innerHTML+=`   
