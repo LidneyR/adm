@@ -1,7 +1,8 @@
 // arquivo principal.js
 // import { data} from './api'
 var app=document.getElementById('app')
-
+    
+inputMesa=document.getElementById('mesa')
 
 
 function innnerOrderItens(mesaKey){
@@ -20,8 +21,13 @@ function innnerOrderItens(mesaKey){
                     
                     if(containerOnlyOrder.getAttribute("id")==myOrdersMap.idPedido){
                                  document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+=` 
-                                 
-                                 ` +myItens.name+ `
+                                 <div class="pedidoResumo">
+                                    <div class='quantd'> ` +myItens.quantidade+ `</div>
+                                    <div class='nomeProd'> ` +myItens.name+ `</div>
+                                    <div> ` +myItens.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+
+
+                                </div>
                                 `; 
 
 
@@ -56,34 +62,59 @@ function getProds(){
     return allProds
 }
 function login(){
+
+
     app.innerHTML+=` 
 
-    <div id="login" style="display:none;"> 
+    <div id="login" > 
         <div class="form">
             <form>
                 <input type='text' id='nameuser' placeholder='Digite suas credênciais'>
                 <input type="password" id="pass" placeholder='Senha' name="password"
-                minlength="8" required>
+                minlength="4" required>
                 <button class="btn-circle-bottom" onclick='validationLogin(nameuser, pass)'>Entrar</button>
             </form>
         </div>
     </div>
     `; 
+    loginContainer=document.getElementById('login')
+    credentials=localStorage.getItem("credentials");
+
+
+    if(credentials){
+        console.log(credentials)
+        app.innerHTML=`  `; 
+    }
 
     validationLogin=(nameuser,pass)=>{
+        event.preventDefault()
+
         var nameValue=nameuser.value
         var userPass=pass.value
 
-     
 
-        if(nameValue==='canoas'){
+        localStorage.setItem("credentials",userPass);
+        console.log(credentials)
+
+        
+        
+
+        if(nameValue==='canoas' & userPass==='1234'){
           
             document.getElementById('login').style.cssText="display:none;"
         }else{
             alert('Dados Incorretos')
             nameuser.value=""
+            userPass.value=""
         }
+
+   
+          
     }
+
+
+    
+ 
 
 }login()
 
@@ -99,6 +130,10 @@ function  fluxo(){
 
         submitTable=()=>{ 
             valueMesa=inputMesa.value
+
+           
+            document.getElementById('innerMesaNumber').style.cssText='display:flex'
+            document.getElementById('innerMesaNumber').innerHTML=valueMesa
         }
 
         repeatTable=()=>{
@@ -142,8 +177,15 @@ function  fluxo(){
         event.preventDefault()
         searchIn=searchInput
         prodsArray=[]
-       
 
+        inputMesa=document.getElementById('mesa')
+
+       
+        if(inputMesa){
+            
+            document.getElementById('titleAdd').style.cssText="display:none;"
+            inputMesa.style.cssText='display:none'
+        }
         submitSearch=(event)=>{
             searchedValue=event.target.value 
             searchResult = document.getElementById('searchResult')   
@@ -289,9 +331,11 @@ function  fluxo(){
                         
                         
                         containerMesaDetails.innerHTML+=`  
-                        <button onclick="window.print()">Imprimir Pedido</button>
                             <div class="card" id="`+allOrdersMap.idPedido+`">
+                                <button onclick="window.print()">Imprimir</button>
+
                                 <span class="orderId">#`+allOrdersMap.idPedido+`</span>
+                                <div class='nomeProd'>Total Pedido</div>
                                 
                             </div> 
                         `;  
@@ -394,13 +438,20 @@ function  fluxo(){
     // ABRE MODAL INPUTS
     getModal=(id)=>{          
         id.classList.toggle("show");
+        inputMesa=document.getElementById('mesa')
+
+        document.getElementById('innerMesaNumber').innerHTML=''
+
+        inputMesa.style.cssText='display:flex;'
         prodSelected=[]
+
+
 
     }
 
     // HOME FRONT PAGE
     app.innerHTML+=` 
-            <h5>Adicione Pedidos</h5> 
+            <h5 >Adicione Pedidos</h5> 
             <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>
             <div id="mesas"></div>
 
@@ -415,12 +466,14 @@ function  fluxo(){
                                 x
                             </button>
                         </div>
-                        <h5>Adicione Pedidos</h5> 
+                       
+                        <h5 id="titleAdd">Adicione Pedidos</h5> 
+                        <div id="innerMesaNumber"></div>
                     
 
                         <form>
                             <input id='mesa' onclick='tableValidation()' type='number' placeholder='Numero da Mesa'>
-                            <input id='searchInput' onclick='searched(event, searchInput)' type='name' placeholder='Busque Produtos'>
+                            <input id='searchInput' onfocus="searched(event, searchInput)" onclick='searched(event, searchInput)' type='name' placeholder='Busque Produtos'>
                             
                             <button class="h-button" id="includOrderbtn" disabled onclick='includOrder(event, mesa)'>
                                 Adicionar Pedido

@@ -65,6 +65,22 @@ input {
     width: 100%;
     padding: 10px 0;
 }
+
+input:focus-visible {
+    outline-offset: 0px;
+    border-color: red!important;
+}
+.modal .h-button {
+    position: fixed;
+    bottom: 30px;
+    max-width: 300px;
+    height: 70px;
+    border-radius: 90pc;
+    text-transform: uppercase;
+}
+input:focus-visible {
+    outline:  #ffb001 auto 1px !important;
+}
 #login form:before {
     content: '';
     background-image: url(assets/img/border.png);
@@ -120,8 +136,8 @@ div#mesas button {
     color: white;
     z-index: -1;
     box-shadow: 2px 2px #f4f3f3;
-    font-size: 20px;
-    
+    font-size: 16px;
+    margin: 35px;
 
 }
 
@@ -149,8 +165,25 @@ div#searchResult {
     background: #f9f9f9;
     width: 100%;
     padding: 0;
-    overflow: auto;
-    max-height: 200px;
+    overflow: auto; 
+}
+
+div#innerMesaNumber {
+    background: #ff5201;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 75px;
+    color: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    display: none;
 }
 .prodresult span {
     padding: 15px;
@@ -163,6 +196,8 @@ div#searchResult {
 div#mesas {
     display: flex;
 }
+
+
 .openTable {
     background: white;
     position: fixed;
@@ -228,4 +263,24 @@ span.orderId {
     justify-content: space-between;
     height: 60px;
     border-bottom: 1px solid #ddd;
+}
+
+.pedidoResumo {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+.nomeProd {
+    width: 100%;
+    margin: 0 10px;
+}
+
+.pedidoResumo {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    margin: 10px auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #81808f;
 }
