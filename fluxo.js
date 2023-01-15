@@ -451,6 +451,12 @@ function  fluxo(){
 
     // HOME FRONT PAGE
     app.innerHTML+=` 
+            <div class="header">
+            <div id="notifications" onclick="appNotification()">
+                <img src="assets/img/bell.png" style="width: 23px; ">
+            </div>
+            </div>
+
             <h5 >Adicione Pedidos</h5> 
             <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>
             <div id="mesas"></div>
