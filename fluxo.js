@@ -454,6 +454,7 @@ function  fluxo(){
             <div class="header">
             <div id="notifications" onclick="appNotification()">
                 <img src="assets/img/bell.png" style="width: 23px; ">
+                <span id="notQtd"></span>
             </div>
             </div>
 

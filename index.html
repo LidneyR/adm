@@ -8,6 +8,7 @@
       <link rel="shortcut icon" href="favico.png" type="image/png">
 
       <link rel="stylesheet" href="modal.css">
+      <link rel="stylesheet" href="assets/components/notifications.css">
       
   </head>
   <body>
@@ -68,13 +69,32 @@
 
   // form.reset()
   // })
-  db.collection('pedidos').onSnapshot((data)=>{
-  list.innerHTML=""
-  data.docs.map(((val)=>[
-  list.innerHTML+=` ${val.data().tarefa}`+'<br>'
+//   db.collection('pedidos').onSnapshot((data)=>{
+//     console.log(data)
+//   list.innerHTML=""
+//   data.docs.map(((val)=>[
+//   list.innerHTML+=` ${val.data().id}`+'<br>'
 
-  ]))
-  })
+    
+//   ]))    
+//   })
+const pedidosAll=[] 
+    const ordersLab=db.collection('pedidos')
+    ordersLab.onSnapshot((snapshot) => {
+        // ...
+        // containerNotification.innerHTML='  <img src="assets/img/bell.png" style="width: 23px; ">'
+
+        snapshot.forEach((doc) => {
+            pedidosAll.push(doc.data())
+            qtdNotification.innerHTML=pedidosAll.length
+    console.log(pedidosAll.length)
+    console.log(pedidosAll)
+
+
+        });
+    }, (error) => {
+        // ...
+    });
 
 
   </script>

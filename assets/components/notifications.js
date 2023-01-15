@@ -1,4 +1,5 @@
 containerNotification=document.getElementById('notifications')
+qtdNotification=document.getElementById('notQtd')
 
 appNotification=()=>{ 
 
