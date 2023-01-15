@@ -452,11 +452,44 @@ function  fluxo(){
     // HOME FRONT PAGE
     app.innerHTML+=` 
             <div class="header">
-            <div id="notifications" onclick="appNotification()">
-                <img src="assets/img/bell.png" style="width: 23px; ">
-                <span id="notQtd"></span>
-            </div>
-            </div>
+                <div onclick="getModalNotification()" style=" position: absolute; right: 30px;  top: 30px;">
+                    <img src="assets/img/bell.png" style="width: 23px; ">
+                    <span id="notQtd"></span>
+                </div>
+               </div>
+               
+                <div id="notifications" onclick="appNotification()"> 
+                    
+                    <div class="notificationView">
+                    
+                        <div class="controls">
+                            <button onclick="getModalNotification()">
+                            &lt; 
+                            </button>
+                            <button onclick="getModalNotification()">
+                            x
+                            </button>
+                        </div>
+
+                        <div class="card">
+                        <button class="close" onclick="">
+                            x
+                        </button>
+                        <div class="mesaIcon">Mesa 2</div>
+                            <div class="datails">
+                                <h6>Olá você recebeu um novo pedido</h6>
+                                <p>15/01 às 15:37  Mesa: 30  / Daniel  Soares</p>
+                                <div class="buttons">
+                                    <a href="">Mais detalhes</a>
+                                    <button class="recusa">Recusar</button>
+                                    <button class="aceita">Aceitar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    </div>
+                </div>
 
             <h5 >Receba pedidos em tempo real.</h5> 
             <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>

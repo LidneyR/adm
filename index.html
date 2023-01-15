@@ -13,6 +13,8 @@
   </head>
   <body>
       <div id="app"></div>
+
+      
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
 
@@ -55,42 +57,17 @@
 
 
   // let form = document.querySelector(".form")
-  let list = document.getElementById("notifications")
-
-  // form.addEventListener('submit', function(e){
-  // e.preventDefault()
-
-  // console.log("oi")
-  // let tarefa=document.querySelector('[name=tarefa]').value
-  // console.log(tarefa)
-  // db.collection('missao').add({
-  //     tarefa:tarefa
-  // })
-
-  // form.reset()
-  // })
-//   db.collection('pedidos').onSnapshot((data)=>{
-//     console.log(data)
-//   list.innerHTML=""
-//   data.docs.map(((val)=>[
-//   list.innerHTML+=` ${val.data().id}`+'<br>'
-
-    
-//   ]))    
-//   })
+let list = document.getElementById("notifications")
+ 
 const pedidosAll=[] 
     const ordersLab=db.collection('pedidos')
-    ordersLab.onSnapshot((snapshot) => {
-        // ...
-        // containerNotification.innerHTML='  <img src="assets/img/bell.png" style="width: 23px; ">'
-
+    ordersLab.onSnapshot((snapshot) => { 
+        qtdNotification.innerHTML=""
         snapshot.forEach((doc) => {
-            pedidosAll.push(doc.data())
+            pedidosAll.push(doc.data()) 
+            console.log(pedidosAll.length)
+            console.log(pedidosAll)  
             qtdNotification.innerHTML=pedidosAll.length
-    console.log(pedidosAll.length)
-    console.log(pedidosAll)
-
-
         });
     }, (error) => {
         // ...
