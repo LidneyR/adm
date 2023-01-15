@@ -59,7 +59,7 @@
   // let form = document.querySelector(".form")
 let list = document.getElementById("notifications")
  
-const pedidosAll=[] 
+let pedidosAll=[] 
     const ordersLab=db.collection('pedidos')
     ordersLab.onSnapshot((snapshot) => { 
         qtdNotification.innerHTML=""
@@ -68,7 +68,9 @@ const pedidosAll=[]
             console.log(pedidosAll.length)
             console.log(pedidosAll)  
             qtdNotification.innerHTML=pedidosAll.length
+
         });
+        includOrder(event, 20)
     }, (error) => {
         // ...
     });
