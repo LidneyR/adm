@@ -273,83 +273,25 @@ function  fluxo(){
 
         if(event){
             var mesaKey=event.target.getAttribute('key')
-        }
-   
 
-        renderItensOrder=(idOrder)=>{
-            idOrderThis=idOrder
-            containerOrder=document.getElementById(idOrderThis) 
-            arrOrder.map((ordersMapPrint)=>{
+            prodsSaved=JSON.parse(localStorage.getItem("oders"))
 
+            prodsSaved.map((savedMap)=>{
+               if(savedMap.mesa==mesaKey){
+          
+                 containerOrder=document.getElementById(mesaKey) 
+                
+               }
 
-                if(ordersMapPrint.name===mesaKey){ 
-
-                    ordersMapPrint.orders.map((itensMapPrint)=>{
-
-                      
-                        itensMapPrint.itens.map((itensMapPrintlist)=>{
-
-                            containerOrder.innerHTML+=`
-
-                            <div class="prodgroup">
-                                <div class=" ">`+itensMapPrintlist.id+` </div>  
-                                <div class="nameprodPrint">
-                                `+itensMapPrintlist.name+`
-                                </div>
-                                <div class=" ">
-                                `+itensMapPrintlist.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`
-                                </div>  
-                            </div>  
-                            `;  
-
-                        })
-                    })
-                }
             })
 
-            
         }
-        
+   
         if(mesaKey){
              containerMesaDetails.setAttribute('class','openTable show') 
 
-
-             arrOrder.map((ordersMap)=>{
-
-                if(mesaKey===ordersMap.name){
-                    containerMesaDetails.innerHTML=`  
-
-                            <div class="controls">
-                                 <button onclick="tabledetails(event)"><</button>
-                                <button onclick="tabledetails(event)">x</button>    
-                            </div>
-
- 
-
-                    `; 
-                    ordersMap.orders.map((allOrdersMap)=>{
-                        
-                        
-                        containerMesaDetails.innerHTML+=`  
-                            <div class="card" id="`+allOrdersMap.idPedido+`">
-                                <button onclick="window.print()">Imprimir</button>
-
-                                <span class="orderId">#`+allOrdersMap.idPedido+`</span>
-                                <div class='nomeProd'>Total Pedido</div>
-                                
-                            </div> 
-                        `;  
-                      
- 
-                        // renderItensOrder(allOrdersMap.idPedido) 
- 
-                    })
-
-                    innnerOrderItens( mesaKey)
-                } 
- 
-
-             }) 
+             getProdsSaved=JSON.parse(localStorage.getItem("oders"))
+           console.log(getProdsSaved)
           
         }else{
             containerMesaDetails.setAttribute('class','openTable') 
@@ -404,9 +346,9 @@ function  fluxo(){
             if(arrOrder.length>0){
                 arrOrder.map((mesaMap)=>{ 
                     
-                    containerMesas.innerHTML+=`   
-                        <button key='`+mesaMap.name+`' onclick="tabledetails(event)" class="mesabutton">`+mesaMap.name+`</button>
-                    `; 
+                    // containerMesas.innerHTML+=`   
+                    //     <button key='`+mesaMap.name+`' onclick="tabledetails(event)" class="mesabutton">`+mesaMap.name+`</button>
+                    // `; 
                 })
     
                 tableOptions()

@@ -7,7 +7,7 @@ pedidosContainer.innerHTML=""
         if(pedidosContainer){
    
                         
-                        pedidosContainer.innerHTML+=`<button key='`+pedidosMap.mesa+`' onclick="" class="mesabutton">`+pedidosMap.mesa+`</button>`
+                        pedidosContainer.innerHTML+=`<button key='`+pedidosMap.mesa+`' id='`+pedidosMap.mesa+`' onclick="tabledetails(event)" class="mesabutton">`+pedidosMap.mesa+`</button>`
                          
         }
     })

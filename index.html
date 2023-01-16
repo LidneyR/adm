@@ -64,6 +64,9 @@ let list = document.getElementById("notifications")
             // console.log(pedidosAll.length)
             // console.log(pedidosAll)  
             qtdNotification.innerHTML=pedidosAll.length
+
+            let storegeProds=JSON.stringify(pedidosAll)
+            localStorage.setItem("oders",storegeProds);
             getData(pedidosAll)
         }); 
     }, (error) => {
