@@ -205,11 +205,11 @@ div#innerMesaNumber {
     font-size: 15px;
     text-align: left;
 }
-
 div#mesas {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
-
 
 .openTable {
     background: white;

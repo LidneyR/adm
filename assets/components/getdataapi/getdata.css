@@ -1,0 +1,4 @@
+div#mesas {
+    display: flex;
+    flex-wrap: wrap;
+}
