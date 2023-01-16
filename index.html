@@ -22,6 +22,7 @@
   <script src="fluxo.js"></script>
   <script src="relatorio.js"></script>
   <script src="assets/components/notifications.js"></script>
+  <script src="assets/components/getdataapi/getdata.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
@@ -59,18 +60,19 @@
   // let form = document.querySelector(".form")
 let list = document.getElementById("notifications")
  
-let pedidosAll=[] 
     const ordersLab=db.collection('pedidos')
     ordersLab.onSnapshot((snapshot) => { 
         qtdNotification.innerHTML=""
-        snapshot.forEach((doc) => {
-            pedidosAll.push(doc.data()) 
-            console.log(pedidosAll.length)
-            console.log(pedidosAll)  
-            qtdNotification.innerHTML=pedidosAll.length
+        let pedidosAll=[]   
 
-        });
-        includOrder(event, 20)
+        snapshot.forEach((doc) => {
+
+            pedidosAll.push(doc.data()) 
+            // console.log(pedidosAll.length)
+            // console.log(pedidosAll)  
+            qtdNotification.innerHTML=pedidosAll.length
+            getData(pedidosAll)
+        }); 
     }, (error) => {
         // ...
     });

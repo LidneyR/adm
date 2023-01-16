@@ -3,6 +3,7 @@
 var app=document.getElementById('app')
     
 inputMesa=document.getElementById('mesa')
+repeat=false
 
 
 function innnerOrderItens(mesaKey){
@@ -87,7 +88,7 @@ function login(){
     }
 
     validationLogin=(nameuser,pass)=>{
-        event.preventDefault()
+        // event.preventDefault()
 
         var nameValue=nameuser.value
         var userPass=pass.value
@@ -145,7 +146,6 @@ function  fluxo(){
             
             mesaNumber=inputMesa.value
             newOrder=[]
-            repeat=false
 
             if(arrOrder.length>0){
                 arrOrder.map((allTabs)=>{
@@ -373,14 +373,17 @@ function  fluxo(){
      
  
     includOrder=(event, id)=>{ 
-        event.preventDefault() 
+        if(event!=false){
+            event.preventDefault() 
+            // LIMPA CAMPOS POS CADASTRO
+            inputMesa.value=""
+            searchInput.value=""
+            searchResult.innerHTML=""
+       
+        }
         containerMesas=document.getElementById("mesas");
 
-        // LIMPA CAMPOS POS CADASTRO
-        inputMesa.value=""
-        searchInput.value=""
-        searchResult.innerHTML=""
-      
+       
         
         // MESA NOVA
         if(repeat===false){    
