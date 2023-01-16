@@ -286,6 +286,7 @@ span.orderId {
 .nomeProd {
     width: 100%;
     margin: 0 10px;
+    font-size: 15px;
 }
 
 .pedidoResumo {
@@ -300,8 +301,14 @@ span.orderId {
 div#porcoes {
     margin: 33px auto;
 }
-div#porcoes,div#bebidas {
-    border: 1px solid #9e9e9e;
+div#porcoes, div#bebidas {
+    border: 1px solid #e1e1e1;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 11px;
 }
+ .card h3{
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #ff9800;
+    margin: 10px auto 30px;
+ }

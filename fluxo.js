@@ -296,10 +296,7 @@ function  fluxo(){
                             <div class="card" id="`+ordersSavedMap.idPedido+`">
                             <span class="orderId">#`+ordersSavedMap.idPedido+`</span>
 
-                            <button  style="
-                            width: 220px;
-                            margin: 0 auto;
-                        border: 1px solid #9e9e9e;border-radius: 10px;display: flex;align-items: center;padding: 5px 30px;" onclick="window.print()"><img src="assets/img/printer.png">Imprimir Compra total</button>
+                            <button  style="width: 220px;margin: 0 auto; border: 1px solid #9e9e9e;border-radius: 10px;display: flex;align-items: center;padding: 5px 30px;" onclick="window.print()"><img src="assets/img/printer.png">Imprimir Compra total</button>
                                  
                                 <div id="porcoes">
                                 <h3>Setor Cozinha <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3>  </div> 
