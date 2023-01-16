@@ -6,43 +6,34 @@ inputMesa=document.getElementById('mesa')
 repeat=false
 
 
-function innnerOrderItens(mesaKey){
+function innnerOrderItens(mesaKey,prodsSaved){
 
     ordersContainer=document.querySelectorAll('.card')
  
-    console.log(mesaKey)
-    arrOrder.map((mapOrders)=>{
-        if(mapOrders.name===mesaKey){
-            mapOrders.orders.map((myOrdersMap)=>{
-                // console.log(myOrdersMap.idPedido)
-                Array.from(ordersContainer).map((containerOnlyOrder)=>{
-               
-                myOrdersMap.itens.map((myItens)=>{
-                    
-                    if(containerOnlyOrder.getAttribute("id")==myOrdersMap.idPedido){
-                                 document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+=` 
-                                 <div class="pedidoResumo">
-                                    <div class='quantd'> ` +myItens.quantidade+ `</div>
-                                    <div class='nomeProd'> ` +myItens.name+ `</div>
-                                    <div> ` +myItens.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
 
 
-                                </div>
-                                `; 
+    
+prodsSaved.map((prodsSavedMainMap)=>{
+   if(prodsSavedMainMap.mesa==mesaKey){
+    prodsSavedMainMap.orders.map((mainOrdersMap)=>{
+        cardThis=document.getElementById(mainOrdersMap.idPedido)
+      
 
+        mainOrdersMap.itens.map((mainItensMap)=>{
+            console.log(mainItensMap)
+            cardThis.innerHTML+=`
 
+            <div class="pedidoResumo">
+                <div class='quantd'> ` +mainItensMap.quantidade+ `</div>
+                <div class='nomeProd'> ` +mainItensMap.name+ `</div>
+                <div> ` +mainItensMap.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div> 
+            </div>
+            `; 
+        })
 
-                    }                                    
-                })
-                
-
-             
-                    
-                })
-            })
-        }
     })
-
+   }
+})
    
    
 }
@@ -288,22 +279,23 @@ function  fluxo(){
                     <button onclick="tabledetails(event)">x</button>    
                 </div> 
 
+             
                  `; 
                     savedMap.orders.map((ordersSavedMap)=>{
                       
                         containerMesaDetails.innerHTML+=`  
                             <div class="card" id="`+ordersSavedMap.idPedido+`">
-                                <button onclick="window.print()">Imprimir</button>
+                                <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button>
 
                                 <span class="orderId">#`+ordersSavedMap.idPedido+`</span>
-                                <div class='nomeProd'>Total Pedido</div>
+                                 
                                 
                             </div> 
                         `;  
                       
                     })
 
-                    innnerOrderItens( mesaKey)
+                    innnerOrderItens( mesaKey, prodsSaved)
                }
 
             })
@@ -311,11 +303,8 @@ function  fluxo(){
         }
    
         if(mesaKey){
-             containerMesaDetails.setAttribute('class','openTable show') 
-
-             getProdsSaved=JSON.parse(localStorage.getItem("oders"))
-           console.log(getProdsSaved)
-          
+             containerMesaDetails.setAttribute('class','openTable show')  
+             getProdsSaved=JSON.parse(localStorage.getItem("oders")) 
         }else{
             containerMesaDetails.setAttribute('class','openTable') 
             containerMesaDetails.innerHTML=""; 
