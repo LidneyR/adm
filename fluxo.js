@@ -9,8 +9,7 @@ repeat=false
 function innnerOrderItens(mesaKey){
 
     ordersContainer=document.querySelectorAll('.card')
-    lastOrder=Array.from(ordersContainer)[Array.from(ordersContainer).length-1]
-
+ 
     console.log(mesaKey)
     arrOrder.map((mapOrders)=>{
         if(mapOrders.name===mesaKey){
@@ -268,7 +267,7 @@ function  fluxo(){
     tabledetails=(event)=>{ 
         console.log('monta botao')
 
-        var containerMesaDetails=document.getElementById('openTable')
+       containerMesaDetails=document.getElementById('openTable')
 
 
         if(event){
@@ -279,8 +278,32 @@ function  fluxo(){
             prodsSaved.map((savedMap)=>{
                if(savedMap.mesa==mesaKey){
           
-                 containerOrder=document.getElementById(mesaKey) 
+           
+                console.log(containerMesaDetails)
                 
+                containerMesaDetails.innerHTML=`  
+
+                <div class="controls">
+                     <button onclick="tabledetails(event)"><</button>
+                    <button onclick="tabledetails(event)">x</button>    
+                </div> 
+
+                 `; 
+                    savedMap.orders.map((ordersSavedMap)=>{
+                      
+                        containerMesaDetails.innerHTML+=`  
+                            <div class="card" id="`+ordersSavedMap.idPedido+`">
+                                <button onclick="window.print()">Imprimir</button>
+
+                                <span class="orderId">#`+ordersSavedMap.idPedido+`</span>
+                                <div class='nomeProd'>Total Pedido</div>
+                                
+                            </div> 
+                        `;  
+                      
+                    })
+
+                    innnerOrderItens( mesaKey)
                }
 
             })
