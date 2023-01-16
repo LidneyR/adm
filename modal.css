@@ -305,6 +305,7 @@ div#porcoes, div#bebidas {
     border: 1px solid #e1e1e1;
     padding: 10px;
     border-radius: 11px;
+    display:none;
 }
  .card h3{
     font-size: 15px;

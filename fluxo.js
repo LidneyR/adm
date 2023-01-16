@@ -25,8 +25,9 @@ prodsSaved.map((prodsSavedMainMap)=>{
 
             // console.log(document.getElementById("porcoes"))
             thisSetor= document.getElementById(mainItensMap.categoria)
-            console.log(thisSetor)
+         
             if(thisSetor){
+                thisSetor.style.cssText="display:block"
                 thisSetor.innerHTML+=` 
                 
                 <div class="pedidoResumo">
