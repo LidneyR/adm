@@ -17,18 +17,27 @@ prodsSaved.map((prodsSavedMainMap)=>{
    if(prodsSavedMainMap.mesa==mesaKey){
     prodsSavedMainMap.orders.map((mainOrdersMap)=>{
         cardThis=document.getElementById(mainOrdersMap.idPedido)
+        
       
 
         mainOrdersMap.itens.map((mainItensMap)=>{
-            console.log(mainItensMap)
-            cardThis.innerHTML+=`
+        setorThis=document.getElementById(mainItensMap.categoria)
 
-            <div class="pedidoResumo">
-                <div class='quantd'> ` +mainItensMap.quantidade+ `</div>
-                <div class='nomeProd'> ` +mainItensMap.name+ `</div>
-                <div> ` +mainItensMap.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div> 
-            </div>
-            `; 
+            // console.log(document.getElementById("porcoes"))
+            thisSetor= document.getElementById(mainItensMap.categoria)
+            console.log(thisSetor)
+            if(thisSetor){
+                thisSetor.innerHTML+=` 
+                
+                <div class="pedidoResumo">
+                    <div class='quantd'> ` +mainItensMap.quantidade+ `</div>
+                    <div class='nomeProd'> ` +mainItensMap.name+ `</div>
+                    <div> ` +mainItensMap.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div> 
+                </div>
+
+            
+                `; 
+            }
         })
 
     })
@@ -282,14 +291,21 @@ function  fluxo(){
              
                  `; 
                     savedMap.orders.map((ordersSavedMap)=>{
-                      
+                        
                         containerMesaDetails.innerHTML+=`  
                             <div class="card" id="`+ordersSavedMap.idPedido+`">
-                                <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button>
+                            <span class="orderId">#`+ordersSavedMap.idPedido+`</span>
 
-                                <span class="orderId">#`+ordersSavedMap.idPedido+`</span>
+                            <button  style="
+                            width: 220px;
+                            margin: 0 auto;
+                        border: 1px solid #9e9e9e;border-radius: 10px;display: flex;align-items: center;padding: 5px 30px;" onclick="window.print()"><img src="assets/img/printer.png">Imprimir Compra total</button>
                                  
-                                
+                                <div id="porcoes">
+                                <h3>Setor Cozinha <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3>  </div> 
+                                <div id="bebidas"><h3>Setor Bebidas <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
+                                 
+                
                             </div> 
                         `;  
                       

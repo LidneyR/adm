@@ -297,3 +297,11 @@ span.orderId {
     font-weight: 700;
     color: #81808f;
 }
+div#porcoes {
+    margin: 33px auto;
+}
+div#porcoes,div#bebidas {
+    border: 1px solid #9e9e9e;
+    padding: 10px;
+    border-radius: 20px;
+}
