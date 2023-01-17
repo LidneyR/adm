@@ -1,5 +1,6 @@
-body{
-    font-family: 'Lexend Deca', sans-serif;
+body{ 
+font-family: 'Quicksand', sans-serif;
+
 }
 .header {
     display: flex;
@@ -259,7 +260,7 @@ div#mesas {
 span.orderId {
     display: block;
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     color: #a9a8b8;
     margin: 0 auto 20px;
 
@@ -278,11 +279,7 @@ span.orderId {
     border-bottom: 1px solid #ddd;
 }
 
-.pedidoResumo {
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-}
+ 
 .nomeProd {
     width: 100%;
     margin: 0 10px;
@@ -295,7 +292,7 @@ span.orderId {
     text-align: left;
     margin: 10px auto;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     color: #81808f;
 }
 div#porcoes {
