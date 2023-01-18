@@ -3,3 +3,9 @@ display: flex;
 }
 #mesas{width: 50%;}  
 .pedidosbalcao{width: 50%;}  
+
+.painelvendas h3 {
+    width: 100%;
+    color: #9bacb9;
+    font-weight: 400;
+}

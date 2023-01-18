@@ -465,8 +465,11 @@ function  fluxo(){
             <h5 >Receba pedidos em tempo real.</h5> 
             <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>
             <div class="painelvendas">
-                <div id="mesas"></div>
+                <div id="mesas">
+                  <h3>Pedidos Mesa:</h3>
+                </div>
                 <div id="pedidosbalcao">
+                  <h3>Pedidos Balção:</h3>
                     
                 
                 </div>

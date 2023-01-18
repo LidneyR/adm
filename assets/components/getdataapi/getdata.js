@@ -1,7 +1,8 @@
 
 pedidosContainer=document.getElementById("mesas")
+ 
 function getData(bddata){
-pedidosContainer.innerHTML=""
+pedidosContainer.innerHTML="<h3>Pedidos Balção:</h3>"
  
     bddata.map((pedidosMap)=>{
         if(pedidosContainer){     
