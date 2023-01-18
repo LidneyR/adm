@@ -298,11 +298,13 @@ span.orderId {
 div#porcoes {
     margin: 33px auto;
 }
-div#porcoes, div#bebidas {
+div#porcoes, div#pasteis, div#bebidas, div#tapiocas {
     border: 1px solid #e1e1e1;
     padding: 10px;
     border-radius: 11px;
     display:none;
+    
+    margin: 33px auto;
 }
  .card h3{
     font-size: 15px;

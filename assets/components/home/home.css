@@ -1,6 +1,4 @@
-.painelvendas{
-display: flex;
-}
+
 #mesas{width: 50%;}  
 .pedidosbalcao{width: 50%;}  
 
@@ -8,4 +6,11 @@ display: flex;
     width: 100%;
     color: #9bacb9;
     font-weight: 400;
+}
+
+
+@media(min-width:600px){
+    .painelvendas{
+        display: flex;
+        }
 }

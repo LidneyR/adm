@@ -22,7 +22,7 @@ function saved(){
     allM=JSON.stringify(arrOrder)
 
    
- 
+    // indow.localStorage.setItem("myObject", JSON.stringify(myObject));
     // localStorage.setItem("oders",allM);
   
     // if(arrOrder){

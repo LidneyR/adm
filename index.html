@@ -60,13 +60,13 @@
   // let form = document.querySelector(".form")
 let list = document.getElementById("notifications")
  
-    const ordersLab=db.collection('vendasemcurso')
+    const ordersLab=db.collection('mesasOpen')
     ordersLab.onSnapshot((snapshot) => { 
         qtdNotification.innerHTML=""
         let pedidosAll=[]   
 
         snapshot.forEach((doc) => {
-
+            console.log(doc.data())
             pedidosAll.push(doc.data()) 
             // console.log(pedidosAll.length)
             // console.log(pedidosAll)  

@@ -301,7 +301,9 @@ function  fluxo(){
                                  
                                 <div id="porcoes">
                                 <h3>Setor Cozinha <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3>  </div> 
+                                <div id="pasteis"><h3>Setor Pastéis <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
                                 <div id="bebidas"><h3>Setor Bebidas <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
+                                <div id="tapiocas"><h3>Setor Tapiocas <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
                                  
                 
                             </div> 
