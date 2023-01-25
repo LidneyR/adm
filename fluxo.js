@@ -13,15 +13,10 @@ function innnerOrderItens(mesaKey){
     
     mesasO.map((mesasMap)=>{
 
-        if(mesasMap.mesa==keybtn){
-           
-          
-            mesasMap.orders.map((mOrder)=>{
-              
-                Array.from(ordersContainer).map((containerOnlyOrder)=>{
-               
-                    mOrder.itens.map((myItens)=>{
-                        
+        if(mesasMap.mesa==keybtn){ 
+            mesasMap.orders.map((mOrder)=>{ 
+                Array.from(ordersContainer).map((containerOnlyOrder)=>{ 
+                    mOrder.itens.map((myItens)=>{ 
                         if(containerOnlyOrder.getAttribute("id")==mOrder.idPedido){
 
                             document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+= `
@@ -312,6 +307,22 @@ function  fluxo(){
 
         }else if(tipo==='delivery'){
             console.log(JSON.parse(localStorage.getItem("pedidosDelivery")))   
+            deliveryO=JSON.parse(localStorage.getItem("pedidosDelivery"))
+            deliveryO.map((deliMap)=>{
+
+                if(deliMap.name==keybtn){
+                   
+                    deliMap.orders.map((dOrder)=>{
+                        containerMesaDetails.innerHTML+=`
+                        <div id="`+deliMap.name+`" class="card"><div class="name">#Pedido `+deliMap.name+`</div>   
+                        
+                        `;
+                    })
+                    innnerOrderItens(keybtn)
+
+ 
+                }
+            })
 
         }
 

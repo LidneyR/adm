@@ -6,11 +6,15 @@ div#mesas {
 button.deliveryButton {
     width: 100%;
     text-align: left;
-    height: 50px;
+    height: 60px;
     background: #fffaf2;
     border-bottom: 1px solid #ffeae0;
+    display: flex;
+    align-items: center;
+    color: #9bacb9;
+    text-transform: uppercase;
 }
-
+button.deliveryButton img{margin-right: 5px;}
 div#badgemesa {
     display: flex;
     justify-content: center;
@@ -38,11 +42,12 @@ div#badgemesa {
 @media(min-width:600px){
     div#mesas {
        
-        width: 60%;
+        width: 50%;
     }
     div#deliveyPedidos{
-        width: 40%;
-   
+        width: 50%;
+        max-height: 75vh;
+        overflow: auto;
     }
     
 }
