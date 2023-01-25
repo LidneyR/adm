@@ -50,12 +50,9 @@
   firebase.initializeApp(firebaseConfig); 
   const db = firebase.firestore();
 
-
+  let list = document.getElementById("notifications") 
+  const ordersLab=db.collection('mesasOpen') 
  
-    let list = document.getElementById("notifications") 
-    const ordersLab=db.collection('mesasOpen')
-
-
     
     ordersLab.onSnapshot((snapshot) => { 
         qtdNotification.innerHTML=""
@@ -64,29 +61,37 @@
         snapshot.forEach((doc) => {
             console.log(doc.data())
             pedidosAll.push(doc.data())  
+
+
             qtdNotification.innerHTML=pedidosAll.length 
             let storegeProds=JSON.stringify(pedidosAll) 
+
+            
             getData(pedidosAll)
         }); 
     }, (error) => {
-        // ...
+        console.log('Erro api')
     });
 
 
-  const ordersDelivery=db.collection('vandabalcao')
-  const pedidosDeliveryContainer=document.getElementById('pedidosbalcao')
+ 
+    //REQUEST DELIVERY 
+    const ordersDelivery=db.collection('delivery')
+    const pedidosDeliveryContainer=document.getElementById('pedidosbalcao')
 
     
-ordersDelivery.onSnapshot((snapshot) => { 
- 
-    snapshot.forEach((doc) => {
-        console.log(doc.data().length) 
-        pedidosDeliveryContainer.innerHTML+='tem'
-    
-    }); 
-}, (error) => {
-    // ...
-});
+    ordersDelivery.onSnapshot((snapshot) => { 
+        let deliveryAll=[]
+        snapshot.forEach((doc) => {
+            console.log(doc.data()) 
+            deliveryAll.push(doc.data())
+        
+        }); 
+        deliveryData(deliveryAll)
+
+    }, (error) => {
+        // ...
+    });
 
 
 

@@ -6,44 +6,51 @@ inputMesa=document.getElementById('mesa')
 repeat=false
 
 
-function innnerOrderItens(mesaKey,prodsSaved){
+function innnerOrderItens(mesaKey){
 
     ordersContainer=document.querySelectorAll('.card')
- 
-
-
+    let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
     
-prodsSaved.map((prodsSavedMainMap)=>{
-   if(prodsSavedMainMap.mesa==mesaKey){
-    prodsSavedMainMap.orders.map((mainOrdersMap)=>{
-        cardThis=document.getElementById(mainOrdersMap.idPedido)
-        
-      
+    mesasO.map((mesasMap)=>{
 
-        mainOrdersMap.itens.map((mainItensMap)=>{
-        setorThis=document.getElementById(mainItensMap.categoria)
+        if(mesasMap.mesa==keybtn){
+           
+          
+            mesasMap.orders.map((mOrder)=>{
+              
+                Array.from(ordersContainer).map((containerOnlyOrder)=>{
+               
+                    mOrder.itens.map((myItens)=>{
+                        
+                        if(containerOnlyOrder.getAttribute("id")==mOrder.idPedido){
 
-            // console.log(document.getElementById("porcoes"))
-            thisSetor= document.getElementById(mainItensMap.categoria)
-         
-            if(thisSetor){
-                thisSetor.style.cssText="display:block"
-                thisSetor.innerHTML+=` 
-                
-                <div class="pedidoResumo">
-                    <div class='quantd'> ` +mainItensMap.quantidade+ `</div>
-                    <div class='nomeProd'> ` +mainItensMap.name+ `</div>
-                    <div> ` +mainItensMap.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div> 
-                </div>
+                            document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+= `
+                            <div class="pedidoResumo">
+                                    <div class='quantd'> ` +myItens.quantidade+ `</div>
+                                    <div class='nomeProd'> ` +myItens.name+ `</div>
+                                    <div> ` +myItens.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+
+
+                            </div>
+                            `; 
+    
+    
+    
+                        }                                    
+                    })
+                    
+    
+                 
+                        
+                    })
+            })
 
             
-                `; 
-            }
-        })
-
+        }
     })
-   }
-})
+
+    
+    
    
    
 }
@@ -128,13 +135,14 @@ function  fluxo(){
  
     tableValidation=()=>{
         inputMesa=document.getElementById('mesa')
+        
 
         submitTable=()=>{ 
-            valueMesa=inputMesa.value
 
-           
+            valueMesa=inputMesa.value 
             document.getElementById('innerMesaNumber').style.cssText='display:flex'
             document.getElementById('innerMesaNumber').innerHTML=valueMesa
+            
         }
 
         repeatTable=()=>{
@@ -265,67 +273,108 @@ function  fluxo(){
        
     }
     
-    tabledetails=(event)=>{ 
-        console.log('monta botao')
+    tabledetails=(event, tipo)=>{ 
+ 
+       containerMesaDetails=document.getElementById('openTable')  
+       containerMesaDetails.classList.toggle("show")
+       containerMesaDetails.innerHTML=`
+            <div class="controls">
+                <button onclick="tabledetails(event)"><</button>
+                <button onclick="tabledetails(event)">x</button>    
+            </div> 
+            <div id="badgemesa"></div>
+       `;
+       keybtn=event.target.getAttribute('key')
 
-       containerMesaDetails=document.getElementById('openTable')
+        
+         
 
+        if(tipo==='mesa'){
+            console.log(JSON.parse(localStorage.getItem("mesasOpen")))    
+            let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
 
-        if(event){
-            var mesaKey=event.target.getAttribute('key')
+            mesasO.map((mesasMap)=>{
 
-            prodsSaved=JSON.parse(localStorage.getItem("oders"))
-
-            prodsSaved.map((savedMap)=>{
-               if(savedMap.mesa==mesaKey){
-          
-           
-                console.log(containerMesaDetails)
-                
-                containerMesaDetails.innerHTML=`  
-
-                <div class="controls">
-                     <button onclick="tabledetails(event)"><</button>
-                    <button onclick="tabledetails(event)">x</button>    
-                </div> 
-
-             
-                 `; 
-                    savedMap.orders.map((ordersSavedMap)=>{
+                if(mesasMap.mesa==keybtn){
+                    badgeMesa=document.getElementById('badgemesa')
+                    badgeMesa.innerHTML=`<div>Pedidos Mesa `+keybtn+`</div>`; //Imprime numero da mesa
+                    mesasMap.orders.map((mOrder)=>{
+                        console.log(mOrder)
+                        containerMesaDetails.innerHTML+=`
+                        <div id="`+mOrder.idPedido+`" class="card"><div class="idpedido">#`+mOrder.idPedido+`</div>   
                         
-                        containerMesaDetails.innerHTML+=`  
-                            <div class="card" id="`+ordersSavedMap.idPedido+`">
-                            <span class="orderId">#`+ordersSavedMap.idPedido+`</span>
-
-                            <button  style="width: 220px;margin: 0 auto; border: 1px solid #9e9e9e;border-radius: 10px;display: flex;align-items: center;padding: 5px 30px;" onclick="window.print()"><img src="assets/img/printer.png">Imprimir Compra total</button>
-                                 
-                                <div id="porcoes">
-                                <h3>Setor Cozinha <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3>  </div> 
-                                <div id="pasteis"><h3>Setor Pastéis <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
-                                <div id="bebidas"><h3>Setor Bebidas <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
-                                <div id="tapiocas"><h3>Setor Tapiocas <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
-                                 
-                
-                            </div> 
-                        `;  
-                      
+                        `;
                     })
 
-                    innnerOrderItens( mesaKey, prodsSaved)
-               }
-
+                    innnerOrderItens(keybtn)
+                }
             })
 
-        }
-   
-        if(mesaKey){
-             containerMesaDetails.setAttribute('class','openTable show')  
-             getProdsSaved=JSON.parse(localStorage.getItem("oders")) 
-        }else{
-            containerMesaDetails.setAttribute('class','openTable') 
-            containerMesaDetails.innerHTML=""; 
+        }else if(tipo==='delivery'){
+            console.log(JSON.parse(localStorage.getItem("pedidosDelivery")))   
 
         }
+
+
+
+
+        //     containerMesaDetails.setAttribute('class','openTable') 
+
+        // if(event){
+        //     var mesaKey=event.target.getAttribute('key')
+
+        //     prodsSaved=JSON.parse(localStorage.getItem("oders"))
+
+        //     prodsSaved.map((savedMap)=>{
+        //        if(savedMap.mesa==mesaKey){
+          
+           
+        //         console.log(containerMesaDetails)
+                
+        //         containerMesaDetails.innerHTML=`  
+
+        //         <div class="controls">
+        //              <button onclick="tabledetails(event)"><</button>
+        //             <button onclick="tabledetails(event)">x</button>    
+        //         </div> 
+
+             
+        //          `; 
+        //             savedMap.orders.map((ordersSavedMap)=>{
+                        
+        //                 containerMesaDetails.innerHTML+=`  
+        //                     <div class="card" id="`+ordersSavedMap.idPedido+`">
+        //                     <span class="orderId">#`+ordersSavedMap.idPedido+`</span>
+
+        //                     <button  style="width: 220px;margin: 0 auto; border: 1px solid #9e9e9e;border-radius: 10px;display: flex;align-items: center;padding: 5px 30px;" onclick="window.print()"><img src="assets/img/printer.png">Imprimir Compra total</button>
+                                 
+        //                         <div id="porcoes">
+        //                         <h3>Setor Cozinha <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3>  </div> 
+        //                         <div id="pasteis"><h3>Setor Pastéis <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
+        //                         <div id="bebidas"><h3>Setor Bebidas <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
+        //                         <div id="tapiocas"><h3>Setor Tapiocas <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
+                                 
+                
+        //                     </div> 
+        //                 `;  
+                      
+        //             })
+
+        //             innnerOrderItens( mesaKey, prodsSaved)
+        //        }
+
+        //     })
+
+        // }
+   
+        // if(mesaKey){
+        //      containerMesaDetails.setAttribute('class','openTable show')  
+        //      getProdsSaved=JSON.parse(localStorage.getItem("oders")) 
+        // }else{
+        //     containerMesaDetails.setAttribute('class','openTable') 
+        //     containerMesaDetails.innerHTML=""; 
+
+        // }
       
  
     }
@@ -470,7 +519,7 @@ function  fluxo(){
                 <div id="mesas">
                   <h3>Pedidos Mesa:</h3>
                 </div>
-                <div id="pedidosbalcao">
+                <div id="deliveyPedidos">
                   <h3>Pedidos Balção:</h3>
                     
                 
@@ -505,7 +554,12 @@ function  fluxo(){
 
                 </div> 
                 
-                <div class="openTable" id="openTable"> </div>
+                <div class="openTable" id="openTable"> 
+                    <div class="controls">
+                         <button onclick="tabledetails(event)"><</button>
+                            <button onclick="tabledetails(event)">x</button>    
+                     </div> 
+                </div>
 
         `;      
 
