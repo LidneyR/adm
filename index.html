@@ -13,16 +13,14 @@
       <link rel="stylesheet" href="assets/components/home/home.css">
       
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
-      <div id="app"></div>
-
-      
+      <div id="app"></div> 
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
 
@@ -49,31 +47,25 @@
   };
 
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-
-  // Initialize Cloud Firestore and get a reference to the service
+  firebase.initializeApp(firebaseConfig); 
   const db = firebase.firestore();
 
 
-
-  // let form = document.querySelector(".form")
-let list = document.getElementById("notifications")
  
+    let list = document.getElementById("notifications") 
     const ordersLab=db.collection('mesasOpen')
+
+
+    
     ordersLab.onSnapshot((snapshot) => { 
         qtdNotification.innerHTML=""
         let pedidosAll=[]   
 
         snapshot.forEach((doc) => {
             console.log(doc.data())
-            pedidosAll.push(doc.data()) 
-            // console.log(pedidosAll.length)
-            // console.log(pedidosAll)  
-            qtdNotification.innerHTML=pedidosAll.length
-
-            let storegeProds=JSON.stringify(pedidosAll)
-            localStorage.setItem("oders",storegeProds);
+            pedidosAll.push(doc.data())  
+            qtdNotification.innerHTML=pedidosAll.length 
+            let storegeProds=JSON.stringify(pedidosAll) 
             getData(pedidosAll)
         }); 
     }, (error) => {
@@ -81,6 +73,33 @@ let list = document.getElementById("notifications")
     });
 
 
+  const ordersDelivery=db.collection('vandabalcao')
+  const pedidosDeliveryContainer=document.getElementById('pedidosbalcao')
+
+    
+ordersDelivery.onSnapshot((snapshot) => { 
+ 
+    snapshot.forEach((doc) => {
+        console.log(doc.data().length) 
+        pedidosDeliveryContainer.innerHTML+='tem'
+    
+    }); 
+}, (error) => {
+    // ...
+});
+
+
+
+ //DELETE
+//  var btnDel=document.getElementById('deleteOrder')
+//  console.log(btnDel)
+//  btnDel.addEventListener('click',function(e){
+//   db.collection("mesasOpen").doc("12").delete().then(() => {
+//     console.log("Document successfully deleted!");
+// }).catch((error) => {
+//     console.error("Error removing document: ", error);
+// });
+//  })
   </script>
 
   </html>
