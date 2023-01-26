@@ -405,7 +405,9 @@ function  fluxo(){
                         containerMesaDetails.innerHTML+=`
                         <div id="`+mOrder.idPedido+`" class="card"><div class="idpedido">#Pedido`+mOrder.idPedido+`  </div>   
 
-                            <div class="setor" id="porcoes`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Porções<img src="assets/img/printer.png" ></h4></div>
+                            <div onclick="getPrint(this)" class="setor" id="porcoes`+mOrder.idPedido+`">
+                                <h4 >Setor Porções<img src="assets/img/printer.png" ></h4>
+                            </div>
                             <div class="setor" id="tapiocas`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
                             <div class="setor" id="pasteis`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
                             <div class="setor" id="bebidas`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
