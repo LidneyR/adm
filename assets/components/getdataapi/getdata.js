@@ -25,7 +25,7 @@ function deliveryData(deliveryAll){
     localStorage.setItem("pedidosDelivery", JSON.stringify(deliveryAll));
  
     deliveryAll.map((deliveryMap)=>{
-        console.log(deliveryMap)
+        // console.log(deliveryMap)
     // sadasdasdas/
         // deliveryContainer.innerHTML+=`<button onclick="" class="deliveryButton" onclick="tabledetails(event)">`+deliveryMap.name+`</button>`
         deliveryContainer.innerHTML+=`

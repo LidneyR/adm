@@ -261,6 +261,7 @@ div#mesas {
     padding: 22px;
     margin: 10px auto;
     border-radius: 15px;
+    max-width: 430px;
 }
 span.orderId {
     display: block;
@@ -309,12 +310,12 @@ div#porcoes {
     margin: 33px auto;
 }
 div#porcoes, div#pasteis, div#bebidas, div#tapiocas {
-    border: 1px solid #e1e1e1;
+    /* border: 1px solid #e1e1e1; */
     padding: 10px;
     border-radius: 11px;
-    display:none;
+ 
     
-    margin: 33px auto;
+    margin: 3px auto;
 }
  .card h3{
     font-size: 15px;
@@ -322,3 +323,15 @@ div#porcoes, div#pasteis, div#bebidas, div#tapiocas {
     color: #ff9800;
     margin: 10px auto 30px;
  }
+ .setor {
+    display: none;
+
+}
+.setor h4 {
+    border-bottom: 1px solid #c7c7c7;
+    color: #81808f;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 100;
+}

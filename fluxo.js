@@ -9,8 +9,11 @@ repeat=false
 function innnerOrderItens(mesaKey,tipo){
  
     ordersContainer=document.querySelectorAll('.card')
+    setores=document.querySelectorAll('.setor')
     let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
     
+
+    console.log(setores)
 
     if(tipo=='mesa'){
         mesasO.map((mesasMap)=>{
@@ -18,26 +21,57 @@ function innnerOrderItens(mesaKey,tipo){
             if(mesasMap.mesa==keybtn){ 
                 mesasMap.orders.map((mOrder)=>{ 
                     Array.from(ordersContainer).map((containerOnlyOrder)=>{ 
+
+
+
+                        
                         mOrder.itens.map((myItens)=>{ 
                             if(containerOnlyOrder.getAttribute("id")==mOrder.idPedido){
+                                 
+                                Array.from(setores).map((setMap)=>{
+                              
+                                    if(setMap.getAttribute('id')==myItens.categoria+mOrder.idPedido){
+                                             var custoporquantidade=myItens.price*myItens.quantidade
+                                             
+                                            document.getElementById(setMap.getAttribute('id')).style.cssText="display:block"
+                                            document.getElementById(setMap.getAttribute('id')).innerHTML+= `
+                                            
+                                            <div class="pedidoResumo">  
+                                                <div class='quantd'> ` +myItens.quantidade+ `un. </div> 
+                                                <div class='nomeProd'> ` +myItens.name+ `</div>
+                                                <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+        
+                                            </div>
+                                            `; 
+                                    }
+                                     
+
+                                    
+                                }) 
+
+
+                                
                                 
 
-                                // precoPorUnidade+=myItens.price
-                                console.log('total por Produto',myItens.price*myItens.quantidade) 
-                                var custoporquantidade=myItens.price*myItens.quantidade
-                                totalComrpa=+custoporquantidade
-                                console.log("total da compra",totalComrpa)
+                                // if(myItens.categoria=='porcoes'){
+ 
+                                //     var porcoes=document.getElementById('porcoes'+mOrder.idPedido)
+                                //     console.log(porcoes)
+                                //     porcoes.innerHTML+= `
+                                //     <div class="pedidoResumo">
+                                //             <div class='quantd'> ` +myItens.quantidade+ `un. </div>
+                                //             <div class='nomeProd'> ` +myItens.name+ `</div>
+                                //             <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+        
+                                             
+                                //     </div>
+                                 
+                                //     `; 
 
-                                document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+= `
-                                <div class="pedidoResumo">
-                                        <div class='quantd'> ` +myItens.quantidade+ `un. </div>
-                                        <div class='nomeProd'> ` +myItens.name+ `</div>
-                                        <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
-    
-                                         
-                                </div>
-                             
-                                `; 
+                                // } 
+
+
+                              
         
         
         
@@ -47,7 +81,7 @@ function innnerOrderItens(mesaKey,tipo){
         
                      
                             
-                        })
+                    })
                 })
     
                 
@@ -60,22 +94,44 @@ function innnerOrderItens(mesaKey,tipo){
 
        deliveryPedidos.map((delPedMap)=>{
             if(delPedMap.name===mesaKey){
-                console.log(delPedMap)
-
-                console.log(delPedMap.orders) 
+             
                 delPedMap.orders.map((orMapDel)=>{
                     orMapDel.itens.map((itmaps)=>{
-                        console.log(itmaps)
-
-                        document.getElementById(delPedMap.name).innerHTML+=`
-                        <div class="pedidoResumo">
-                                <div class='quantd'> ` +itmaps.quantidade+ `</div>
-                                <div class='nomeProd'> ` +itmaps.name+ `</div>
-                                <div> ` +itmaps.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+                      
 
 
-                        </div>
-                        `; 
+                        Array.from(setores).map((setMap)=>{
+                              
+                            if(setMap.getAttribute('id')==itmaps.categoria+orMapDel.idPedido){
+                                    
+                                     document.getElementById(setMap.getAttribute('id')).style.cssText="display:block"
+                                     var custoporquantidade=itmaps.price*itmaps.quantidade
+
+                                     document.getElementById(setMap.getAttribute('id')).innerHTML+= ` 
+                                        <div class="pedidoResumo">  
+                                            <div class='quantd'> ` +itmaps.quantidade+ `un. </div> 
+                                            <div class='nomeProd'> ` +itmaps.name+ `</div>
+                                            <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+                                            
+                                        </div>
+                                     `;
+                            }
+                             
+
+                            
+                        }) 
+
+
+
+                        // document.getElementById(delPedMap.name).innerHTML+=`
+                        // <div class="pedidoResumo">
+                        //         <div class='quantd'> ` +itmaps.quantidade+ `</div>
+                        //         <div class='nomeProd'> ` +itmaps.name+ `</div>
+                        //         <div> ` +itmaps.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+
+
+                        // </div>
+                        // `; 
                     })
                 })
             }
@@ -331,7 +387,7 @@ function  fluxo(){
          
 
         if(tipo==='mesa'){
-            console.log(JSON.parse(localStorage.getItem("mesasOpen")))    
+            // console.log(JSON.parse(localStorage.getItem("mesasOpen")))    
             let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
 
             mesasO.map((mesasMap)=>{
@@ -340,9 +396,16 @@ function  fluxo(){
                     badgeMesa=document.getElementById('badgemesa')
                     badgeMesa.innerHTML=`<div>Pedidos Mesa `+keybtn+`</div>`; //Imprime numero da mesa
                     mesasMap.orders.map((mOrder)=>{
-                        console.log(mOrder)
+                        // console.log(mOrder)
                         containerMesaDetails.innerHTML+=`
-                        <div id="`+mOrder.idPedido+`" class="card"><div class="idpedido">#`+mOrder.idPedido+`</div>   
+                        <div id="`+mOrder.idPedido+`" class="card"><div class="idpedido">#Pedido`+mOrder.idPedido+`  </div>   
+
+                            <div class="setor" id="porcoes`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Porções<img src="assets/img/printer.png" ></h4></div>
+                            <div class="setor" id="tapiocas`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
+                            <div class="setor" id="pasteis`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
+                            <div class="setor" id="bebidas`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
+                           
+                      
                         
                         `;
                     })
@@ -360,8 +423,12 @@ function  fluxo(){
                    
                     deliMap.orders.map((dOrder)=>{
                         containerMesaDetails.innerHTML+=`
-                        <div id="`+deliMap.name+`" class="card"><div class="name">#Pedido `+deliMap.name+`</div>   
-                        
+                        <div id="`+deliMap.name+`" class="card"><div class="name">#Pedido `+dOrder.idPedido+`</div>   
+                        <div class="setor" id="porcoes`+dOrder.idPedido+`"><h4 onclick="window.print()">Setor Porções<img src="assets/img/printer.png" ></h4></div>
+                        <div class="setor" id="tapiocas`+dOrder.idPedido+`"><h4 onclick="window.print()">Setor Tapiocas<img src="assets/img/printer.png" ></h4></div>
+                        <div class="setor" id="pasteis`+dOrder.idPedido+`"><h4 onclick="window.print()">Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
+                        <div class="setor" id="bebidas`+dOrder.idPedido+`"><h4 onclick="window.print()">Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
+                       
                         `;
                     })
                     innnerOrderItens(keybtn,'delivery')
