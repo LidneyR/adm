@@ -260,9 +260,11 @@ div#mesas {
     background: #fff8ed;
     position: relative;
     padding: 22px;
-    margin: 10px auto;
+    margin: 20px auto;
     border-radius: 15px;
     max-width: 430px;
+    box-shadow: 2px 6px 10px #f7f7f7;
+    
 }
 span.orderId {
     display: block;
@@ -355,6 +357,7 @@ div#dataOrder {
     width: 100%;
     text-align: center;  
     left: 0;
+    height: 150px;  
 }
 button.closeOrder {
     border: 2px solid white;
@@ -369,6 +372,7 @@ button.closeOrder {
 div#dataOrder div#subTotal {
     color: white;
     margin: 25px auto 0;
+    font-weight: 800;
 }
 
 .card:last-child {
