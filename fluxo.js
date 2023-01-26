@@ -20,15 +20,23 @@ function innnerOrderItens(mesaKey,tipo){
                     Array.from(ordersContainer).map((containerOnlyOrder)=>{ 
                         mOrder.itens.map((myItens)=>{ 
                             if(containerOnlyOrder.getAttribute("id")==mOrder.idPedido){
-    
+                                
+
+                                // precoPorUnidade+=myItens.price
+                                console.log('total por Produto',myItens.price*myItens.quantidade) 
+                                var custoporquantidade=myItens.price*myItens.quantidade
+                                totalComrpa=+custoporquantidade
+                                console.log("total da compra",totalComrpa)
+
                                 document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+= `
                                 <div class="pedidoResumo">
-                                        <div class='quantd'> ` +myItens.quantidade+ `</div>
+                                        <div class='quantd'> ` +myItens.quantidade+ `un. </div>
                                         <div class='nomeProd'> ` +myItens.name+ `</div>
-                                        <div> ` +myItens.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+                                        <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
     
-    
+                                         
                                 </div>
+                             
                                 `; 
         
         
