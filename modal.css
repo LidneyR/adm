@@ -57,6 +57,9 @@ h5 {
 #login .btn-circle-bottom{
 z-index: 999;
 }
+.btn-circle-bottom{
+    z-index: 999999;
+    }
 .show{
     display: block !important;
 }
@@ -145,6 +148,7 @@ div#mesas button {
     box-shadow: 2px 2px #f4f3f3;
     font-size: 16px;
     margin: 35px;
+    z-index:999;
 
 }
 

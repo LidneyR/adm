@@ -39,7 +39,7 @@ div#badgemesa {
 }
 
 
-@media(min-width:650px){
+@media(min-width:769px){
     div#mesas {
        
         width: 50%;

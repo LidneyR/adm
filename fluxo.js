@@ -6,44 +6,82 @@ inputMesa=document.getElementById('mesa')
 repeat=false
 
 
-function innnerOrderItens(mesaKey){
-
+function innnerOrderItens(mesaKey,tipo){
+ 
     ordersContainer=document.querySelectorAll('.card')
     let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
     
-    mesasO.map((mesasMap)=>{
 
-        if(mesasMap.mesa==keybtn){ 
-            mesasMap.orders.map((mOrder)=>{ 
-                Array.from(ordersContainer).map((containerOnlyOrder)=>{ 
-                    mOrder.itens.map((myItens)=>{ 
-                        if(containerOnlyOrder.getAttribute("id")==mOrder.idPedido){
+    if(tipo=='mesa'){
+        mesasO.map((mesasMap)=>{
 
-                            document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+= `
-                            <div class="pedidoResumo">
-                                    <div class='quantd'> ` +myItens.quantidade+ `</div>
-                                    <div class='nomeProd'> ` +myItens.name+ `</div>
-                                    <div> ` +myItens.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
-
-
-                            </div>
-                            `; 
+            if(mesasMap.mesa==keybtn){ 
+                mesasMap.orders.map((mOrder)=>{ 
+                    Array.from(ordersContainer).map((containerOnlyOrder)=>{ 
+                        mOrder.itens.map((myItens)=>{ 
+                            if(containerOnlyOrder.getAttribute("id")==mOrder.idPedido){
+    
+                                document.getElementById(containerOnlyOrder.getAttribute("id")).innerHTML+= `
+                                <div class="pedidoResumo">
+                                        <div class='quantd'> ` +myItens.quantidade+ `</div>
+                                        <div class='nomeProd'> ` +myItens.name+ `</div>
+                                        <div> ` +myItens.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
     
     
-    
-                        }                                    
-                    })
-                    
-    
-                 
+                                </div>
+                                `; 
+        
+        
+        
+                            }                                    
+                        })
                         
+        
+                     
+                            
+                        })
+                })
+    
+                
+            }
+        })
+    
+    }else if(tipo==='delivery'){
+       let deliveryPedidos=JSON.parse(localStorage.getItem("pedidosDelivery"))
+        
+
+       deliveryPedidos.map((delPedMap)=>{
+            if(delPedMap.name===mesaKey){
+                console.log(delPedMap)
+
+                console.log(delPedMap.orders) 
+                delPedMap.orders.map((orMapDel)=>{
+                    orMapDel.itens.map((itmaps)=>{
+                        console.log(itmaps)
+
+                        document.getElementById(delPedMap.name).innerHTML+=`
+                        <div class="pedidoResumo">
+                                <div class='quantd'> ` +itmaps.quantidade+ `</div>
+                                <div class='nomeProd'> ` +itmaps.name+ `</div>
+                                <div> ` +itmaps.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+
+
+                        </div>
+                        `; 
                     })
-            })
+                })
+            }
+       })
+   
+   
+    }
 
-            
-        }
-    })
 
+
+
+
+
+   
     
     
    
@@ -268,7 +306,7 @@ function  fluxo(){
        
     }
     
-    tabledetails=(event, tipo)=>{ 
+    tabledetails=(event, tipo)=>{ //imprime detalhes do pedido
  
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show")
@@ -301,12 +339,12 @@ function  fluxo(){
                         `;
                     })
 
-                    innnerOrderItens(keybtn)
+                    innnerOrderItens(keybtn,'mesa')
                 }
             })
 
         }else if(tipo==='delivery'){
-            console.log(JSON.parse(localStorage.getItem("pedidosDelivery")))   
+            // console.log(JSON.parse(localStorage.getItem("pedidosDelivery")))   
             deliveryO=JSON.parse(localStorage.getItem("pedidosDelivery"))
             deliveryO.map((deliMap)=>{
 
@@ -318,7 +356,7 @@ function  fluxo(){
                         
                         `;
                     })
-                    innnerOrderItens(keybtn)
+                    innnerOrderItens(keybtn,'delivery')
 
  
                 }
