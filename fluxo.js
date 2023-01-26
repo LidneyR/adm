@@ -380,6 +380,12 @@ function  fluxo(){
                 <button onclick="tabledetails(event)">x</button>    
             </div> 
             <div id="badgemesa"></div>
+            <div id="dataOrder">
+                <div id="subTotal">Total da Compra</div>
+                <button class="closeOrder">Fechar Conta</button>
+            </div>
+
+             
        `;
        keybtn=event.target.getAttribute('key')
 
@@ -405,7 +411,8 @@ function  fluxo(){
                             <div class="setor" id="pasteis`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
                             <div class="setor" id="bebidas`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
                            
-                      
+                        </div> 
+                        
                         
                         `;
                     })
