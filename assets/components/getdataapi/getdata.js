@@ -34,8 +34,7 @@ function deliveryData(deliveryAll){
                                         <img src="assets/img/user.png" style="width: 16px;">`+deliveryMap.name+`
                                     </button>
                                     <button class="avisePronto" key='`+deliveryMap.name+`'   onclick="alert('Aviso enviado')" >
-                                        <img src="assets/img/whatswhite.png" style="width: 16px;">Avise que ta Pronto
-                                    </button>
+                                        <img src="assets/img/whatswhite.png" style="width: 16px;">    </button>
                                 </div>     
                             
                             
