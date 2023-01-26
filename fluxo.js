@@ -12,8 +12,9 @@ function innnerOrderItens(mesaKey,tipo){
     setores=document.querySelectorAll('.setor')
     let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
     
-
-    console.log(setores)
+    //DADOS FINANCEIRO
+    QTDITENSMESA=0
+    TOTALDAMESA=0
 
     if(tipo=='mesa'){
         mesasO.map((mesasMap)=>{
@@ -43,34 +44,17 @@ function innnerOrderItens(mesaKey,tipo){
         
                                             </div>
                                             `; 
+                                            
+                                            QTDITENSMESA+=myItens.quantidade
+                                            TOTALDAMESA+=custoporquantidade
+                                            
                                     }
                                      
 
                                     
                                 }) 
 
-
-                                
-                                
-
-                                // if(myItens.categoria=='porcoes'){
  
-                                //     var porcoes=document.getElementById('porcoes'+mOrder.idPedido)
-                                //     console.log(porcoes)
-                                //     porcoes.innerHTML+= `
-                                //     <div class="pedidoResumo">
-                                //             <div class='quantd'> ` +myItens.quantidade+ `un. </div>
-                                //             <div class='nomeProd'> ` +myItens.name+ `</div>
-                                //             <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
-        
-                                             
-                                //     </div>
-                                 
-                                //     `; 
-
-                                // } 
-
-
                               
         
         
@@ -87,6 +71,16 @@ function innnerOrderItens(mesaKey,tipo){
                 
             }
         })
+
+        
+       // COLETA DADOS FINANCEIRO
+       totalMesaContainer=document.getElementById('subTotal')
+       console.log('QUANTIDADE DE ITENS NA MESA',QTDITENSMESA)
+       console.log('TOTAL DA MESA',TOTALDAMESA.toString())
+
+       if(totalMesaContainer){
+        totalMesaContainer.innerHTML+=` ` +TOTALDAMESA.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).toString()+ ` `;
+       }
     
     }else if(tipo==='delivery'){
        let deliveryPedidos=JSON.parse(localStorage.getItem("pedidosDelivery"))
