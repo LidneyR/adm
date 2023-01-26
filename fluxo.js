@@ -405,12 +405,12 @@ function  fluxo(){
                         containerMesaDetails.innerHTML+=`
                         <div id="`+mOrder.idPedido+`" class="card"><div class="idpedido">#Pedido`+mOrder.idPedido+`  </div>   
 
-                            <div onclick="getPrint(this)" class="setor" id="porcoes`+mOrder.idPedido+`">
+                            <div onclick="getPrint(this)"  class="setor" id="porcoes`+mOrder.idPedido+`">
                                 <h4 >Setor Porções<img src="assets/img/printer.png" ></h4>
                             </div>
-                            <div class="setor" id="tapiocas`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
-                            <div class="setor" id="pasteis`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
-                            <div class="setor" id="bebidas`+mOrder.idPedido+`"><h4 onclick="window.print()">Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
+                            <div onclick="getPrint(this)"  class="setor" id="tapiocas`+mOrder.idPedido+`"><h4>Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
+                            <div onclick="getPrint(this)"  class="setor" id="pasteis`+mOrder.idPedido+`"><h4>Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
+                            <div onclick="getPrint(this)"  class="setor" id="bebidas`+mOrder.idPedido+`"><h4>Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
                            
                         </div> 
                         
@@ -432,10 +432,10 @@ function  fluxo(){
                     deliMap.orders.map((dOrder)=>{
                         containerMesaDetails.innerHTML+=`
                         <div id="`+deliMap.name+`" class="card"><div class="name">#Pedido `+dOrder.idPedido+`</div>   
-                        <div class="setor" id="porcoes`+dOrder.idPedido+`"><h4 onclick="window.print()">Setor Porções<img src="assets/img/printer.png" ></h4></div>
-                        <div class="setor" id="tapiocas`+dOrder.idPedido+`"><h4 onclick="window.print()">Setor Tapiocas<img src="assets/img/printer.png" ></h4></div>
-                        <div class="setor" id="pasteis`+dOrder.idPedido+`"><h4 onclick="window.print()">Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
-                        <div class="setor" id="bebidas`+dOrder.idPedido+`"><h4 onclick="window.print()">Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
+                        <div onclick="getPrint(this)"  class="setor" id="porcoes`+dOrder.idPedido+`"><h4>Setor Porções<img src="assets/img/printer.png" ></h4></div>
+                        <div onclick="getPrint(this)"  class="setor" id="tapiocas`+dOrder.idPedido+`"><h4>Setor Tapiocas<img src="assets/img/printer.png" ></h4></div>
+                        <div onclick="getPrint(this)"  class="setor" id="pasteis`+dOrder.idPedido+`"><h4>Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
+                        <div onclick="getPrint(this)"  class="setor" id="bebidas`+dOrder.idPedido+`"><h4>Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
                        
                         `;
                     })
@@ -478,13 +478,13 @@ function  fluxo(){
         //                     <div class="card" id="`+ordersSavedMap.idPedido+`">
         //                     <span class="orderId">#`+ordersSavedMap.idPedido+`</span>
 
-        //                     <button  style="width: 220px;margin: 0 auto; border: 1px solid #9e9e9e;border-radius: 10px;display: flex;align-items: center;padding: 5px 30px;" onclick="window.print()"><img src="assets/img/printer.png">Imprimir Compra total</button>
+        //                     <button  style="width: 220px;margin: 0 auto; border: 1px solid #9e9e9e;border-radius: 10px;display: flex;align-items: center;padding: 5px 30px;"><img src="assets/img/printer.png">Imprimir Compra total</button>
                                  
         //                         <div id="porcoes">
-        //                         <h3>Setor Cozinha <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3>  </div> 
-        //                         <div id="pasteis"><h3>Setor Pastéis <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
-        //                         <div id="bebidas"><h3>Setor Bebidas <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
-        //                         <div id="tapiocas"><h3>Setor Tapiocas <button  style="float: right;" onclick="window.print()"><img src="assets/img/printer.png"></button></h3></div>
+        //                         <h3>Setor Cozinha <button  style="float: right;"><img src="assets/img/printer.png"></button></h3>  </div> 
+        //                         <div id="pasteis"><h3>Setor Pastéis <button  style="float: right;"><img src="assets/img/printer.png"></button></h3></div>
+        //                         <div id="bebidas"><h3>Setor Bebidas <button  style="float: right;"><img src="assets/img/printer.png"></button></h3></div>
+        //                         <div id="tapiocas"><h3>Setor Tapiocas <button  style="float: right;"><img src="assets/img/printer.png"></button></h3></div>
                                  
                 
         //                     </div> 

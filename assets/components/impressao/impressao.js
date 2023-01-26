@@ -21,6 +21,8 @@ getPrint=(data)=>{
         dataOrder.style.cssText='display:inherit;'
         controlspage.style.cssText='display:flex'
 
+        
+
     }, 5000);
 
     window.print()
