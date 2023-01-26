@@ -45,6 +45,7 @@ function innnerOrderItens(mesaKey,tipo){
                                             </div>
                                             `; 
                                             
+                                            //OBTEM DADOS DE FATURAMENTO
                                             QTDITENSMESA+=myItens.quantidade
                                             TOTALDAMESA+=custoporquantidade
                                             
@@ -73,14 +74,7 @@ function innnerOrderItens(mesaKey,tipo){
         })
 
         
-       // COLETA DADOS FINANCEIRO
-       totalMesaContainer=document.getElementById('subTotal')
-       console.log('QUANTIDADE DE ITENS NA MESA',QTDITENSMESA)
-       console.log('TOTAL DA MESA',TOTALDAMESA.toString())
-
-       if(totalMesaContainer){
-        totalMesaContainer.innerHTML+=` ` +TOTALDAMESA.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).toString()+ ` `;
-       }
+     
     
     }else if(tipo==='delivery'){
        let deliveryPedidos=JSON.parse(localStorage.getItem("pedidosDelivery"))
@@ -109,6 +103,10 @@ function innnerOrderItens(mesaKey,tipo){
                                             
                                         </div>
                                      `;
+
+                                   //OBTEM DADOS DE FATURAMENTO
+                                   QTDITENSMESA+=itmaps.quantidade
+                                   TOTALDAMESA+=custoporquantidade
                             }
                              
 
@@ -137,7 +135,14 @@ function innnerOrderItens(mesaKey,tipo){
 
 
 
+  // COLETA DADOS FINANCEIRO
+       totalMesaContainer=document.getElementById('subTotal')
+       console.log('QUANTIDADE DE ITENS NA MESA',QTDITENSMESA)
+       console.log('TOTAL DA MESA',TOTALDAMESA.toString())
 
+       if(totalMesaContainer){
+        totalMesaContainer.innerHTML+=` ` +TOTALDAMESA.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).toString()+ ` `;
+       }
 
    
     
@@ -599,55 +604,27 @@ function  fluxo(){
     // HOME FRONT PAGE
     app.innerHTML+=` 
             <div class="header">
-                <div onclick="getModalNotification()" style=" position: absolute; right: 30px;  top: 30px;">
+                <div onclick="appNotification()" style=" position: absolute; right: 30px;  top: 30px;">
                     <img src="assets/img/bell.png" style="width: 23px; ">
                     <span id="notQtd"></span>
                 </div>
                </div>
                
-                <div id="notifications" onclick="appNotification()"> 
-                    
-                    <div class="notificationView">
-                    
-                        <div class="controls">
-                            <button onclick="getModalNotification()">
-                            &lt; 
-                            </button>
-                            <button onclick="getModalNotification()">
-                            x
-                            </button>
-                        </div>
-
-                        <div class="card">
-                        <button class="close" onclick="">
-                            x
-                        </button>
-                        <div class="mesaIcon">Mesa 2</div>
-                            <div class="datails">
-                                <h6>Olá você recebeu um novo pedido</h6>
-                                <p>15/01 às 15:37  Mesa: 30  / Daniel  Soares</p>
-                                <div class="buttons">
-                                    <a href="">Mais detalhes</a>
-                                    <button class="recusa">Recusar</button>
-                                    <button class="aceita">Aceitar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    </div>
-                </div>
+               
 
             <h5 class="tittle">Receba pedidos em tempo real.</h5> 
             <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>
+            <div id="relatorioFinanceiro" class="relatorioFinanceiro">
+            </div>
+            <div id="deliveryRelatorio" class="relatorioFinanceiro">
+            </div>
+          
             <div class="painelvendas">
                 <div id="mesas">
                   <h3>Pedidos Mesa:</h3>
                 </div>
                 <div id="deliveyPedidos">
-                  <h3>Pedidos Balção:</h3>
-                    
-                
+                  <h3>Pedidos Delivery:</h3>  
                 </div>
             </div>
 

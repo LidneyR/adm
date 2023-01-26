@@ -56,7 +56,8 @@
  
     
     ordersLab.onSnapshot((snapshot) => { 
-        qtdNotification.innerHTML=""
+        
+        notQtd.innerHTML=""
         let pedidosAll=[]   
 
         snapshot.forEach((doc) => {
@@ -64,11 +65,12 @@
             pedidosAll.push(doc.data())  
 
 
-            qtdNotification.innerHTML=pedidosAll.length 
+            notQtd.innerHTML=pedidosAll.length 
             let storegeProds=JSON.stringify(pedidosAll) 
 
-            
             getData(pedidosAll)
+            appNotification(pedidosAll,'mesa')
+
         }); 
     }, (error) => {
         console.log('Erro api')
@@ -89,6 +91,7 @@
         
         }); 
         deliveryData(deliveryAll)
+        appNotification(deliveryAll,'delivery')
 
     }, (error) => {
         // ...
