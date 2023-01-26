@@ -111,6 +111,7 @@ div#mesas button {
     box-shadow: 2px 2px #f4f3f3;
     height: 50px;
     
+    
 }
 .mesabutton{
     background: #ff5201 !important;
@@ -151,6 +152,7 @@ button {
  
     border: 0;
     background-color: transparent;
+    text-transform: capitalize;
 }
 
 .controls {
