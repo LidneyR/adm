@@ -618,6 +618,8 @@ function  fluxo(){
             </div>
             <div id="deliveryRelatorio" class="relatorioFinanceiro">
             </div>
+            <div id="relatorioFaturamentoAtual" class="relatorioFinanceiro">
+            </div>
           
             <div class="painelvendas">
                 <div id="mesas">
