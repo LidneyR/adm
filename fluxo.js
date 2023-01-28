@@ -399,7 +399,10 @@ function  fluxo(){
 
                 if(mesasMap.mesa==keybtn){
                     badgeMesa=document.getElementById('badgemesa')
-                    badgeMesa.innerHTML=`<div>Pedidos Mesa `+keybtn+`</div>`; //Imprime numero da mesa
+                    badgeMesa.innerHTML=`
+                        <div>Pedidos Mesa `+keybtn+`</div>
+                       <button class="printAll" onclick="getPrint(this)"> <img src="assets/img/printer.png" >Imprimir tudo <button> 
+                    `; //Imprime numero da mesa
                     mesasMap.orders.map((mOrder)=>{
                         // console.log(mOrder)
                         containerMesaDetails.innerHTML+=`

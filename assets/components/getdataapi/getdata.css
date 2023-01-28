@@ -16,11 +16,12 @@ button.deliveryButton {
 }
 button.deliveryButton img{margin-right: 5px;}
 div#badgemesa {
-    display: flex;
+ 
     justify-content: center;
     font-size: 17px;
     font-weight: 600;
     color: #ff9800;
+    flex-wrap: wrap;
 }
 
 .idpedido {
@@ -29,6 +30,9 @@ div#badgemesa {
     justify-content: center;
     font-size: 35px;
     color: #9e9e9e;
+}
+div#badgemesa div:first-child {
+    text-align: center;
 }
 @media(max-width:600px){
     div#mesas {

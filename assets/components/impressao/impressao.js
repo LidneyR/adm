@@ -1,8 +1,10 @@
 
 
 getPrint=(data)=>{
-    console.log(data.parentNode)
+    console.log(data.getAttribute('class'))
 
+
+    if(data.getAttribute('class')!='printAll'){
 
     setor=document.querySelectorAll('.setor')
     cards=document.querySelectorAll('.card')
@@ -36,8 +38,14 @@ getPrint=(data)=>{
         controlspage.style.cssText='display:flex'
 
         tabledetails() 
-
+        
     }, 2000);
+window.print()
 
+}else{
     window.print()
+
+    console.log(dataOrder.childNodes) 
+}
+
 }
