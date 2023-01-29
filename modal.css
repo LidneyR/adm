@@ -391,3 +391,13 @@ button.printAll {
     max-width: 264px;
     color: #9e9e9e;
 }
+
+
+@media(min-width:500px){
+    div#relatorioFaturamentoAtual {
+        display: flex;
+    }
+    .relatorioMesas {
+        width: 50%;
+    }
+}

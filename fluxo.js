@@ -619,12 +619,31 @@ function  fluxo(){
 
             <h5 class="tittle">Receba pedidos em tempo real.</h5> 
             <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>
+            
             <div id="relatorioFinanceiro" class="relatorioFinanceiro">
-            </div>
-            <div id="deliveryRelatorio" class="relatorioFinanceiro">
-            </div>
-            <div id="relatorioFaturamentoAtual" class="relatorioFinanceiro">
-            </div>
+            
+                    <h5>Fluxo de Caixa</h5>
+                    <div id="vendasareceber" class="relatorioFinanceiro"> </div>
+                    <div id="faturamentoatual"></div>
+
+
+                        <div id="relatorioFaturamentoAtual" class="relatorioFinanceiro">
+                        
+                                <div class="relatorioMesas">
+                                    <h4>Relatório Vendas Mesas</h4> 
+                                    <div id="innerMesas" class="relatorioFinanceiro">  </div>
+                                    <div id="innerpedidosatuaismesas" class="relatorioFinanceiro">  </div>
+                                    <div id="totalfaturamentomesas" class="relatorioFinanceiro">  </div>
+                                </div>
+                            
+                                <div class="relatorioDelivery">
+                                    <h4>Relatório Vendas Delivery</h4> 
+                                    <div id="deliveryRelatorio" class="relatorioFinanceiro"> </div>
+                                    <div id="pedidosDeliveryAtuais" class=" relatorioFinanceiro "> </div>
+                                    <div id="totalfaturamentodelivery" class="relatorioFinanceiro">  </div> 
+                                </div>
+                        </div>
+                </div>
           
             <div class="painelvendas">
                 <div id="mesas">
