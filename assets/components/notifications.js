@@ -1,3 +1,4 @@
+notificacao=document.getElementById('notificacao')
 notQtd=document.getElementById('notQtd')
 VENDASOPENOW=[];
 mesasData=0
@@ -11,7 +12,22 @@ pedidosDeliveryAtuais=document.getElementById('pedidosDeliveryAtuais')
 relatorioFaturamentoAtual=document.getElementById('relatorioFaturamentoAtual')
 vendasareceber=document.getElementById('vendasareceber')
 // console.log(vendasareceber)
+innerSequenceOrders=(notDataBase)=>{
+  notificacoesData=notDataBase
+  notificacao.innerHTML=`Notificações</br>`;
+ 
+  notificacoesData.map((notMap)=>{
+ 
+    console.log(notMap.hora)
+    if(notMap.name!=undefined){
+    notificacao.innerHTML+=`<div>Novo Pedido Delivery `+notMap.name+` Hora do Pedido: `+notMap.hora+`<button>ver pedido</button> </div>`;
+    }else if(notMap.mesa!=undefined){
+    notificacao.innerHTML+=`<div>Novo Pedido Mesa (`+notMap.mesa+`) Hora do Pedido: `+notMap.hora+` <button>ver pedido</button></div>`;
 
+    }
+  
+  })
+}
 appNotification=(todosPedidos,tipo)=>{  
 
  
@@ -90,8 +106,8 @@ if(todosPedidos.length>0){
 
               delOrdersMap.itens.map((dimap)=>{
                // LISTA DE TODOS OS PEDIDOS NAS MESAS GERALconsole.log(dimap)
-                somaProdTotalMesas+=dimap.price
-                console.log(somaProdTotalMesas)
+                somaProdTotalMesas+=dimap.quantidade*dimap.price
+             
              if(totalfaturamentomesas){
                 totalfaturamentomesas.innerHTML=`Total Vendas Mesas<strong>`+ somaProdTotalMesas.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong> `;
               }
@@ -110,9 +126,7 @@ if(todosPedidos.length>0){
           deliveryRelatorio.innerHTML=`Delivery vendas atuais (`+vatualMap.data.length+`)`;
 
           vatualMap.data.map((dataMap)=>{ 
-
-
-            console.log(">",dataMap.orders.length)
+ 
            
             dataMap.orders.map((pedidoDelMap)=>{
                 pedidoDelMap.itens.map((mapDelI)=>{

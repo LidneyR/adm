@@ -48,4 +48,5 @@ function deliveryData(deliveryAll){
  
 
 window.onload=function(){
+    deliveryAll=false
 }

@@ -35,6 +35,7 @@
   <script src="api.js"></script>
   <script src="fluxo.js"></script>
   <script src="relatorio.js"></script>
+  <script src="assets/components/relogio/relogio.js"></script>
   <script src="assets/components/notifications.js"></script>
   <script src="assets/components/impressao/impressao.js"></script>
   <script src="assets/components/getdataapi/getdata.js"></script>
@@ -69,8 +70,7 @@
         let pedidosAll=[]   
 
         snapshot.forEach((doc) => {
-            pedidosAll.push(doc.data())  
-            console.log(pedidosAll)   
+            pedidosAll.push(doc.data())   
             notQtd.innerHTML=pedidosAll.length 
             let storegeProds=JSON.stringify(pedidosAll) 
 
@@ -97,8 +97,36 @@
            
             
         }); 
-        deliveryData(deliveryAll)
-        appNotification(deliveryAll,'delivery')
+
+        if(deliveryAll){
+            deliveryData(deliveryAll)
+            appNotification(deliveryAll,'delivery')
+        }
+        // ..
+    }, (error) => {
+        // ...
+    });
+
+
+    //REQUEST NOTIFICAÇÕES 
+    const ordersNotifications=db.collection('notificacoes')
+ 
+
+    
+    ordersNotifications.onSnapshot((snapshot) => { 
+        let notificationsBd=[]
+        snapshot.forEach((doc) => {
+           
+            notificationsBd.push(doc.data())
+       
+            innerSequenceOrders(notificationsBd)
+
+        }); 
+
+        if(deliveryAll!=false){
+            deliveryData(deliveryAll)
+            appNotification(deliveryAll,'delivery')
+        }
         // ..
     }, (error) => {
         // ...
