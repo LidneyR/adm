@@ -69,10 +69,8 @@
         let pedidosAll=[]   
 
         snapshot.forEach((doc) => {
-            // console.log(doc.data())
             pedidosAll.push(doc.data())  
-
-
+            console.log(pedidosAll)   
             notQtd.innerHTML=pedidosAll.length 
             let storegeProds=JSON.stringify(pedidosAll) 
 
@@ -94,9 +92,10 @@
     ordersDelivery.onSnapshot((snapshot) => { 
         let deliveryAll=[]
         snapshot.forEach((doc) => {
-            // console.log(doc.data()) 
+           
             deliveryAll.push(doc.data())
-        
+           
+            
         }); 
         deliveryData(deliveryAll)
         appNotification(deliveryAll,'delivery')

@@ -14,8 +14,12 @@ vendasareceber=document.getElementById('vendasareceber')
 
 appNotification=(todosPedidos,tipo)=>{  
 
-      if(tipo=="mesa"){
+ 
 
+if(todosPedidos.length>0){
+ 
+      if(tipo=="mesa"){ 
+ 
         NUMEROMESASABERTASNOMOMENTO=todosPedidos.length  
         let MESASABERTASNOMOMENTO=todosPedidos
         
@@ -28,22 +32,21 @@ appNotification=(todosPedidos,tipo)=>{
           }  
       }   
      
-        
-        // mesasRelatorio.innerHTML=`Mesas Abertas no momento (`+NUMEROMESASABERTASNOMOMENTO+`)`;
+         
  
-  }else if(tipo=='delivery'){ 
-     
+  }else if(todosPedidos.length >0){  
+          
         NUMERODELIVERYABERTOSMOMENTO=todosPedidos.length 
         let DELIVERYABERTOSMOMENTO=todosPedidos
    
 
-      if(todosPedidos.length>0){
-        deliverysData={
-          "tipo":'Deliverys',
-          "data":todosPedidos, 
-        }   
-     
-      }
+        if(todosPedidos.length>0){
+          deliverysData={
+            "tipo":'Deliverys',
+            "data":todosPedidos, 
+          }   
+      
+        }
     }
     
  
@@ -52,6 +55,8 @@ appNotification=(todosPedidos,tipo)=>{
     VENDASOPENOW=[mesasData,deliverysData] 
     }
    setTimeout(allData(), 3000);
+
+  }
 }
 
  function allData(){
@@ -79,7 +84,7 @@ appNotification=(todosPedidos,tipo)=>{
 
           vatualMap.data.map((dataMap)=>{ 
             tpedMesa+=dataMap.orders.length
-            // console.log(dataMap.orders)
+        
 
             dataMap.orders.map((delOrdersMap)=>{
 
@@ -87,9 +92,9 @@ appNotification=(todosPedidos,tipo)=>{
                // LISTA DE TODOS OS PEDIDOS NAS MESAS GERALconsole.log(dimap)
                 somaProdTotalMesas+=dimap.price
        
-             
+             if(totalfaturamentomesas){
                 totalfaturamentomesas.innerHTML=`Total Vendas Mesas<strong>`+ somaProdTotalMesas.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong> `;
-
+              }
               })
             
             })
@@ -112,7 +117,7 @@ appNotification=(todosPedidos,tipo)=>{
 
                 pedidoDelMap.itens.map((mapDelI)=>{
                   somaProdTotalDelivery+=mapDelI.price
-                  console.log(somaProdTotalDelivery)
+               
                   totalfaturamentodelivery.innerHTML=`Total Vendas Delivery<strong> `+somaProdTotalDelivery.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong>`;
                 })
 
@@ -131,7 +136,7 @@ appNotification=(todosPedidos,tipo)=>{
 
       var FATURAATUAL=somaProdTotalMesas+somaProdTotalDelivery
 
-      console.log(FATURAATUAL)
+      // console.log(FATURAATUAL)
 
         faturamentoatual.innerHTML=`FATURAMENTO ATUAL <strong>`+FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +`</strong>`;  
 
