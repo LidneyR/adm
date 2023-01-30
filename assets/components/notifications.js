@@ -91,7 +91,7 @@ if(todosPedidos.length>0){
               delOrdersMap.itens.map((dimap)=>{
                // LISTA DE TODOS OS PEDIDOS NAS MESAS GERALconsole.log(dimap)
                 somaProdTotalMesas+=dimap.price
-       
+                console.log(somaProdTotalMesas)
              if(totalfaturamentomesas){
                 totalfaturamentomesas.innerHTML=`Total Vendas Mesas<strong>`+ somaProdTotalMesas.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong> `;
               }
@@ -112,9 +112,9 @@ if(todosPedidos.length>0){
           vatualMap.data.map((dataMap)=>{ 
 
 
+            console.log(">",dataMap.orders.length)
            
             dataMap.orders.map((pedidoDelMap)=>{
-
                 pedidoDelMap.itens.map((mapDelI)=>{
                   somaProdTotalDelivery+=mapDelI.price
                
@@ -124,7 +124,8 @@ if(todosPedidos.length>0){
               }) 
 
           
-            pedidosDeliveryAtuais.innerHTML=`Pedidos Mesas em curso (`+vatualMap.data.length+`)`;
+            pedidosDeliveryAtuais.innerHTML=`Pedidos Delivery em curso (`+dataMap.orders.length+`)`;
+            // 
             // totalfaturamentodelivery.innerHTML=`Total Vendas Delivery total()`;
           })
 
