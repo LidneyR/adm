@@ -1,3 +1,8 @@
+div#notificacao{
+    display: inline-flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+}
 #notifications{
     position: relative;
     display: none;
@@ -35,7 +40,12 @@ span#notQtd {
     left: 0;
     top: 0;
 }
-
+div#notificacao > div:last-child {
+    background: #ff5722;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+}
 .notificationView .card {
     display: flex;
 }
