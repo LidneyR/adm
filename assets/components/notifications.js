@@ -145,8 +145,11 @@ if(todosPedidos.length>0){
         }else if(vatualMap.tipo=='Deliverys'){
          
           deliveryRelatorio.innerHTML=`Delivery vendas atuais (`+vatualMap.data.length+`)`;
-
+          nOrders=0
           vatualMap.data.map((dataMap)=>{ 
+
+            nOrders+=dataMap.orders.length
+            console.log(nOrders)
  
            
             dataMap.orders.map((pedidoDelMap)=>{
@@ -159,7 +162,7 @@ if(todosPedidos.length>0){
               }) 
 
           
-            pedidosDeliveryAtuais.innerHTML=`Pedidos Delivery em curso (`+dataMap.orders.length+`)`;
+            pedidosDeliveryAtuais.innerHTML=`Pedidos Delivery em curso (`+nOrders+`)`;
             // 
             // totalfaturamentodelivery.innerHTML=`Total Vendas Delivery total()`;
           })

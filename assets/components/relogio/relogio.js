@@ -9,7 +9,7 @@ relogio=()=>{
     let horaatual=hr+":"+mn+":"+ms
     // console.log(horaatual)
 
-    document.getElementById('relogio').innerHTML=`<h5>Horário de Brasilia `+horaatual+`</h5>`
+    document.getElementById('relogio').innerHTML=`<h5>Horário de Brasília `+horaatual+`</h5>`
 
     return horaatual
 }   
