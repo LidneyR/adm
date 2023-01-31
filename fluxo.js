@@ -379,7 +379,13 @@ function  fluxo(){
                 <button onclick="tabledetails(event)">x</button>    
             </div> 
             <div id="badgemesa"></div>
-            <div id="dataOrder">
+            <div> 
+                <div class="qr">  
+                    <h4>Escaneie e pague, facil e rápido!</h4>
+                    <img src='assets/components/impressao/andd.png'>
+                </div>
+            </div>
+            <div id="dataOrder"> 
                 <div id="subTotal">Total da Compra</div>
                 <button class="closeOrder">Fechar Conta</button>
             </div>
@@ -401,7 +407,7 @@ function  fluxo(){
                     badgeMesa=document.getElementById('badgemesa')
                     badgeMesa.innerHTML=`
                         <div>Pedidos Mesa `+keybtn+`</div>
-                       <button class="printAll" onclick="getPrint(this)"> <img src="assets/img/printer.png" >Imprimir tudo <button> 
+                       <button class="printAll" onclick="getPrint(this)"> <img src="assets/img/printer.png" > Imprimir tudo <button> 
                     `; //Imprime numero da mesa
                     mesasMap.orders.map((mOrder)=>{
                         // console.log(mOrder)

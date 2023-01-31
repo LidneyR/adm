@@ -187,7 +187,7 @@ button.recusa {
     }  
     
     h4 {
-        color: #ff5722;
+        color: #ff9800;
         /* border-bottom: 1px solid; */
     } 
     .relatorioDelivery,.relatorioMesas {
@@ -195,4 +195,9 @@ button.recusa {
     }
     strong {
         color: #ff5722;
+    }
+    .qr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
