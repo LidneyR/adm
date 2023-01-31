@@ -397,8 +397,9 @@ button.printAll {
     div#relatorioFaturamentoAtual {
         display: flex;
     }
-    .relatorioMesas {
-        width: 50%;
+    .relatorioMesas,.relatorioDelivery {
+        width: 45%;
+        margin: 0 5px;
     }
 }
  
@@ -465,4 +466,18 @@ div#modalApp{
 }   
 div#modalContent .card {
     margin-bottom: 20%;
+}
+
+div#faturamentoatual {
+    text-align: center;
+    margin: 30px auto;
+    border: 1px solid #eee;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: #ff5722; */
+    border-radius: 10px;
+    /* color: white; */
+    width: 360px;
 }

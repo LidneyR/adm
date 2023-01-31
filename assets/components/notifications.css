@@ -192,9 +192,10 @@ button.recusa {
     } 
     .relatorioDelivery,.relatorioMesas {
         color: #818f9b;
+        border: 1px solid #eee;
     }
     strong {
-        color: #ff5722;
+        color: #ff9800;
     }
     .qr {
         display: flex;

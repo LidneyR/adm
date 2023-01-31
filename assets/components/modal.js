@@ -53,7 +53,7 @@ modalJs=(idPed)=>{
         
         modalContent.innerHTML+=`<div class="botoes">
         <button>Aceitar Pedido</button>
-        <a>Recusar Pedido</a>
+        <a><i class="fa-solid fa-check"></i> Pedido entregue!</a>
         </div>`; 
       }
 
