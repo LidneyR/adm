@@ -619,7 +619,10 @@ function  fluxo(){
 
             <h5 class="tittle">Receba pedidos em tempo real.</h5> 
             <div id="relogio"></div>
-            <div id="notificacao">Notificações</div>
+            <div class="notificacoes">
+            <h5>Notificações</div>
+                <div id="notificacao">Notificações</div>
+            </div>
             <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>
             
             <div id="relatorioFinanceiro" class="relatorioFinanceiro">

@@ -14,7 +14,7 @@ vendasareceber=document.getElementById('vendasareceber')
 // console.log(vendasareceber)
 innerSequenceOrders=(notDataBase)=>{
   notificacoesData=notDataBase
-  notificacao.innerHTML=`Notificações</br>`;
+  notificacao.innerHTML=` `;
  
   notificacoesData.map((notMap)=>{
  
@@ -26,7 +26,7 @@ innerSequenceOrders=(notDataBase)=>{
           if(notMap.name!=undefined){
           notificacao.innerHTML+=`
           
-          <div>Novo Pedido Delivery `+notMap.name+` Hora do Pedido: `+notMap.hora+`
+          <div>Olá novo Pedido DeliveryAPP `+notMap.name+` Hora do Pedido: `+notMap.hora+`
              <button onclick="modalJs(`+allOrdersMap.idPedido+`)">   ver pedido   </button> 
            </div>
 
@@ -102,6 +102,7 @@ if(todosPedidos.length>0){
   totalfaturamentomesas=document.getElementById('totalfaturamentomesas')
   tpedMesa=0
   somaProdTotalMesas=0
+  totaldaCompra=0
        
  
   if(VENDASOPENOW.length>0){
@@ -143,14 +144,18 @@ if(todosPedidos.length>0){
           vatualMap.data.map((dataMap)=>{ 
 
             nOrders+=dataMap.orders.length
-            console.log(nOrders)
  
+           
            
             dataMap.orders.map((pedidoDelMap)=>{
                 pedidoDelMap.itens.map((mapDelI)=>{
-                  somaProdTotalDelivery+=mapDelI.price
-               
-                  totalfaturamentodelivery.innerHTML=`Total Vendas Delivery<strong> `+somaProdTotalDelivery.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong>`;
+                  
+                  var custoporquantidade=mapDelI.price*mapDelI.quantidade
+                  totaldaCompra+=custoporquantidade
+                  
+                  somaProdTotalDelivery=totaldaCompra
+
+                  totalfaturamentodelivery.innerHTML=`Total Vendas Delivery<strong> `+totaldaCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong>`;
                 })
 
               }) 
