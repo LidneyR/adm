@@ -26,7 +26,7 @@ innerSequenceOrders=(notDataBase)=>{
           if(notMap.name!=undefined){
           notificacao.innerHTML+=`
           
-          <div>Olá novo Pedido DeliveryAPP `+notMap.name+` Hora do Pedido: `+notMap.hora+`
+          <div>> Olá novo Pedido DeliveryAPP `+notMap.name+` Hora do Pedido: `+notMap.hora+`
              <button onclick="modalJs(`+allOrdersMap.idPedido+`)">   ver pedido   </button> 
            </div>
 
