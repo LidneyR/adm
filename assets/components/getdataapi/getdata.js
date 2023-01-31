@@ -25,7 +25,7 @@ function deliveryData(deliveryAll){
     localStorage.setItem("pedidosDelivery", JSON.stringify(deliveryAll));
  
     deliveryAll.map((deliveryMap)=>{
-        // console.log(deliveryMap)
+        console.log(deliveryMap.whatsapp)
     // sadasdasdas/
         // deliveryContainer.innerHTML+=`<button onclick="" class="deliveryButton" onclick="tabledetails(event)">`+deliveryMap.name+`</button>`
         deliveryContainer.innerHTML+=`
@@ -34,7 +34,7 @@ function deliveryData(deliveryAll){
                                     <button key='`+deliveryMap.name+`'   onclick="tabledetails(event,'delivery')" >
                                         <img src="assets/img/user.png" style="width: 16px;">`+deliveryMap.name+`
                                     </button>
-                                    <button class="avisePronto" key='`+deliveryMap.name+`'   onclick="alert('Aviso enviado')" >
+                                    <button class="avisePronto" key='`+deliveryMap.name+`'   onclick="sendMsgWhats('`+deliveryMap.whatsapp+`')" >
                                         <img src="assets/img/whatswhite.png" style="width: 16px;">    </button>
                                 </div>     
                             

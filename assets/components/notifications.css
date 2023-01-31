@@ -190,7 +190,7 @@ button.recusa {
         color: #ff5722;
         /* border-bottom: 1px solid; */
     } 
-    .relatorioDelivery {
+    .relatorioDelivery,.relatorioMesas {
         color: #818f9b;
     }
     strong {
