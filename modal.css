@@ -401,3 +401,29 @@ button.printAll {
         width: 50%;
     }
 }
+ 
+.overylay {
+    background: black;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+}
+.modalBody {
+    background: white;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 85%;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    margin: 5%;
+    overflow: auto;
+}
+
+div#modalApp{
+    display: none;
+}

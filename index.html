@@ -20,14 +20,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
-  <body>
-
-
-      
-   
-
-
-<!-- ///////////////////////////////q -->
+  <body> 
       <div id="app"></div> 
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
@@ -36,6 +29,7 @@
   <script src="fluxo.js"></script>
   <script src="relatorio.js"></script>
   <script src="assets/components/relogio/relogio.js"></script>
+  <script src="assets/components/modal.js"></script>
   <script src="assets/components/notifications.js"></script>
   <script src="assets/components/impressao/impressao.js"></script>
   <script src="assets/components/getdataapi/getdata.js"></script>
@@ -115,12 +109,9 @@
     
     ordersNotifications.onSnapshot((snapshot) => { 
         let notificationsBd=[]
-        snapshot.forEach((doc) => {
-           
-            notificationsBd.push(doc.data())
-       
-            innerSequenceOrders(notificationsBd)
-
+        snapshot.forEach((doc) => { 
+            notificationsBd.push(doc.data()) 
+            innerSequenceOrders(notificationsBd) 
         }); 
 
         if(deliveryAll!=false){

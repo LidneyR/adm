@@ -690,8 +690,20 @@ function  fluxo(){
                             <button onclick="tabledetails(event)">x</button>    
                      </div> 
                 </div>
+                <div id="modalApp">
+                    <div onclick="modalJs(false)"class="overylay"> </div>
+                    <div id="modalBody" class="modalBody">
+                    <div class="controls">
+                        <button onclick="modalJs(false)">&lt;</button>
+                        <button onclick="modalJs(false)">x</button>    
+                    </div>   
+                    <div id="modalContent"></div>                       
+                    </div>
+                </div>
+
 
         `;      
+
 
 }
 fluxo()
