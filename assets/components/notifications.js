@@ -27,20 +27,14 @@ innerSequenceOrders=(notDataBase)=>{
           notificacao.innerHTML+=`
           
           <div>Novo Pedido Delivery `+notMap.name+` Hora do Pedido: `+notMap.hora+`
-          <button onclick="modalJs(`+allOrdersMap.idPedido+`)">
-          ver pedido
+             <button onclick="modalJs(`+allOrdersMap.idPedido+`)">   ver pedido   </button> 
+           </div>
+
           
-          </button>  
-            <div class="newOrder">
-              `+allOrdersMap.idPedido+`
-            </div>
-          </div>
           `;
           }else if(notMap.mesa!=undefined){
           notificacao.innerHTML+=`<div>Novo Pedido Mesa (`+notMap.mesa+`) Hora do Pedido: `+notMap.hora+` <button onclick="modalJs(`+allOrdersMap.idPedido+`)">ver pedido</button>
-          <div class="newOrder">
-          `+allOrdersMap.idPedido+`
-            </div>    
+           
           </div>`;
           
           }  

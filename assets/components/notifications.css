@@ -45,11 +45,22 @@ div#notificacao > div:last-child {
     color: white;
     font-weight: bold;
     padding: 15px;
+    border-radius: 20px;
 }
 .notificationView .card {
     display: flex;
 }
-
+.yellow{
+    color: #ffeb3b;
+    border: 2px solid;
+    height: 40px;
+    border-radius: 20px;
+    width: 160px;
+    margin: 0 10px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+}
 .notificationView .mesaIcon {
     display: flex;
 
@@ -154,3 +165,21 @@ button.recusa {
         right: 0;
         top: 0;
     }
+
+
+    div#notificacao > div:last-child button {
+        color: white;
+        border: 1px solid;
+        margin: 0 15px;
+        height: 24px;
+        border-radius: 20px;
+        width: 130px;
+    }
+
+    div#notificacao > div {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        color: burlywood;
+        padding: 0px 15px;
+    }   

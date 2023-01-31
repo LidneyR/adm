@@ -25,6 +25,8 @@ modalJs=(idPed)=>{
             #Pedido `+oMap.idPedido+`</div>
             </div>
         </div>
+
+        
       
         
         
@@ -35,17 +37,15 @@ modalJs=(idPed)=>{
         oMap.itens.map((imap)=>{
  
           document.getElementById(oMap.idPedido).innerHTML+=` 
-       
 
-          <div class="pedidoResumo" style="display:flex">
-          <div> `+imap.quantidade+` un</div>
-          <div> `+imap.name+`</div>
-          <div> `+imap.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</div>
-          <div>
+
+          <div class="pedidoResumo">  
+                <div class="quantd"> `+imap.quantidade+` un. </div> 
+                <div class="nomeProd"> `+imap.name+`</div>
+                <div class="priceresumo">`+imap.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</div>
+
+            </div>
         
-        
-          
-          
           
           `
         })

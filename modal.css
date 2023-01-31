@@ -414,16 +414,55 @@ button.printAll {
 .modalBody {
     background: white;
     width: 90%;
-    margin: 0 auto;
     border-radius: 10px;
-    height: 85%;
+    height: auto;
     position: absolute;
     z-index: 9999;
     top: 0;
     margin: 5%;
     overflow: auto;
+    padding: 0;
+    min-height: 300px;
+
 }
 
 div#modalApp{
     display: none;
+}.quantd {
+    width: 15%;
+}
+
+.botoes {
+    background: #ff5722;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botoes button {
+    color:#ffeb3b;
+    border: 2px solid;
+    height: 40px;
+    border-radius: 20px;
+    width: 160px;
+    margin: 0 10px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;   
+}
+.botoes a {
+    color: white;
+  
+  
+}
+.botoes {
+
+ 
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 20px 0;
+}   
+div#modalContent .card {
+    margin-bottom: 20%;
 }
