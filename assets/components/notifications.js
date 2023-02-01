@@ -176,7 +176,7 @@ if(todosPedidos.length>0){
 
       // console.log(FATURAATUAL)
 
-        faturamentoatual.innerHTML=`FATURAMENTO ATUAL <strong>`+FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +`</strong>`;  
+        faturamentoatual.innerHTML=`FATURAMENTO ATUAL <strong> ` +FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +`</strong>`;  
 
   }else{
     relatorioFinanceiro=document.getElementById('relatorioFinanceiro')

@@ -196,7 +196,7 @@ button.recusa {
         color: #818f9b;
         border: 1px solid #eee;
         padding: 15px;
-        border-radius: 15px
+        border-radius: 15px 
     }
     strong {
         color: #ff9800;

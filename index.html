@@ -22,6 +22,12 @@
   </head>
   <body> 
       <div id="app"></div> 
+      <div id="closeForm" style="display: none;">
+        <form class="closeForm" action="">
+            <input type="text" placeholder="Selecione a forma de pagamento">
+            <button type="submit">Encerrar conta</button>
+        </form>
+      </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
 
@@ -56,11 +62,49 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig); 
   const db = firebase.firestore();
+  let formClose=document.querySelector('.closeForm')
+  let horaAtual=relogio()
+  let data=dataHora()
+
+ 
+
+  formClose.addEventListener('submit', function(e){
+    e.preventDefault()   
+    alert('Conta encerrada com sucesso!') 
+
+    contasClosedb.map((clc)=>{
+        console.log(clc.contasFechadas)
+        clc.contasFechadas.map((cf)=>{
+        
+                unifechamentos.push(cf)
+
+        })
+        // unifechamentos.push(clc.contasFechadas)
+        
+    })
+    unifechamentos.push(contaFechada)
+    console.log(unifechamentos)
+     
+   //conta que pediu fechamento console.log(contaFechada)
+
+    db.collection('fechamentos').doc(data).set({
+        "name":"fechamentos",
+        "contasFechadas":unifechamentos,
+       
+
+    })
+ 
+  })
+
+
+
+
+
 
   let list = document.getElementById("notifications") 
   const ordersLab=db.collection('mesasOpen') 
  
-    
+
     ordersLab.onSnapshot((snapshot) => { 
         
         notQtd.innerHTML=""
@@ -88,11 +132,8 @@
     
     ordersDelivery.onSnapshot((snapshot) => { 
         let deliveryAll=[]
-        snapshot.forEach((doc) => {
-           
-            deliveryAll.push(doc.data())
-           
-            
+        snapshot.forEach((doc) => { 
+            deliveryAll.push(doc.data())  
         }); 
 
         if(deliveryAll){
@@ -106,10 +147,7 @@
 
 
     //REQUEST NOTIFICAÇÕES 
-    const ordersNotifications=db.collection('notificacoes')
- 
-
-    
+    const ordersNotifications=db.collection('notificacoes')  
     ordersNotifications.onSnapshot((snapshot) => { 
         let notificationsBd=[]
         snapshot.forEach((doc) => { 
@@ -126,6 +164,21 @@
         // ...
     });
 
+
+    //REQUEST CONTAS CLOSE 
+    const contasClose=db.collection('fechamentos')  
+    contasClose.onSnapshot((snapshot) => { 
+        let mapContasClose=[]
+        snapshot.forEach((doc) => { 
+            mapContasClose.push(doc.data()) 
+            contasClosedb.push(doc.data()) 
+            // innerSequenceOrders(notificationsBd) 
+        }); 
+ 
+        // ..
+    }, (error) => {
+        // ...
+    });
 
 
  //DELETE

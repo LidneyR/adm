@@ -487,3 +487,12 @@ div#faturamentoatual {
     width: 360px;
 }
 
+div#closeForm {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    height: 100%;
+    background: #ededed;
+    width: 100%;
+    left: 0;
+}

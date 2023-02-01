@@ -137,8 +137,8 @@ function innnerOrderItens(mesaKey,tipo){
 
   // COLETA DADOS FINANCEIRO
        totalMesaContainer=document.getElementById('subTotal')
-       console.log('QUANTIDADE DE ITENS NA MESA',QTDITENSMESA)
-       console.log('TOTAL DA MESA',TOTALDAMESA.toString())
+    //    console.log('QUANTIDADE DE ITENS NA MESA',QTDITENSMESA)
+    //    console.log('TOTAL DA MESA',TOTALDAMESA.toString())
 
        if(totalMesaContainer){
         totalMesaContainer.innerHTML+=` ` +TOTALDAMESA.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).toString()+ ` `;
@@ -371,7 +371,10 @@ function  fluxo(){
     
     tabledetails=(event, tipo)=>{ //imprime detalhes do pedido
     
-        key=event.target.getAttribute('key')
+       key=event.target.getAttribute('key')
+    //    console.log(VENDASOPENOW)
+
+    //    console.log(event.target)
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show")
        containerMesaDetails.innerHTML=`
@@ -388,14 +391,13 @@ function  fluxo(){
             </div>
             <div id="dataOrder"> 
                 <div id="subTotal">Total da Compra</div>
-                <button onclick="closeOrder(`+key+`)"class="closeOrder">Fechar Conta</button>
+                <button key='`+key+`' onclick="closeOrder(event)" class="closeOrder">Fechar Conta</button>
             </div>
 
              
        `;
-       keybtn=event.target.getAttribute('key')
-
-        
+       
+       keybtn=event.target.getAttribute('key') 
          
 
         if(tipo==='mesa'){

@@ -1,26 +1,51 @@
-closeOrder=(id)=>{
+contasClosedb=[]
+unifechamentos=[] 
+closeOrder=(event)=>{
+// console.log(event.target.getAttribute('key'))
 
-    dadosConta=id
-    // console.log('closeOrder',dadosConta)
-    
-    VENDASOPENOW.map((atualVendaMap)=>{
-        atualVendaMap.data.map((dataAtualMap)=>{
-          if(dataAtualMap.mesa){ 
+closeForm=document.getElementById('closeForm')
+closeForm.classList.toggle('show')
+hfechamento=relogio()
+idConta=event.target.getAttribute('key')
+todospedidos=[]
+contaFechada={
+  "idConta":idConta,
+  "fechamento":hfechamento,
+  "pedidosfeitos":todospedidos,
+  "formadePagamento":"PIX"
 
-              if(dataAtualMap.mesa==dadosConta){
-            //   console.log(dataAtualMap)
+}
+  
+  // OBTEM DADOS DE TODAS AS CATEGORIAS 
+  // console.log(VENDASOPENOW)
 
-              }
+  if(VENDASOPENOW){
+    VENDASOPENOW.map((vendasMap)=>{
+      // console.log(vendasMap.tipo)
+      
+     
 
-          }else if(dataAtualMap.name){ 
-            console.log(dataAtualMap.name)
-            console.log(dadosConta)
+        vendasMap.data.map((tipoMap)=>{
+          //  console.log(tipoMap)
 
-            if(dataAtualMap.name==dadosConta){
-                console.log(dataAtualMap)
+           if(tipoMap.mesa==idConta){
+              tipoMap.orders.map((mOrders)=>{
+                  //  console.log(mOrders)
+                   todospedidos.push(mOrders)
+              })
+           }else if(tipoMap.name==idConta){
+           
+            tipoMap.orders.map((dOrders)=>{
+              // console.log(dOrders)
+           
+            })
 
-            }
-          }
+           }
         })
+      
     })
+
+    // console.log(contaFechada)
+  }
+
 }
