@@ -19,34 +19,39 @@ contaFechada={
   
   // OBTEM DADOS DE TODAS AS CATEGORIAS 
   // console.log(VENDASOPENOW)
-
+// console.log(VENDASOPENOW)
   if(VENDASOPENOW){
     VENDASOPENOW.map((vendasMap)=>{
-      // console.log(vendasMap.tipo)
+      console.log(vendasMap.data)
       
      
 
-        vendasMap.data.map((tipoMap)=>{
-          //  console.log(tipoMap)
+        if(vendasMap.data){
 
-           if(tipoMap.mesa==idConta){
-              tipoMap.orders.map((mOrders)=>{
-                  //  console.log(mOrders)
-                   todospedidos.push(mOrders)
-                   plataforma='Mesas'
+          vendasMap.data.map((tipoMap)=>{
+          
+  
+             if(tipoMap.mesa==idConta){ 
+                tipoMap.orders.map((mOrders)=>{
+                    
+                     todospedidos.push(mOrders)
+                     plataforma='Mesas'
+                })
+             }else if(tipoMap.name==idConta){
+             
+              tipoMap.orders.map((dOrders)=>{ 
+                
+                  todospedidos.push(dOrders)
+                  plataforma='Deliverys'
+  
+             
               })
-           }else if(tipoMap.name==idConta){
-           
-            tipoMap.orders.map((dOrders)=>{ 
-              // console.log(dOrders)
-              todospedidos.push(dOrders)
-              plataforma='Deliverys'
+  
+             }
+          })
 
-           
-            })
 
-           }
-        })
+        }
       
     })
 
