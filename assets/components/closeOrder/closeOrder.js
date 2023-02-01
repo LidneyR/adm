@@ -1,5 +1,6 @@
 contasClosedb=[]
 unifechamentos=[] 
+platatorma=0
 closeOrder=(event)=>{
 // console.log(event.target.getAttribute('key'))
 
@@ -12,7 +13,7 @@ contaFechada={
   "idConta":idConta,
   "fechamento":hfechamento,
   "pedidosfeitos":todospedidos,
-  "formadePagamento":"PIX"
+  "formadePagamento":"PIX", 
 
 }
   
@@ -32,11 +33,15 @@ contaFechada={
               tipoMap.orders.map((mOrders)=>{
                   //  console.log(mOrders)
                    todospedidos.push(mOrders)
+                   plataforma='Mesas'
               })
            }else if(tipoMap.name==idConta){
            
-            tipoMap.orders.map((dOrders)=>{
+            tipoMap.orders.map((dOrders)=>{ 
               // console.log(dOrders)
+              todospedidos.push(dOrders)
+              plataforma='Deliverys'
+
            
             })
 

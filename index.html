@@ -71,7 +71,7 @@
   formClose.addEventListener('submit', function(e){
     e.preventDefault()   
     alert('Conta encerrada com sucesso!') 
-
+    console.log(plataforma)
     contasClosedb.map((clc)=>{
         console.log(clc.contasFechadas)
         clc.contasFechadas.map((cf)=>{
@@ -83,16 +83,40 @@
         
     })
     unifechamentos.push(contaFechada)
-    console.log(unifechamentos)
-     
-   //conta que pediu fechamento console.log(contaFechada)
+ 
+//    conta que pediu fechamento console.log(contaFechada)
 
     db.collection('fechamentos').doc(data).set({
         "name":"fechamentos",
-        "contasFechadas":unifechamentos,
-       
+        "contasFechadas":unifechamentos, 
 
     })
+
+    setTimeout(function(){
+        if(plataforma=='Mesas'){
+       
+        db.collection("mesasOpen").doc(idConta).delete().then(() => {
+            console.log("Document successfully deleted!");
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+            
+            }else{
+                db.collection("delivery").doc(idConta).delete().then(() => {
+                    console.log("Document successfully deleted!");
+                }).catch((error) => {
+                    console.error("Error removing document: ", error);
+                });
+            }
+    }, 3000)
+   
+    // //DELETE 
+   
+    // db.collection("mesasOpen").doc("12").delete().then(() => {
+    //     console.log("Document successfully deleted!");
+    // }).catch((error) => {
+    //     console.error("Error removing document: ", error);
+    // });
  
   })
 
@@ -181,16 +205,7 @@
     });
 
 
- //DELETE
-//  var btnDel=document.getElementById('deleteOrder')
-//  console.log(btnDel)
-//  btnDel.addEventListener('click',function(e){
-//   db.collection("mesasOpen").doc("12").delete().then(() => {
-//     console.log("Document successfully deleted!");
-// }).catch((error) => {
-//     console.error("Error removing document: ", error);
-// });
-//  })
+ 
   </script>
 
   </html>
