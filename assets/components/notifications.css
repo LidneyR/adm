@@ -2,6 +2,8 @@ div#notificacao{
     display: inline-flex;
     flex-direction: column-reverse;
     flex-wrap: wrap;
+    width: 100%;
+    
 }
 #notifications{
     position: relative;
@@ -44,7 +46,7 @@ div#notificacao > div:last-child {
     background: #ff5722;
     color: white;
     font-weight: bold;
-    padding: 15px;
+    padding: 25px;
     border-radius: 20px;
 }
 .notificationView .card {
@@ -211,6 +213,7 @@ button.recusa {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 190px;
     }
     div#notificacao span {
         margin-left: 5px;

@@ -49,7 +49,8 @@
 
           </div>
           <div class="placeCheckout">
-            <button type="submit">Encerrar conta</button>
+            <button onclick="loseOrder(false)" class="btn cancel" type="button">cancelar</button>
+            <button type="submit" class="btn closeOrders">Encerrar conta</button>
           </div>
         </form>
       </div>
@@ -111,11 +112,11 @@
  
 //    conta que pediu fechamento console.log(contaFechada)
 
-    db.collection('fechamentos').doc(data).set({
-        "name":"fechamentos",
-        "contasFechadas":unifechamentos, 
+    // db.collection('fechamentos').doc(data).set({
+    //     "name":"fechamentos",
+    //     "contasFechadas":unifechamentos, 
 
-    })
+    // })
 
     setTimeout(function(){
         if(plataforma=='Mesas'){
@@ -218,11 +219,11 @@
     const contasClose=db.collection('fechamentos')  
     contasClose.onSnapshot((snapshot) => { 
         let mapContasClose=[]
-        snapshot.forEach((doc) => { 
-            mapContasClose.push(doc.data()) 
-            contasClosedb.push(doc.data()) 
-            // innerSequenceOrders(notificationsBd) 
-        }); 
+        // snapshot.forEach((doc) => { 
+        //     mapContasClose.push(doc.data()) 
+        //     contasClosedb.push(doc.data()) 
+        //     // innerSequenceOrders(notificationsBd) 
+        // }); 
  
         // ..
     }, (error) => {

@@ -28,11 +28,21 @@ div#badgemesa {
     display: flex;
     width: 100%;
     justify-content: center;
-    font-size: 35px;
+    font-size: 25px;
     color: #9e9e9e;
 }
 div#badgemesa div:first-child {
     text-align: center;
+}
+h5 span {
+    background: #ff5201;
+    color: white;
+    border-radius: 20px;
+    width: 50px;
+    display: inline-flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
 }
 @media(max-width:600px){
     div#mesas {

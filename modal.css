@@ -402,6 +402,16 @@ button.printAll {
         width: 45%;
         margin: 0 5px;
     }
+   
+}
+@media(max-width:500px){
+
+div#notificacao > div {
+       
+    min-height: 90px;
+    flex-wrap: wrap;
+    justify-content: flex-end !important; 
+}
 }
  
 .overylay {

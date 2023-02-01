@@ -384,12 +384,6 @@ function  fluxo(){
                 </button>    
             </div> 
             <div id="badgemesa"></div>
-            <div> 
-                <div class="qr">  
-                    <h4>Escaneie e pague, facil e rápido!</h4>
-                    <img src='assets/components/impressao/andd.png'>
-                </div>
-            </div>
             <div id="dataOrder"> 
                 <div id="subTotal">Total da Compra</div>
                 <button key='`+key+`' onclick="closeOrder(event)" class="closeOrder">Fechar Conta</button>
@@ -410,8 +404,7 @@ function  fluxo(){
                 if(mesasMap.mesa==keybtn){
                     badgeMesa=document.getElementById('badgemesa')
                     badgeMesa.innerHTML=`
-                        <div>Pedidos Mesa `+keybtn+`</div>
-                       <button class="printAll" onclick="getPrint(this)"> <img src="assets/img/printer.png" > Imprimir tudo <button> 
+                        <h5>Pedidos Mesa <span> `+keybtn+`</span></h5>
                     `; //Imprime numero da mesa
                     mesasMap.orders.map((mOrder)=>{
                         // console.log(mOrder)
@@ -434,6 +427,18 @@ function  fluxo(){
                     innnerOrderItens(keybtn,'mesa')
                 }
             })
+
+            containerMesaDetails.innerHTML+=`
+                <button class="printAll" onclick="getPrint(this)">
+                    <img src="assets/img/printer.png" > Imprimir tudo 
+                </button> 
+                
+                <div class="qr">  
+                    <h4>Escaneie e pague, facil e rápido!</h4>
+                    <img src='assets/components/impressao/andd.png'>
+                    
+                </div>
+            `
 
         }else if(tipo==='delivery'){
             // console.log(JSON.parse(localStorage.getItem("pedidosDelivery")))   
