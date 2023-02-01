@@ -187,6 +187,12 @@ button.recusa {
         border-bottom: 1px solid #eee;
         height: 50px;
         font-size: 16px;
+        justify-content: space-between;
+    }
+    div#notificacao > div > button {
+        color: #818f9b;
+        text-transform: initial;
+        font-size: 16px;
     }
     h4 {
         color: #ff9800;

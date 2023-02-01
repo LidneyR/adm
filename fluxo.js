@@ -376,8 +376,12 @@ function  fluxo(){
        containerMesaDetails.classList.toggle("show")
        containerMesaDetails.innerHTML=`
             <div class="controls">
-                <button onclick="tabledetails(event)"><</button>
-                <button onclick="tabledetails(event)">x</button>    
+                <button onclick="tabledetails(event)">
+                    <i class="fa-solid fa-chevron-left"></i>  
+                </button>
+                <button onclick="tabledetails(event)"> 
+                    <i class="fa-solid fa-xmark"></i> 
+                </button>    
             </div> 
             <div id="badgemesa"></div>
             <div> 
@@ -667,13 +671,13 @@ function  fluxo(){
 
                 
             <div class="modal" id="modalMesa">
-
+         
                         <div class="controls">
                             <button onclick='getModal(modalMesa)'>
-                                < 
+                                <i class="fa-solid fa-chevron-left"></i>  
                             </button>
                             <button onclick='getModal(modalMesa)'>
-                                x
+                                <i class="fa-solid fa-xmark"></i>  
                             </button>
                         </div>
                        
@@ -695,16 +699,25 @@ function  fluxo(){
                 
                 <div class="openTable" id="openTable"> 
                     <div class="controls">
-                         <button onclick="tabledetails(event)"><</button>
-                            <button onclick="tabledetails(event)">x</button>    
+                         <button onclick="tabledetails(event)">  
+                         <i class="fa-solid fa-chevron-left"></i>  
+                         </button>
+                        <button onclick="tabledetails(event)"> 
+                            <i class="fa-solid fa-xmark"></i>  
+                        </button>    
                      </div> 
                 </div>
                 <div id="modalApp">
                     <div onclick="modalJs(false)"class="overylay"> </div>
                     <div id="modalBody" class="modalBody">
                     <div class="controls">
-                        <button onclick="modalJs(false)">&lt;</button>
-                        <button onclick="modalJs(false)">x</button>    
+                        <button onclick="modalJs(false)">
+                        <i class="fa-solid fa-chevron-left"></i> 
+                     
+                        </button>
+                        <button onclick="modalJs(false)"> 
+                            <i class="fa-solid fa-xmark"></i>  
+                        </button>    
                     </div>   
                     <div id="modalContent"></div>                       
                     </div>

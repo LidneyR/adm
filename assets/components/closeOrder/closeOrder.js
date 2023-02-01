@@ -7,6 +7,8 @@ closeOrder=(event)=>{
 closeForm=document.getElementById('closeForm')
 closeForm.classList.toggle('show')
 hfechamento=relogio()
+
+if(event!=false){
 idConta=event.target.getAttribute('key')
 todospedidos=[]
 contaFechada={
@@ -17,9 +19,7 @@ contaFechada={
 
 }
   
-  // OBTEM DADOS DE TODAS AS CATEGORIAS 
-  // console.log(VENDASOPENOW)
-// console.log(VENDASOPENOW)
+
   if(VENDASOPENOW){
     VENDASOPENOW.map((vendasMap)=>{
       console.log(vendasMap.data)
@@ -57,5 +57,5 @@ contaFechada={
 
     // console.log(contaFechada)
   }
-
+}
 }

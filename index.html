@@ -23,9 +23,34 @@
   <body> 
       <div id="app"></div> 
       <div id="closeForm" style="display: none;">
+        <div class="controls">
+            <button onclick="closeOrder(false)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button onclick="closeOrder(false)"><i class="fa-solid fa-xmark"></i></button>    
+        </div>
         <form class="closeForm" action="">
-            <input type="text" placeholder="Selecione a forma de pagamento">
+            <div class="mylabel select">
+
+                <label style="
+                top: 0px;
+                height: 46px;
+            ">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </label>
+
+                <select onchange="formaRetirada()" id="selectCheckout">  
+                 
+                        <option value="1">Forma de Pagamento</option>
+                        <option value="pix">Pix</option>
+                        <option value="debito">Debido Cartão</option>
+                        <option value="credito">Crédito Cartão</option>
+            
+  
+                </select>
+
+          </div>
+          <div class="placeCheckout">
             <button type="submit">Encerrar conta</button>
+          </div>
         </form>
       </div>
   </body>
