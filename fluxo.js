@@ -371,10 +371,7 @@ function  fluxo(){
     
     tabledetails=(event, tipo)=>{ //imprime detalhes do pedido
     
-       key=event.target.getAttribute('key')
-    //    console.log(VENDASOPENOW)
-
-    //    console.log(event.target)
+       key=event.target.getAttribute('key') 
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show")
        containerMesaDetails.innerHTML=`
@@ -630,7 +627,7 @@ function  fluxo(){
             <div id="relogio"></div>
             <div class="notificacoes">
             <h5>Notificações</div>
-                <div id="notificacao">Notificações</div>
+                <div id="notificacao"> </div>
             </div>
             <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>
             

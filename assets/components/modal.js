@@ -24,15 +24,9 @@ modalJs=(idPed)=>{
           <div class="idpedido">
             #Pedido `+oMap.idPedido+`</div>
             </div>
-        </div>
-
-        
-      
-        
-        
-        
+        </div> 
         `
-        console.log('..')
+       
 
         oMap.itens.map((imap)=>{
  
@@ -62,10 +56,9 @@ modalJs=(idPed)=>{
  
   }else{
 
-    console.log('ok')
+     
  modalContent.innerHTML=''
- console.log(modalContent=innerHTML)
-
+  
   modalContent=innerHTML=''
     
     modalBody=`<div onclick="modalJs(false)"class="overylay"> </div>
