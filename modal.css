@@ -441,15 +441,20 @@ div#modalApp{
     justify-content: center;
 }
 .botoes button {
-    color:#ffeb3b;
+    color: #ffeb3b;
     border: 2px solid;
-    height: 40px;
-    border-radius: 20px;
-    width: 160px;
+    min-height: 50px;
+    border-radius: 30px;
+    width: auto;
     margin: 0 10px;
-    text-transform: capitalize;
     font-weight: 600;
-    font-family: 'Quicksand', sans-serif;   
+    font-family: 'Quicksand', sans-serif;
+    padding: 0 30px;
+    text-transform: inherit;
+}
+.botoes button.white {
+border-color: white;
+color: white;
 }
 .botoes a {
     color: white;
@@ -481,3 +486,4 @@ div#faturamentoatual {
     /* color: white; */
     width: 360px;
 }
+

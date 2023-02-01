@@ -370,7 +370,8 @@ function  fluxo(){
     }
     
     tabledetails=(event, tipo)=>{ //imprime detalhes do pedido
- 
+    
+        key=event.target.getAttribute('key')
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show")
        containerMesaDetails.innerHTML=`
@@ -387,7 +388,7 @@ function  fluxo(){
             </div>
             <div id="dataOrder"> 
                 <div id="subTotal">Total da Compra</div>
-                <button class="closeOrder">Fechar Conta</button>
+                <button onclick="closeOrder(`+key+`)"class="closeOrder">Fechar Conta</button>
             </div>
 
              

@@ -52,8 +52,8 @@ modalJs=(idPed)=>{
  
         
         modalContent.innerHTML+=`<div class="botoes">
-        <button>Aceitar Pedido</button>
-        <a><i class="fa-solid fa-check"></i> Pedido entregue!</a>
+    
+        <button class="white"><i class="fa-solid fa-check"></i>Clique para saber que o pedido foi entregue!</button>
         </div>`; 
       }
 
