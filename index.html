@@ -53,7 +53,8 @@
             <button type="submit" class="btn closeOrders">Encerrar conta</button>
           </div>
         </form>
-      </div>
+    
+</div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
 
@@ -83,8 +84,8 @@
   messagingSenderId: "910886750410",
   appId: "1:910886750410:web:810fa41051ae6d12684c33",
   measurementId: "G-9HD4J8Z2XP"
-  };
-
+  }; 
+  
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig); 
   const db = firebase.firestore();
@@ -105,18 +106,18 @@
                 unifechamentos.push(cf)
 
         })
-        // unifechamentos.push(clc.contasFechadas)
+        unifechamentos.push(clc.contasFechadas)
         
     })
     unifechamentos.push(contaFechada)
  
 //    conta que pediu fechamento console.log(contaFechada)
 
-    // db.collection('fechamentos').doc(data).set({
-    //     "name":"fechamentos",
-    //     "contasFechadas":unifechamentos, 
+    db.collection('fechamentos').doc(data).set({
+        "name":"fechamentos",
+        "contasFechadas":unifechamentos, 
 
-    // })
+    })
 
     setTimeout(function(){
         if(plataforma=='Mesas'){
@@ -219,11 +220,11 @@
     const contasClose=db.collection('fechamentos')  
     contasClose.onSnapshot((snapshot) => { 
         let mapContasClose=[]
-        // snapshot.forEach((doc) => { 
-        //     mapContasClose.push(doc.data()) 
-        //     contasClosedb.push(doc.data()) 
-        //     // innerSequenceOrders(notificationsBd) 
-        // }); 
+        snapshot.forEach((doc) => { 
+            mapContasClose.push(doc.data()) 
+            contasClosedb.push(doc.data()) 
+            // innerSequenceOrders(notificationsBd) 
+        }); 
  
         // ..
     }, (error) => {
