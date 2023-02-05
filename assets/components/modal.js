@@ -4,7 +4,8 @@ modalJs=(idPed)=>{
   modalBody=document.getElementById('modalBody')
   modalContent=document.getElementById('modalContent')
   modalApp.classList.toggle('show')
-    
+  totalPedidoPreview=0
+  precosobproduto=0
 //   console.log(dataInner)
 
 
@@ -29,15 +30,19 @@ modalJs=(idPed)=>{
        
 
         oMap.itens.map((imap)=>{
- 
+
+          precosobproduto=imap.price*imap.quantidade
+          totalPedidoPreview+=precosobproduto
+          
+          console.log(totalPedidoPreview)
           document.getElementById(oMap.idPedido).innerHTML+=` 
 
+          
 
-          <div class="pedidoResumo">  
-                <div class="quantd"> `+imap.quantidade+` un. </div> 
-                <div class="nomeProd"> `+imap.name+`</div>
-                <div class="priceresumo">`+imap.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</div>
-
+            <div class="pedidoResumo" >  
+                  <div class="quantd"> `+imap.quantidade+` un. </div> 
+                  <div class="nomeProd"> `+imap.name+`</div>
+                  <div class="priceresumo">`+precosobproduto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</div>
             </div>
         
           
