@@ -13,15 +13,17 @@ relatorioFaturamentoAtual=document.getElementById('relatorioFaturamentoAtual')
 vendasareceber=document.getElementById('vendasareceber')
 // console.log(vendasareceber)
 innerSequenceOrders=(notDataBase)=>{
+ 
   notificacoesData=notDataBase
-  notificacao.innerHTML=` `;
+  notificacao.innerHTML=` `;  
  
   notificacoesData.map((notMap)=>{
  
 
 
     notMap.orders.map((allOrdersMap)=>{  
-     
+
+        console.log(notMap.hora.replace(/[^0-9]/g, ''))
      
           if(notMap.name!=undefined){
           notificacao.innerHTML+=`
