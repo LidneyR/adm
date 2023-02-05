@@ -449,12 +449,12 @@ function  fluxo(){
                    
                     deliMap.orders.map((dOrder)=>{
                         containerMesaDetails.innerHTML+=`
-                        <div id="`+deliMap.name+`" class="card"><div class="name">#Pedido `+dOrder.idPedido+`</div>   
-                        <div onclick="getPrint(this)"  class="setor" id="porcoes`+dOrder.idPedido+`"><h4>Setor Porções<img src="assets/img/printer.png" ></h4></div>
-                        <div onclick="getPrint(this)"  class="setor" id="tapiocas`+dOrder.idPedido+`"><h4>Setor Tapiocas<img src="assets/img/printer.png" ></h4></div>
-                        <div onclick="getPrint(this)"  class="setor" id="pasteis`+dOrder.idPedido+`"><h4>Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
-                        <div onclick="getPrint(this)"  class="setor" id="bebidas`+dOrder.idPedido+`"><h4>Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
-                       
+                        <div id="`+deliMap.name+`" class="card"><div class="idpedido">#Pedido `+dOrder.idPedido+`</div>   
+                        <div onclick="getPrint(this)"  class="setor" id="porcoes`+dOrder.idPedido+`"><h4> Porções<img src="assets/img/printer.png" ></h4></div>
+                        <div onclick="getPrint(this)"  class="setor" id="tapiocas`+dOrder.idPedido+`"><h4> Tapiocas<img src="assets/img/printer.png" ></h4></div>
+                        <div onclick="getPrint(this)"  class="setor" id="pasteis`+dOrder.idPedido+`"><h4> Pasteis<img src="assets/img/printer.png" ></h4></div>
+                        <div onclick="getPrint(this)"  class="setor" id="bebidas`+dOrder.idPedido+`"><h4> Bebidas<img src="assets/img/printer.png" ></h4></div>
+                        </div>  
                         `;
                     })
                     innnerOrderItens(keybtn,'delivery')
@@ -462,7 +462,17 @@ function  fluxo(){
  
                 }
             })
-
+            containerMesaDetails.innerHTML+=`
+            <button class="printAll" onclick="getPrint(this)">
+                <img src="assets/img/printer.png" > Imprimir tudo 
+            </button> 
+            
+            <div class="qr">  
+                <h4>Escaneie e pague, facil e rápido!</h4>
+                <img src='assets/components/impressao/andd.png'>
+                
+            </div>
+        `
         }
 
 

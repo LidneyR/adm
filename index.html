@@ -39,7 +39,8 @@
 
                 <select onchange="formaRetirada()" id="selectCheckout">  
                  
-                        <option value="1">Forma de Pagamento</option>
+                        <option value="1">Selecione a forma de Pagamento</option>
+                        <option value="dinheiro">Dinheiro</option>
                         <option value="pix">Pix</option>
                         <option value="debito">Debido Cartão</option>
                         <option value="credito">Crédito Cartão</option>
@@ -202,8 +203,7 @@
     ordersNotifications.onSnapshot((snapshot) => { 
         let notificationsBd=[]
         snapshot.forEach((doc) => { 
-            notificationsBd.push(doc.data()) 
-            console.log(notificationsBd)
+            notificationsBd.push(doc.data())  
             innerSequenceOrders(notificationsBd) 
         }); 
 
