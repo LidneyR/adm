@@ -722,21 +722,7 @@ function  fluxo(){
                         </button>    
                      </div> 
                 </div>
-                <div id="modalApp">
-                    <div onclick="modalJs(false)"class="overylay"> </div>
-                    <div id="modalBody" class="modalBody">
-                    <div class="controls">
-                        <button onclick="modalJs(false)">
-                        <i class="fa-solid fa-chevron-left"></i> 
-                     
-                        </button>
-                        <button onclick="modalJs(false)"> 
-                            <i class="fa-solid fa-xmark"></i>  
-                        </button>    
-                    </div>   
-                    <div id="modalContent"></div>                       
-                    </div>
-                </div>
+                
 
 
         `;      

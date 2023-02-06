@@ -434,7 +434,8 @@ div#notificacao > div {
     margin: 5%;
     overflow: auto;
     padding: 0;
-    min-height: 430px;
+    min-height: 90%;
+    left: 1px;
 
 }
 

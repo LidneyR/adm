@@ -18,13 +18,16 @@ modalJs=(idPed)=>{
       if(oMap.idPedido==idPed){
 
         console.log('id',oMap.idPedido)
-        modalContent.innerHTML+=` 
-       
+        modalContent.innerHTML=` 
+        <button class="printAll" >
+                    <img src="assets/img/printer.png"> Imprimir   
+                </button>
  
         <div class="card" id="`+oMap.idPedido+`">
           <div class="idpedido">
             #Pedido `+oMap.idPedido+`</div>
             </div>
+           
         </div> 
         `
        
@@ -50,10 +53,11 @@ modalJs=(idPed)=>{
         })
  
         
-        modalContent.innerHTML+=`<div class="botoes">
-    
-        <button class="white"><i class="fa-solid fa-check"></i>Clique para saber que o pedido foi entregue!</button>
-        </div>`; 
+        // modalContent.innerHTML+=`<div class="botoes">
+        //   <form class="deleteNotification">
+        //   <button type="submit"><i class="fa-solid fa-check"></i> Clique para saber que o pedido foi entregue!</button>
+        //   </form>
+        // </div>`; 
       }
 
       })
@@ -62,17 +66,17 @@ modalJs=(idPed)=>{
   }else{
 
      
- modalContent.innerHTML=''
+//  modalContent.innerHTML=''
   
   modalContent=innerHTML=''
     
-    modalBody=`<div onclick="modalJs(false)"class="overylay"> </div>
-  <div id="modalBody" class="modalBody">
-  <div class="controls">
-      <button onclick="modalJs(false)">&lt;</button>
-      <button onclick="modalJs(false)">x</button>    
-  </div>                          
-  </div>`;
+  //   modalBody=`<div onclick="modalJs(false)"class="overylay"> </div>
+  // <div id="modalBody" class="modalBody">
+  // <div class="controls">
+  //     <button onclick="modalJs(false)">&lt;</button>
+  //     <button onclick="modalJs(false)">x</button>    
+  // </div>                          
+  // </div>`;
   }
 
   document.body.scrollTop = 0;
