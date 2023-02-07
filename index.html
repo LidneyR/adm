@@ -134,11 +134,7 @@
         e.preventDefault()    
         console.log('delete algo')
         
-        //   db.collection("mesasOpen").doc("12").delete().then(() => {
-        //     console.log("Document successfully deleted!");
-        // }).catch((error) => {
-        //     console.error("Error removing document: ", error);
-        // }); 
+        
     })
 
   formClose.addEventListener('submit', function(e){
@@ -230,6 +226,7 @@
     ordersDelivery.onSnapshot((snapshot) => { 
         let deliveryAll=[]
         snapshot.forEach((doc) => { 
+            console.log(doc.data())
             deliveryAll.push(doc.data())  
         }); 
 
