@@ -16,8 +16,7 @@ modalJs=(idPed)=>{
       notMap.orders.map((oMap)=>{
      
       if(oMap.idPedido==idPed){
-
-        console.log('id',oMap.idPedido)
+ 
         modalContent.innerHTML=` 
         <button class="printAll" >
                     <img src="assets/img/printer.png"> Imprimir   

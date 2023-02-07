@@ -35,7 +35,7 @@ function deliveryData(deliveryAll){
                                         <img src="assets/img/user.png" style="width: 16px;">`+deliveryMap.name+`
                                     </button>
                                     <button class="avisePronto" key='`+deliveryMap.name+`'   onclick="sendMsgWhats('`+deliveryMap.whatsapp+`')" >
-                                        Avise!<img src="assets/img/whatswhite.png" style="width: 16px;">    </button>
+                                        <img src="assets/img/whatswhite.png" style="width: 16px;"> Solicitar pagamento!   </button>
                                 </div>     
                             
                             
