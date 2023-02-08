@@ -125,16 +125,18 @@
   
 // console.log
 
-    //   db.collection("mesasOpen").doc("12").delete().then(() => {
-    //     console.log("Document successfully deleted!");
-    // }).catch((error) => {
-    //     console.error("Error removing document: ", error);
-    // });
+    
     delNotification.addEventListener('submit', function(e){
         e.preventDefault()    
-        console.log('delete algo')
+        console.log('delete algo',dataDelete)
+
+
         
-        
+        db.collection("notificacoes").doc(dataDelete).delete().then(() => {
+            console.log("Document successfully deleted!");
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
     })
 
   formClose.addEventListener('submit', function(e){

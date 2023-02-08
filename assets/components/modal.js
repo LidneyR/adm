@@ -6,6 +6,8 @@ modalJs=(idPed)=>{
   modalApp.classList.toggle('show')
   totalPedidoPreview=0
   precosobproduto=0
+  dataDelete=''
+ 
 //   console.log(dataInner)
 
 
@@ -13,22 +15,41 @@ modalJs=(idPed)=>{
  
   // modalContent+=`<div> `+idPed+` ID</div>`;
    notificacoesData.map((notMap)=>{
+
+   
       notMap.orders.map((oMap)=>{
      
       if(oMap.idPedido==idPed){
+        // Mesa <span> `+notMap.mesa+`</span>
+        dataDelete=notMap.key
+        var innherCategoria=''
+
+          if(notMap.mesa){
+              innherCategoria=`Mesa <span> `+notMap.mesa+`</span> `
+          }else if(notMap.name){
+              innherCategoria=`Nome <span> `+notMap.name+`</span> ` 
+
+          }
+
  
+
         modalContent.innerHTML=` 
-        <button class="printAll" >
-                    <img src="assets/img/printer.png"> Imprimir   
-                </button>
- 
-        <div class="card" id="`+oMap.idPedido+`">
-          <div class="idpedido">
-            #Pedido `+oMap.idPedido+`</div>
-            </div>
-           
-        </div> 
-        `
+          <button class="printAll" >
+                <img src="assets/img/printer.png"> Imprimir   
+            </button>
+            <div class="card" id="`+oMap.idPedido+`">
+                <div id="badgemesa">
+                    <h5 style="
+                    margin: 10px auto 20px;
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 15px;
+                ">`+innherCategoria+`</h5>
+                </div> 
+              <div class="idpedido">
+                #Pedido `+oMap.idPedido+`</div>
+              </div>  
+          </div> 
+          `
        
 
         oMap.itens.map((imap)=>{

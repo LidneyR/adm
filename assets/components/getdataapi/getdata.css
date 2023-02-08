@@ -38,11 +38,13 @@ h5 span {
     background: #ff5201;
     color: white;
     border-radius: 20px;
-    width: 50px;
+    width: auto;
     display: inline-flex;
-    height: 40px;
+    height: 40px; 
     align-items: center;
     justify-content: center;
+    text-transform: capitalize;
+    padding: 0 10px;
 }
 @media(max-width:600px){
     div#mesas {

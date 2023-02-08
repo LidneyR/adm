@@ -24,11 +24,11 @@ innerSequenceOrders=(notDataBase)=>{
     notMap.orders.map((allOrdersMap)=>{  
  
           if(notMap.name!=undefined){
-          notificacao.innerHTML+=` 
-            <div> <div><span><i class="fa-regular fa-bell"></i></span>Olá novo Pedido DeliveryAPP `+notMap.name+` Hora do Pedido: `+notMap.hora+`</div>
-              <button onclick="modalJs(`+allOrdersMap.idPedido+`)"> <i class="fa-solid fa-magnifying-glass"></i>  ver pedido   </button> 
-            </div> 
-          `;
+            notificacao.innerHTML+=` 
+              <div> <div><span><i class="fa-regular fa-bell"></i></span>Olá novo Pedido DeliveryAPP `+notMap.name+` Hora do Pedido: `+notMap.hora+`</div>
+                <button onclick="modalJs(`+allOrdersMap.idPedido+`)"> <i class="fa-solid fa-magnifying-glass"></i>  ver pedido   </button> 
+              </div> 
+            `;
           }else if(notMap.mesa!=undefined){
           notificacao.innerHTML+=`
           <div>
