@@ -126,11 +126,14 @@ if(todosPedidos.length>0){
 
               delOrdersMap.itens.map((dimap)=>{
                // LISTA DE TODOS OS PEDIDOS NAS MESAS GERALconsole.log(dimap)
-                somaProdTotalMesas+=dimap.quantidade*dimap.price
-             
-             if(totalfaturamentomesas){
-                totalfaturamentomesas.innerHTML=`Total Vendas Mesas<strong>`+ somaProdTotalMesas.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong> `;
-              }
+                console.log(dimap)
+
+                if(dimap.name){
+                  somaProdTotalMesas+=dimap.quantidade*dimap.price 
+                  if(totalfaturamentomesas){
+                      totalfaturamentomesas.innerHTML=`Total Vendas Mesas<strong>`+ somaProdTotalMesas.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong> `;
+                    }
+                } 
               })
             
             })
@@ -154,12 +157,15 @@ if(todosPedidos.length>0){
             dataMap.orders.map((pedidoDelMap)=>{
                 pedidoDelMap.itens.map((mapDelI)=>{
                   
-                  var custoporquantidade=mapDelI.price*mapDelI.quantidade
-                  totaldaCompra+=custoporquantidade
-                  
-                  somaProdTotalDelivery=totaldaCompra
+                  if(mapDelI.price){
+                    var custoporquantidade=mapDelI.price*mapDelI.quantidade
+                    totaldaCompra+=custoporquantidade
+                    
+                    somaProdTotalDelivery=totaldaCompra
 
-                  totalfaturamentodelivery.innerHTML=`Total Vendas Delivery<strong> `+totaldaCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong>`;
+                    totalfaturamentodelivery.innerHTML=`Total Vendas Delivery<strong> `+totaldaCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong>`;
+                  }
+               
                 })
 
               }) 
