@@ -39,15 +39,12 @@
                         <i class="fa-solid fa-file-invoice-dollar"></i>
                     </label>
 
-                    <select onchange="formaRetirada()" id="selectCheckout">  
-                    
+                    <select onchange="getPay()" id="paymentCheck">   
                             <option value="1">Selecione a forma de Pagamento</option>
                             <option value="dinheiro">Dinheiro</option>
                             <option value="pix">Pix</option>
                             <option value="debito">Debido Cartão</option>
-                            <option value="credito">Crédito Cartão</option>
-                
-    
+                            <option value="credito">Crédito Cartão</option>  
                     </select>
 
             </div>
@@ -139,6 +136,8 @@ delNotification.addEventListener('submit', function(e){
     e.preventDefault()   
     alert('Conta encerrada com sucesso!') 
     console.log(plataforma)
+    console.log(contaFechada)
+
     contasClosedb.map((clc)=>{
         console.log(clc.contasFechadas)
         clc.contasFechadas.map((cf)=>{

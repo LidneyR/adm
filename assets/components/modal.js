@@ -57,19 +57,35 @@ modalJs=(idPed)=>{
           precosobproduto=imap.price*imap.quantidade
           totalPedidoPreview+=precosobproduto
           
-          console.log(totalPedidoPreview)
-          document.getElementById(oMap.idPedido).innerHTML+=` 
+          if(imap.name){
+            document.getElementById(oMap.idPedido).innerHTML+=` 
 
+            
+
+              <div class="pedidoResumo" >  
+                    <div class="quantd"> `+imap.quantidade+` un. </div> 
+                    <div class="nomeProd"> `+imap.name+`</div>
+                    <div class="priceresumo">`+precosobproduto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</div>
+              </div>
           
+            
+            `
+          }else{
 
-            <div class="pedidoResumo" >  
-                  <div class="quantd"> `+imap.quantidade+` un. </div> 
-                  <div class="nomeProd"> `+imap.name+`</div>
-                  <div class="priceresumo">`+precosobproduto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</div>
+            document.getElementById(oMap.idPedido).innerHTML+=` 
+
+            
+
+            <div class="observacoes" >  
+            Observações
+                  <div class=" "> `+imap.observacaoPedido+`  </div> 
+                 
             </div>
         
           
           `
+
+          }
         })
  
         

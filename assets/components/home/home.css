@@ -18,3 +18,8 @@
         display: flex;
         }
 }
+
+.observacoes {
+    color: indianred;
+    font-style: italic;
+}
