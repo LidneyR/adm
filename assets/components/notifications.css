@@ -197,17 +197,22 @@ button.recusa {
         font-size: 16px;
     }
     h4 {
-        color: #ff9800;
+        color: #fff;
         /* border-bottom: 1px solid; */
     } 
+    .qr h4 {
+        color: #01b9ff;
+    }
     .relatorioDelivery,.relatorioMesas {
-        color: #818f9b;
+        color: #eee;
         border: 1px solid #eee;
         padding: 15px;
-        border-radius: 15px 
+        border-radius: 15px ;
+        background-color: #ff5722;
+        height: 145px;
     }
     strong {
-        color: #ff9800;
+        color: yellow;
     }
     .qr {
         display: flex;

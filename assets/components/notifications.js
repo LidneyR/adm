@@ -131,7 +131,7 @@ if(todosPedidos.length>0){
                 if(dimap.name){
                   somaProdTotalMesas+=dimap.quantidade*dimap.price 
                   if(totalfaturamentomesas){
-                      totalfaturamentomesas.innerHTML=`Total Vendas Mesas<strong>`+ somaProdTotalMesas.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong> `;
+                      totalfaturamentomesas.innerHTML=`Total Vendas Mesas<strong style="margin: 0 5px;">`+ somaProdTotalMesas.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+`</strong> `;
                     }
                 } 
               })
@@ -186,7 +186,7 @@ if(todosPedidos.length>0){
 
       // console.log(FATURAATUAL)
 
-        faturamentoatual.innerHTML=`FATURAMENTO ATUAL <strong> ` +FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +`</strong>`;  
+        faturamentoatual.innerHTML=`FATURAMENTO ATUAL  <strong style="margin: 0 5px;"> ` +FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +`</strong>`;  
 
   }else{
     relatorioFinanceiro=document.getElementById('relatorioFinanceiro')

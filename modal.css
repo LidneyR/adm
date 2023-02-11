@@ -493,9 +493,9 @@ div#faturamentoatual {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: #ff5722; */
+    background: #ff5722;
     border-radius: 10px;
-    color: #818f9b;
+    color: #fff;
     width: 360px;
 }
 
