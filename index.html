@@ -117,72 +117,66 @@
   const db = firebase.firestore();
   let formClose=document.querySelector('.closeForm')
   let delNotification=document.querySelector('.deleteNotification')
-  console.log(delNotification)
   let horaAtual=relogio()
+  let currencyData=dataHora()
   
-// console.log 
-    
-delNotification.addEventListener('submit', function(e){
-    e.preventDefault()     
-    db.collection("notificacoes").doc(dataDelete).delete().then(() => {
-        console.log("Document successfully deleted!");
-        alert('Pedido entregue com sucesso!')
-    }).catch((error) => {
-        console.error("Error removing document: ", error);
-    });
-})
-
-  formClose.addEventListener('submit', function(e){
-    e.preventDefault()   
-    alert('Conta encerrada com sucesso!') 
-    console.log(plataforma)
-    console.log(contaFechada)
-
-    contasClosedb.map((clc)=>{
-        console.log(clc.contasFechadas)
-        clc.contasFechadas.map((cf)=>{
-        
-                unifechamentos.push(cf)
-
-        })
-        unifechamentos.push(clc.contasFechadas)
-        
-    })
-    unifechamentos.push(contaFechada)
- 
-//    conta que pediu fechamento console.log(contaFechada)
-
-            // db.collection('fechamentos').doc(data).set({
-            //     "name":"fechamentos",
-            //     "contasFechadas":unifechamentos, 
-
-            // })
-
-    setTimeout(function(){
-        if(plataforma=='Mesas'){
-       
-        db.collection("mesasOpen").doc(idConta).delete().then(() => {
+    delNotification.addEventListener('submit', function(e){
+        e.preventDefault()     
+        db.collection("notificacoes").doc(dataDelete).delete().then(() => {
             console.log("Document successfully deleted!");
+            alert('Pedido entregue com sucesso!')
         }).catch((error) => {
             console.error("Error removing document: ", error);
         });
+    })
+
+    //FECHAR CONTAS
+    formClose.addEventListener('submit', function(e){
+        e.preventDefault()
+       
+        contasClosedb.map((clc)=>{ 
             
-            }else{
-                db.collection("delivery").doc(idConta).delete().then(() => {
+            clc.contasFechadas.map((cf)=>{ 
+                    unifechamentos.push(cf) 
+                  
+            }) 
+            alert('Conta encerrada com sucesso!') 
+            
+        })
+        
+        unifechamentos.push(contaFechada) 
+        
+        console.log('submit',contaFechada)
+
+        db.collection('fechamentos').doc(currencyData).set({
+            "name":"fechamentos",
+            "contasFechadas":unifechamentos,  
+        })
+
+     
+        
+        setTimeout(function(){
+
+
+            if(plataforma=='Mesas'){ 
+                db.collection("mesasOpen").doc(idConta).delete().then(() => {
+                    console.log("Document successfully deleted!");
+                }).catch((error) => {
+                    console.error("Error removing document: ", error);
+                });
+            
+            }else if(plataforma=='Deliverys'){
+
+                
+                db.collection("delivery").doc('programador').delete().then(() => {
                     console.log("Document successfully deleted!");
                 }).catch((error) => {
                     console.error("Error removing document: ", error);
                 });
             }
-    }, 3000)
-   
-    // //DELETE 
-   
-    // db.collection("mesasOpen").doc("12").delete().then(() => {
-    //     console.log("Document successfully deleted!");
-    // }).catch((error) => {
-    //     console.error("Error removing document: ", error);
-    // });
+        }, 3000)
+        
+  
  
   })
 
@@ -223,7 +217,7 @@ delNotification.addEventListener('submit', function(e){
     ordersDelivery.onSnapshot((snapshot) => { 
         let deliveryAll=[]
         snapshot.forEach((doc) => { 
-            console.log(doc.data())
+            // console.log(doc.data())
             deliveryAll.push(doc.data())  
         }); 
 

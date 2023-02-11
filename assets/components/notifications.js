@@ -126,7 +126,7 @@ if(todosPedidos.length>0){
 
               delOrdersMap.itens.map((dimap)=>{
                // LISTA DE TODOS OS PEDIDOS NAS MESAS GERALconsole.log(dimap)
-                console.log(dimap)
+                // console.log(dimap)
 
                 if(dimap.name){
                   somaProdTotalMesas+=dimap.quantidade*dimap.price 
