@@ -12,7 +12,7 @@ getPrint=(data)=>{
     controlspage=document.querySelector('div#openTable .controls')
     opeTable=document.getElementById('openTable')
 
-    cards
+     
     Array.from(cards).map((cardsMap)=>{ 
         cardsMap.style.cssText='display:none;'
         data.parentNode.style.cssText="display:block;" 

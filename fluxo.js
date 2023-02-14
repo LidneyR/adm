@@ -169,14 +169,22 @@ function login(){
 
 
     app.innerHTML+=` 
-
-    <div id="login" style="display:none"> 
-        <div class="form"   >
+   
+    <div id="login"  >  
+       
+        <div class="form">
+            <div>
+             <h3>Login</h3>
+            </div>
             <form>
-                <input type='text' id='nameuser' placeholder='Digite suas credênciais'>
-                <input type="password" id="pass" placeholder='Senha' name="password"
-                minlength="4" required>
-                <button class="btn-circle-bottom" onclick='validationLogin(nameuser, pass)'>Entrar</button>
+                <input type='text' id='nameuser' placeholder='Usuário'>
+                <input type="password" id="pass" placeholder='Senha' name="password" minlength="4" required>
+                <button class="btn-bottom" onclick='validationLogin(nameuser, pass)'>Entrar</button>
+                <a style="
+                margin: 10px auto;
+                text-decoration: none;
+                font-size: 14px;
+            " href=''>Esqueci minha senha!</a>
             </form>
         </div>
     </div>
