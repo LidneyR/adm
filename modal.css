@@ -2,6 +2,9 @@ body{
 font-family: 'Quicksand', sans-serif;
 color: #f6f6f6;
 }
+button[status='disable'] {
+    opacity: 0.5;
+}
 .header {
     display: flex;
     padding: 10px;

@@ -133,15 +133,16 @@
 
     //FECHAR CONTAS
     formClose.addEventListener('submit', function(e){
-        e.preventDefault()
-       
-        contasClosedb.map((clc)=>{ 
-            
+        e.preventDefault() 
+
+        let btnSubmit=document.querySelector('.btn.closeOrders')
+
+        console.log(btnSubmit)
+        btnSubmit.setAttribute('disabled', true)
+        contasClosedb.map((clc)=>{  
             clc.contasFechadas.map((cf)=>{ 
-                    unifechamentos.push(cf) 
-                  
+                    unifechamentos.push(cf)  
             }) 
-            alert('Conta encerrada com sucesso!') 
             
         })
         
@@ -156,24 +157,27 @@
 
      
         
-        setTimeout(function(){
-
-
+        setTimeout(function(){ 
             if(plataforma=='Mesas'){ 
+
                 db.collection("mesasOpen").doc(idConta).delete().then(() => {
                     console.log("Document successfully deleted!");
+                    alert('Conta encerrada com sucesso!') 
+
                 }).catch((error) => {
                     console.error("Error removing document: ", error);
+                    alert('Erro ao encerrar') 
+
                 });
             
-            }else if(plataforma=='Deliverys'){
-
+            }else if(plataforma=='Deliverys'){ 
                 
-                db.collection("delivery").doc('programador').delete().then(() => {
+                db.collection("delivery").doc(idConta).delete().then(() => {
                     console.log("Document successfully deleted!");
                 }).catch((error) => {
                     console.error("Error removing document: ", error);
                 });
+
             }
         }, 3000)
         

@@ -168,9 +168,7 @@ function getProds(){
 
 admLogin=false
 
-function login(){
-
-
+function login(){ 
     app.innerHTML+=`  
             <div id="login">   
                 <div class="form">
@@ -205,7 +203,7 @@ function login(){
         if(nameValue==='canoas' & userPass==='1234'){
             console.log('usuário comum')
           
-            // document.getElementById('login').style.cssText="display:none;"
+            document.getElementById('login').style.cssText="display:none;"
 
         }else if(nameValue==='lidney' & userPass==='3030'){
 
