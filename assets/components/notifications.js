@@ -1,3 +1,5 @@
+relatorioFinanceiro=document.getElementById('relatorioFinanceiro')
+
 notificacao=document.getElementById('notificacao')
 notQtd=document.getElementById('notQtd')
 VENDASOPENOW=[];
@@ -107,7 +109,13 @@ if(todosPedidos.length>0){
   tpedMesa=0
   somaProdTotalMesas=0
   totaldaCompra=0
-       
+        
+  console.log("admLogin",admLogin)
+  
+  if(admLogin==true){
+    relatorioFinanceiro.innerHTML=''  
+    console.log(relatorioFinanceiro)
+  }
  
   if(VENDASOPENOW.length>0){
 
@@ -189,7 +197,6 @@ if(todosPedidos.length>0){
         faturamentoatual.innerHTML=`FATURAMENTO ATUAL  <strong style="margin: 0 5px;"> ` +FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +`</strong>`;  
 
   }else{
-    relatorioFinanceiro=document.getElementById('relatorioFinanceiro')
 
     relatorioFinanceiro.innerHTML=`SEM DADOS PARA MOSTRAR`;  
 

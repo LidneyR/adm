@@ -165,61 +165,71 @@ function getProds(){
     
     return allProds
 }
+
+admLogin=false
+
 function login(){
 
 
-    app.innerHTML+=` 
-   
-    <div id="login"  >  
-       
-        <div class="form">
-            <div>
-             <h3>Login</h3>
+    app.innerHTML+=`  
+            <div id="login">   
+                <div class="form">
+                    <div>
+                    <h3>Login</h3>
+                    </div>
+                    <form>
+                        <input type='text' id='nameuser' placeholder='Usuário'>
+                        <input type="password" id="pass" placeholder='Senha' name="password" minlength="4" required>
+                        <button class="btn-bottom" onclick='validationLogin(event, nameuser, pass)'>Entrar</button>
+                        <a style="
+                        margin: 10px auto;
+                        text-decoration: none;
+                        font-size: 14px;
+                    " href=''>Esqueci minha senha!</a>
+                    </form>
+                </div>
             </div>
-            <form>
-                <input type='text' id='nameuser' placeholder='Usuário'>
-                <input type="password" id="pass" placeholder='Senha' name="password" minlength="4" required>
-                <button class="btn-bottom" onclick='validationLogin(nameuser, pass)'>Entrar</button>
-                <a style="
-                margin: 10px auto;
-                text-decoration: none;
-                font-size: 14px;
-            " href=''>Esqueci minha senha!</a>
-            </form>
-        </div>
-    </div>
     `; 
     loginContainer=document.getElementById('login')
-    credentials=localStorage.getItem("credentials");
+  
 
-
-    if(credentials){
-        console.log(credentials)
-        app.innerHTML=`  `; 
-    }
-
-    validationLogin=(nameuser,pass)=>{
-        // event.preventDefault()
+    validationLogin=(event,nameuser,pass)=>{
+        event.preventDefault()
 
         var nameValue=nameuser.value
-        var userPass=pass.value
-
+        var userPass=pass.value 
 
         localStorage.setItem("credentials",userPass);
-        console.log(credentials)
-
-        
         
 
         if(nameValue==='canoas' & userPass==='1234'){
+            console.log('usuário comum')
           
+            // document.getElementById('login').style.cssText="display:none;"
+
+        }else if(nameValue==='lidney' & userPass==='3030'){
+
+            admLogin=true
+            console.log('Lidney')
+
+     
             document.getElementById('login').style.cssText="display:none;"
+ 
+  
+     
+          
         }else{
             alert('Dados Incorretos')
-            nameuser.value=""
-            userPass.value=""
+
         }
 
+        credentials=localStorage.getItem("credentials");
+
+
+        if(credentials){
+      
+            // app.innerHTML=`  `; 
+        }
    
           
     }
@@ -705,8 +715,7 @@ function  fluxo(){
                         </div>
                        
                         <h5 id="titleAdd">Adicione Pedidos</h5> 
-                        <div id="innerMesaNumber"></div>
-                    
+                        <div id="innerMesaNumber"></div> 
 
                         <form>
                             <input id='mesa' onclick='tableValidation()' type='number' placeholder='Numero da Mesa'>
@@ -737,5 +746,6 @@ function  fluxo(){
 
 
 }
+
 fluxo()
  

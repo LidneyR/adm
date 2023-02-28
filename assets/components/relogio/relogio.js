@@ -1,5 +1,5 @@
 relogio=()=>{
-
+    containerDate=document.getElementById('relogio')
     const data=new Date()
     let hr=data.getHours()
     let mn=data.getMinutes()
@@ -9,7 +9,9 @@ relogio=()=>{
     let horaatual=hr+":"+mn+":"+ms
     // console.log(horaatual)
 
-    document.getElementById('relogio').innerHTML=`<h5>Horário de Brasília `+horaatual+`</h5>`
+    if(containerDate){
+        containerDate.innerHTML=`<h5>Horário de Brasília `+horaatual+`</h5>`
+    }
 
     return horaatual
 }   
@@ -23,7 +25,7 @@ dataHora=()=>{
     // let mes=String(data.getMonth()+1).padStart(2, '0')
     let ano=String(data.getFullYear())
    var dataAtual=dia+mes+ano
-   console.log(dataAtual )
+//    console.log(dataAtual )
 
    return dataAtual
 }   
