@@ -1,5 +1,6 @@
 // arquivo principal.js
 // import { data} from './api'
+credentials=undefined
 var app=document.getElementById('app')
     
 inputMesa=document.getElementById('mesa')
@@ -168,7 +169,11 @@ function getProds(){
 
 admLogin=false
 
-function login(){ 
+function login(){
+    credentials=sessionStorage.getItem("credentials");
+    
+     
+    if(credentials===null){
     app.innerHTML+=`  
             <div id="login">   
                 <div class="form">
@@ -188,6 +193,7 @@ function login(){
                 </div>
             </div>
     `; 
+   
     loginContainer=document.getElementById('login')
   
 
@@ -197,46 +203,40 @@ function login(){
         var nameValue=nameuser.value
         var userPass=pass.value 
 
-        localStorage.setItem("credentials",userPass);
+        sessionStorage.setItem("credentials",userPass);
+       
+
+            if(nameValue==='canoas' & userPass==='1234'){
+                // console.log('usuário comum')
+                document.getElementById('login').style.cssText="display:none;"
+
+            }else if(nameValue==='lidney' & userPass==='3030'){
+                admLogin=true  
+                document.getElementById('login').style.cssText="display:none;"
+             
+            }else{
+                alert('Dados Incorretos')
+
+            }
+
+
+
+            if(credentials){
         
-
-        if(nameValue==='canoas' & userPass==='1234'){
-            console.log('usuário comum')
-          
-            document.getElementById('login').style.cssText="display:none;"
-
-        }else if(nameValue==='lidney' & userPass==='3030'){
-
-            admLogin=true
-            console.log('Lidney')
-
-     
-            document.getElementById('login').style.cssText="display:none;"
- 
-  
-     
-          
-        }else{
-            alert('Dados Incorretos')
-
-        }
-
-        credentials=localStorage.getItem("credentials");
-
-
-        if(credentials){
-      
-            // app.innerHTML=`  `; 
+                // app.innerHTML=`  `; 
+            }
         }
    
-          
-    }
-
+    }    
+        
 
     
  
 
-}login()
+}
+login()
+
+ 
 
 function  fluxo(){
     
