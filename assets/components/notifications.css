@@ -19,6 +19,7 @@ div#notifications img {
     left: -20px;
 }
 span#notQtd {
+    display: none !important;
     background: #ff5201;
     width: 23px;
     height: 34px;
