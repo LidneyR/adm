@@ -1,0 +1,131 @@
+.produto .prod-val .title-prod {
+    color: black;
+    margin: 0px;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.produto {
+    display: flex;
+    background-color: #fbfbfb;
+    border-radius: 10px;
+    padding:10px;
+    font-family: 'Lexend Deca', sans-serif;
+    align-items: center;
+    height: auto;
+    margin: 10px 10px;
+    font-family: 'Quicksand', sans-serif;
+    justify-content: space-between;
+    
+}
+input#serchInput {
+    height: 40px;
+    font-size: 1.4rem;
+    box-shadow: 0px 3px 10px #ddd;
+    margin: 5px auto 20px;
+    border: 1px solid #d1d1d1;
+    background: white;
+    border-radius: 13px; 
+
+}
+
+input#serchInput:focus-visible {
+    outline:none;
+   
+
+}
+span#closeSearched {
+    position: absolute;
+    margin: 25px;
+    float: right;
+    right: 0;
+    display: none;
+}
+span#closeSearched svg{
+    color:#8B9398; 
+}
+div#searchResult:before {
+    content: "Resultado de busca:";
+    color: #1d80ff;
+}
+
+input#serchInput::placeholder  {
+    font-weight: bold;
+    opacity: .5;
+    color:#8B9398; 
+    margin-left: 5%;
+    opacity: 1;
+    font-weight: 300;
+    font-family: 'Lexend Deca', sans-serif; 
+    font-style: italic;
+    opacity: .6;
+
+  
+   
+}
+div#addOrdersContainer h6 {
+    margin: 30px;
+}
+
+.produto .prod-val .valor {
+    color: #545454;
+    font-weight: 400;
+    font-size: 14px;
+}
+h6 {
+    color: red;
+    font-size: 1.7rem;
+    margin: 10px 25px 0;
+    padding: 0;
+    text-align: left;
+}
+div#contentSearch form > label {
+    margin: 35px auto 5px;
+    display: flex;
+    height: 0;
+}
+.produto img {
+    display: none;
+}
+.quantidade {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.produto .quantidade button {
+    width: 60px;
+    height: 32px;
+    border: 0px;
+    border-radius: 12px;
+    color: white;
+    background-color: #E5040E;
+    margin: 5px;
+    font-size: 15px;
+}
+.produto .quantidade input {
+    width: 23px;
+    height: 25px;
+    border: 0px;
+    border-radius: 9px;
+    padding: 0 !important;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0 auto;
+}
+.quantidade input {
+    pointer-events: none;
+}
+
+div#searchResult { 
+
+max-height: 55vh;
+
+margin: 0px auto;
+}
+ @media (min-width:768px){
+    div#searchResult { 
+        width: 80%;
+        margin: 0 auto;
+       
+    }
+ }
