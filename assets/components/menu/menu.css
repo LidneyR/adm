@@ -1,0 +1,29 @@
+.menu {
+    width: 100%;
+    background: #ff5400;
+    height: 65px;
+    position: fixed;
+    z-index: 99;
+    left: 0px;
+    bottom: 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px;
+}
+
+.menu button {
+    background: transparent;
+    border: 0px;
+    width: 90px;
+    height: 33px;
+    font-size: 1.5rem;
+}
+
+.menu svg {
+    color: white;
+}
+

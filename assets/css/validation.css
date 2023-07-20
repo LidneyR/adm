@@ -1,0 +1,128 @@
+.validation{
+    background-repeat:repeat ;
+    background-size: cover; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color:white;
+    padding:0px;
+    z-index: 999;
+    background-color: black;
+    /* display: block !important; */
+   
+}
+button#btnFullScreen svg {
+    color: yellow !important;
+}
+.validation  span.number {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    font-weight: 200;
+
+}
+.validation .content {
+    width: 100%;
+    margin: auto; 
+    transition: .3s;
+
+}
+.validation .content span {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+}
+.validation .content h1 {
+    font-weight: 300;
+    margin: 50px 0 0;
+    padding: 20px;
+}
+.validation .content strong {
+    font-weight: 300;
+}
+.validation .content img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    transition: .3s;
+    max-width: 220px;
+
+}
+.content-text h1 {
+    font-size: 2.8rem;
+    text-align: left;
+    font-weight: 700;
+}
+.content-text h1 strong {
+    color:#FED30A
+}
+.validation .content p{
+    font-size: 11px;
+    width: 180px;
+    font-weight: 200;
+    padding: 20px;
+}
+
+.validation form {
+    width: 85%;
+    margin: 35px auto;
+    position: relative; 
+    max-width: 365px;
+}
+form img { 
+    position: absolute;
+    z-index: 99;
+    width: 14px;
+    left: 18px;z-index: 0;
+    
+}
+img.boy {
+    width: 60px;
+    height: auto;
+    margin: 0;
+    position: relative;
+    bottom: 10px;
+    left: 0;
+}
+select:invalid { color: red; }
+.validation button {
+    background: #ff5400;
+    color: white;
+    /* border: 1px solid; */
+    font-size: 1.0rem;
+    border-radius: 20px;
+    height: 55px;
+    max-width: 370px;
+    padding: 0 25px;
+    margin: 10px auto;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-family: 'Lexend Deca', sans-serif;
+    width: 280px;
+    display: block;
+}
+.validation button img {
+    left: inherit;
+    right: inherit;
+    margin: 0;
+    padding: 1px 3px;
+}
+
+
+@media(max-height:510px){
+    .validation .content {
+     transition: .3s;
+        padding-top: 20px;
+    }
+
+    .validation .content img {
+        transition: .3s;
+     
+        width: 150px;
+    }
+    .socialmedia {
+        display: none;
+    }
+}
