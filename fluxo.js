@@ -540,23 +540,10 @@ function  fluxo(){
             <!--HEAD CUPOM FISCAL -->
             <div id="CFData"> 
                 <div class="card">
-                    <h5> Adega Good Vibes </h5>
-                    <p> BR/101 Marafunda nº  999 /<br> ubatuba  - sp </p>
+                    <h5> Canoas Praia Bar</h5>
+                    <p> Praia da Lagoinha /<br> Ubatuba  - sp </p>
 
-                    <table>
-                        <tr>
-                            <th>CNPJ: 00.000.000/003-00</th>
-                            <th style="text-align: right;">06/01/2023</th> 
-                        </tr>
-                        <tr>
-                            <th>IE: 10.458.648-1</th>
-                            <th style="text-align: right;">12:12:39</th> 
-                        </tr>
-                        <tr>
-                            <th>IM: 08641569</th>
-                            <th style="text-align: right;">ccf:120289</th> 
-                        </tr> 
-                    </table>
+                     
 
                     <span class="line"></span>
 
@@ -602,7 +589,7 @@ function  fluxo(){
                             
                                 <table id=`+mOrder.idPedido+`>
                                     <tr>
-                                        <th><h5>CUPOM FISCAL  </h5></th> 
+                                        <th><h5>CUPOM   </h5></th> 
                                         <th> </th>  
                                     </tr>
                                     <tr> 
