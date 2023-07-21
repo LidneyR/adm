@@ -534,25 +534,18 @@ function  fluxo(){
                     <i class="fa-solid fa-xmark"></i> 
                 </button>    
             </div> 
-            <div id="badgemesa"></div>
+            <div id="badgemesa"></div> 
             
-
             <!--HEAD CUPOM FISCAL -->
             <div id="CFData"> 
                 <div class="card">
                     <h5> Canoas Praia Bar</h5>
-                    <p> Praia da Lagoinha /<br> Ubatuba  - sp </p>
-
-                     
-
-                    <span class="line"></span>
-
+                    <p> Praia da Lagoinha /<br> Ubatuba  - sp </p>  
+                    <span class="line"></span>   
                     <div id="cuponsContainer"></div>
 
                 </div>
-            </div>
-
-
+            </div> 
 
             <div id="dataOrder"> 
                 <div id="subTotal">Total da Compra</div>
@@ -885,7 +878,7 @@ function  fluxo(){
                     <ul>
                         <li><a href="">Inicio</a></li>
                         <li><a target="_blank" href="closeds.html">Fechamentos</a></li>
-                        <li><a target="_blank" href="https://harmonydigital.github.io/updatebeachbar/">Alterar Cardápio</a></li>
+                        <li><a target="_blank" href="https://lidneyr.github.io/update/">Alterar Cardápio</a></li>
                     </ul>
                 </div>
 
