@@ -218,7 +218,7 @@ div#mesas {
     z-index: 999;
 }
 .controls button {
-    color: red;
+    color: #ff5400;
     font-size: 25px;
     font-weight: 100;
     font-family: monospace;
@@ -524,7 +524,7 @@ label {
 
 }
 button.sendOrder {
-    background: red;
+    background: #ff5400;
     color: white;
     margin: 10px auto;
     display: block;

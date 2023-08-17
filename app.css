@@ -21,7 +21,7 @@ div#closedsContainer > div {
 .btnhome{
 font-size: 20px;
 margin: 20px;
-color: red;
+color: #ff5400;
 }
 .closeAccounts .mylabel {
     margin: 10px auto;
@@ -84,13 +84,13 @@ select:focus-visible {
 }
   .user strong {
     font-weight: bold;
-    color: #E5040E;
+    color: #ff5400;
   }
   h2 {
     font-size: 2.2rem;
     font-weight: bold;
     width: auto;
-    color: #E5040E;
+    color: #535252;
     margin: 35px 0px;
     line-height: 1.1;
 }
@@ -195,7 +195,7 @@ div#whatsappId {
     background: transparent;
 }
 .card h6 {
-        color: red;
+        color: #ff5400;
         font-size: 1.0rem;
         margin: 0;
         
@@ -247,7 +247,7 @@ button.getDatails {
     font-weight: 500;
 }
 .data_container span.tooltip {
-    background: red;
+    background: #ff5400;
     padding: 10px;
     position: absolute;
     right: 0;
@@ -328,7 +328,7 @@ div#addOrdersContainer h2 {
     margin: 0;
 }
 .card.red {
-    background: red;
+    background: #ff5400;
 }
 
 .card.red span,.card.red h6 {
