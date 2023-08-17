@@ -31,7 +31,7 @@ div#notifications img {
     align-items: stretch;
 }
 span#notQtd span{
-    background: #ff0000;
+    background: #ff5400;
     width: 23px;
     height: 34px;
     display: flex;
@@ -194,7 +194,7 @@ button.recusa {
         color: white;
         margin: 0 15px;
         height: 25px;
-        color: red;
+        color: #535252;
     }
     div#notification_content .flx.card span {
         display: none;
