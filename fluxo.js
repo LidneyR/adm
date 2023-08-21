@@ -86,7 +86,7 @@ function innnerOrderItens(dataKey,tipo,obs){
                 cupomContainer.innerHTML+=`
                 <table>
                     <tr>
-                        <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
+                        <!-- <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th> -->
                         <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
                     </tr>
                     
@@ -153,7 +153,8 @@ function innnerOrderItens(dataKey,tipo,obs){
                 cupomContainer.innerHTML+=`
                 <table>
                     <tr>
-                        <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
+                    <!-- <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th> -->
+
                         <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
                     </tr>
                     
@@ -218,7 +219,8 @@ function innnerOrderItens(dataKey,tipo,obs){
                 cupomContainer.innerHTML+=`
                 <table>
                     <tr>
-                        <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
+                    <!-- <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th> -->
+
                         <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
                     </tr>
                     
@@ -878,7 +880,7 @@ function  fluxo(){
                     <ul>
                         <li><a href="">Inicio</a></li>
                         <li><a target="_blank" href="closeds.html">Fechamentos</a></li>
-                        <li><a target="_blank" href="https://harmonydigital.github.io/updatebeachbar/">Alterar Cardápio</a></li>
+                        <li><a target="_blank" href="https://lidneyr.github.io/update/">Alterar Cardápio</a></li>
                     </ul>
                 </div>
 
