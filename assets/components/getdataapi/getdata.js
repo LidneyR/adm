@@ -108,7 +108,7 @@ function deliveryData(deliveryAll){
                     deliveryMap.orders.map((deliveryMapOrders)=>{
                         deliveryMapOrders.itens.map((itensMapDel)=>{
                             totalBuyDel+=itensMapDel.quantidade*itensMapDel.price
-                        
+                            console.log('regra 10%')
                             idd.innerHTML=totalBuyDel.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                             
                         })
@@ -174,6 +174,9 @@ function deliveryData(deliveryAll){
         ios=0.5
 
         
+
+
+        
         
         if(idd){ 
             idd.innerHTML='' 
@@ -182,8 +185,13 @@ function deliveryData(deliveryAll){
                     deliveryMap.orders.map((deliveryMapOrders)=>{
                         deliveryMapOrders.itens.map((itensMapDel)=>{
                             totalBuyDel+=itensMapDel.quantidade*itensMapDel.price
-                        
-                            idd.innerHTML=totalBuyDel.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+
+                            var vardez=totalBuyDel*10/100
+                            var totaldez=totalBuyDel+vardez
+                           
+                            console.log('vardez>',vardez)
+                            console.log('totaldez',totaldez)
+                            idd.innerHTML=totaldez.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                             
                         })
 
