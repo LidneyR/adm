@@ -295,14 +295,18 @@ p {
     text-align: right;
     width: 30% !important;
 }
-.whatsbutton{
-    background: red;
+.whatsbutton {
+    background: #29d780;
     float: right;
     width: 100px;
     color: white;
     border-radius: 30px;
-    padding: 5px
-
+    padding: 5px;
+    height: 35px;
+    position: absolute;
+    right: 0;
+    margin: 25px;
+    top: 0;
 }
 .whatsbutton svg{
     color: white;
